@@ -3,19 +3,45 @@ project:
   render: 
     - setup.md
     - "Workshops/*"
+    - "Project/*"
 
 website:
   title: "R Training Intensive"
-  sidebar:
+  navbar:
+    search: true
+  sidebar: 
     contents:
-      - href: setup.md
-        text: Home
+      - setup.md
       - auto: "Workshops"
+      - auto: "Project"
+
+
+## Hybrid nav - probably not worth it
+#  navbar:
+#    search: true
+#    left:
+#      - text: "Workshops"
+#        href: Workshops/Workshops.md
+#      - text: "Project"
+#        href: Project/project.md
+
+#  sidebar:
+#    - title: "Workshops"
+#      contents:
+#        - href: setup.md
+#          text: Setup
+#        - auto: "Workshops"
+
+#    - title: "Project"
+#      contents:
+#        - auto: "Project"
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme: 
+      - default
+      - custom.scss
+
     toc: true
 
 execute:
