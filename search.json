@@ -12,21 +12,31 @@
   {
     "objectID": "setup.html",
     "href": "setup.html",
-    "title": "Setting Up",
+    "title": "Intro and Setting Up",
     "section": "",
-    "text": "We should have some instructions for setting up here, shouldn’t we?",
+    "text": "The R programming language is a language used for calculations, statistics, visualisations and many more data science tasks.\nRStudio is an open source Integrated Development Environment (IDE) for R, which means it provides many features on top of R to make it easier to write and run code.\nR’s main strong points are:\n\nOpen Source: you can install it anywhere and adapt it to your needs;\nReproducibility: makes an analysis repeatable by detailing the process in a script;\nCustomisable: being a programming language, you can create your own custom tools;\nLarge datasets: it can handle very large datasets (certainly well beyond the row limitations of Excel, and even further using HPCs and other tricks);\nDiverse ecosystem: packages allow you to extend R for thousands of different analyses.\n\nThe learning curve will be steeper than point-and-click tools, but as far as programming languages go, R is more user-friendly than others.\n\n\nFor this course, you need to have both R and RStudio installed (installation instructions).",
     "crumbs": [
-      "Setting Up"
+      "Intro and Setting Up"
     ]
   },
   {
-    "objectID": "setup.html#setting-up",
-    "href": "setup.html#setting-up",
-    "title": "Setting Up",
+    "objectID": "setup.html#r-rstudio",
+    "href": "setup.html#r-rstudio",
+    "title": "Intro and Setting Up",
     "section": "",
-    "text": "We should have some instructions for setting up here, shouldn’t we?",
+    "text": "The R programming language is a language used for calculations, statistics, visualisations and many more data science tasks.\nRStudio is an open source Integrated Development Environment (IDE) for R, which means it provides many features on top of R to make it easier to write and run code.\nR’s main strong points are:\n\nOpen Source: you can install it anywhere and adapt it to your needs;\nReproducibility: makes an analysis repeatable by detailing the process in a script;\nCustomisable: being a programming language, you can create your own custom tools;\nLarge datasets: it can handle very large datasets (certainly well beyond the row limitations of Excel, and even further using HPCs and other tricks);\nDiverse ecosystem: packages allow you to extend R for thousands of different analyses.\n\nThe learning curve will be steeper than point-and-click tools, but as far as programming languages go, R is more user-friendly than others.\n\n\nFor this course, you need to have both R and RStudio installed (installation instructions).",
     "crumbs": [
-      "Setting Up"
+      "Intro and Setting Up"
+    ]
+  },
+  {
+    "objectID": "setup.html#r-projects",
+    "href": "setup.html#r-projects",
+    "title": "Intro and Setting Up",
+    "section": "R Projects",
+    "text": "R Projects\nLet’s first create a new project:\n\nClick the “File” menu button (top left corner), then “New Project”\nClick “New Directory”\nClick “New Project”\nIn “Directory name”, type the name of your project, for example “YYYY-MM-DD_rstudio-intro”\nBrowse and select a folder where to locate your project (~ is your home directory). For example, a folder called “r-projects”.\nClick the “Create Project” button\n\n\nR Projects make your work with R more straight forward, as they allow you to segregate your different projects in separate folders. You can create a .Rproj file in a new directory or an existing directory that already has R code and data. Everything then happens by default in this directory. The .Rproj file stores information about your project options, and allows you to go straight back to your work.",
+    "crumbs": [
+      "Intro and Setting Up"
     ]
   },
   {
