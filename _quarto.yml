@@ -2,6 +2,7 @@ project:
   type: website
   render: 
     - setup.md
+    - project.md
     - "Workshops/*"
     - "Project/*"
 
@@ -13,7 +14,7 @@ website:
     contents:
       - setup.md
       - auto: "Workshops"
-      - auto: "Project"
+      - project.md
 
 
 ## Hybrid nav - probably not worth it

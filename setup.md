@@ -1,4 +1,6 @@
-# R Training Intensive
+---
+title: Setting Up
+---
 
 ## Setting Up
 
