@@ -1,154 +1,139 @@
 [
   {
-    "objectID": "Project/project.html",
-    "href": "Project/project.html",
-    "title": "Project landing page",
+    "objectID": "Workshops/index.html",
+    "href": "Workshops/index.html",
+    "title": "Workshops",
     "section": "",
-    "text": "Project landing page",
+    "text": "Over these three days we’ll cover six sessions of content:\n\n\n\nSession\nDescription\n\n\n\n\nThe Fundamentals\nThe basics of Python. Variables, functions and modules.\n\n\nData processing\nImporting, manipulating and analysing data with pandas\n\n\nVisualisation\nCreating visualisations of our data with seaborn, matplotlib and plotly\n\n\nSharing and Publishing\nUsing GitHub for sharing and version control, as well as quarto for publishing dashboards and websites.\n\n\nStatistics\nDescriptive and inferential statistics, with some regressions and hypothesis testing, using scipy.stats and statsmodels\n\n\nProgramming Essentials\nPython tools everyone should know. Conditionals, loops, functions and importing scripts.\n\n\n\nThese content sessions are pretty packed, and we won’t have too much time to deviate. That’s why we’ll also have five project sessions - see The Project for details. You’re welcome to ask lengthier questions and play around there!",
     "crumbs": [
-      "Project",
-      "Project landing page"
-    ]
-  },
-  {
-    "objectID": "Workshops/Fundamentals.html",
-    "href": "Workshops/Fundamentals.html",
-    "title": "Fundamentals",
-    "section": "",
-    "text": "Python is a programming language that can be used to build programs (i.e. a “general programming language”), but it can also be used to analyse data by importing a number of useful modules.\nWe are using Spyder to interact with Python more comfortably. If you have used RStudio to interact with R before, you should feel right at home: Spyder is a program designed for doing data science with Python.\nPython can be used interactively in a console, or we can build scripts and programs with it, making the most out of Spyder’s code editor.\nWe will start by using the “Console” to work interactively.\n\n\n\nTo start with, we can use Python like a calculator. Type the following commands in the console, and press Enter to execute them:\n1 + 1\n2 * 3\n4 / 10\nAfter running each command, you should see the result as an output.\n\n\n\nVariables will store data. We need to give them a name, and assign a value to them with the = operator. For example:\nfavNumber = 42\nOne way to think of this is like making a box called “favNumber” and putting the number 42 inside:\nYou can then retrieve the value by running the variable name on its own:\nfavNumber\nLet’s create more variable, and reuse them:\notherNumber = 5.678\nprod1 = favNumber * otherNumber\nsentence = 'Hello world!'\n\nSpyder helps us with extra panels and features apart from the Console. To see what variables you have created, look at the “Variable explorer” tab in the top right.\n\n\n\n\nVariables have different types. The most common are int for integers, float for decimals and string for strings of characters.\n\nYou can see the type of your existing variables in the Variable explorer.\n\nWe can also create lists, which will store several variables (not necessarily of the same type). We need to use square brackets for that:\nmyList = [1, 6, 4, 3, 9]\ndiverse = [3, 'Hi!', 9.0]\nLists are very flexible as they can contain any number of items, and any type of data. You can even nest lists inside a list, which makes for a very flexible data type.\nOperators give different results depending on types. For example, we can use the * and + operators to repeat and append strings and lists:\nsentence + ' How are you?'\nmyList + diverse\n3 * myList\nHowever, depending on the variable, some operations won’t work:\nsentence + favNumber\nThere are other data types like booleans, tuples, dictionaries and sets, but we won’t get into details today.\n\n\nIndexing is useful to get only a part of a variable. In Python, indexing starts at 0. For example, see what these commands return:\nsentence[0]\nsentence[6]\nmyList[4]\nYou can use a range to index, but note that it will not include the upper bound in the returned values. For example:\nmyList[0:4]\nThat command returns “elements from position 0 up to - but not including! - position 4.”\n\n\n\n\nFunctions are little programs that do specific jobs. Here are a few examples of built-in functions:\nlen(myList)\nmin(myList)\nmax(myList)\nsum(myList)\nround(otherNumber)\nFunctions always have parentheses behind their name, and they can take one or several arguments, or none at all, depending on what they can do, and how the user wants to use them.\nHere, we use two arguments to modify the default behaviour of the round() function:\nround(otherNumber, 2)\n\nNotice how Spyder gives you hints about the available arguments after typing the function name?\n\n\n\n\nTo find help about a function, you can use the help() function, or a ? after a function name:\nhelp(max)\nprint?\nIn Spyder, you can use the Ctrl + I keyboard shortcut to open the help in a separate pane.\nFor a comprehensive manual, go to the official online documentation.\nFor questions and answers, typing the right question in a search engine will usually lead you to something helpful. If you can’t find an answer, StackOverflow is a great Q&A community.\n\n\n\nTo do more with Python, you could write new functions from scratch, but it is easier to import extra modules to extend its capabilities. For example, to access the pi constant:\npi # throws an error: it does not exist!\nimport math # this module contains the pi constant\nmath.pi # we have to specify where it comes from\nimport math as m # give a shorter name\nm.pi\nfrom math import pi # only import what is necessary\npi\nmath is part of the “Python standard library”. You can see all the functions and constants available in the math module here: https://docs.python.org/3/library/math.html\nPython distributions like Anaconda already come with a number of useful extra modules for science.\n\n\nTo install more modules, you might need to use pip (on most systems) or conda (if you use Anaconda or Miniconda) from the command line.\nWith pip, which will fetch the module from the Python Package Index (PyPI):\npip install some-module\nWith conda, which will fetch the module from the Anaconda repository:\nconda install some-module\nRefer to the module’s website to find what is recommended.\nHere, we present a few modules that are very important for data science with Python, and which are already available in the Anaconda distribution.\n\n\n\nArrays are a data type introduced by numpy, a module with many functions useful for numerical computing.\nFor example, you can convert the list we created before to then do mathematical operations on each one of its elements:\nimport numpy as np\nmyArray = np.array(myList)\nmyArray * 2\n\n\n\npandas introduces dataframes, which are often used to store two-dimensional datasets with different kinds of variables in each column. If your data is stored as a spreadsheet, you probably want to import it with a pandas function.\nHere is an example of creating a pandas dataframe from scratch, populating it by hand:\nimport pandas as pd\ndf = pd.DataFrame(columns=['Name', 'Age'])\n# populate the dataframe:\ndf.loc[1] = 'Josephine', 70\ndf.loc[2] = 'Dilsah', 38\ndf\ndf.Age # access a specific variable\n\nYou can double-click on a dataframe in the Variable explorer to explore it in a separate window.\n\n\n\n\nmatplotlib is a large collection of data visualisation functions, and pyplot is a submodule of matplotlib that contains essentials.\nimport matplotlib.pyplot as plt\nplt.plot(myList)\nThis shows a plot in the Plots tab of Spyder.\n\nIn a Python shell, you might have to use the plt.show() command to show the plot.\n\nThe default look is a line plot that joins all the points, but we can style a plot with only a few characters:\n# blue circles\nplt.plot(myList, 'bo')\n# green squares, dashed line:\nplt.plot(myList, 'gs--')\nExtra arguments can be used to style further:\n# red, diamonds, solid line; change width of line and size of diamonds:\nplt.plot(myList, 'rd-', linewidth=3, markersize=10)\nTo find out about the styling shorthand and all other arguments, look at the documentation:\nplt.plot?\n\n\n\n\nA project is useful to keep everything related to one job all contained in one directory.\n\n\nCreate a project with Projects &gt; New project.... You can name this one “python_intro” for example.\n\n\n\nA script is a simple text file that contains code. It is useful to:\n\nwrite code more comfortably\nstore clearly defined steps in a chronological order\nshare a process with peers easily\nmake your work reproducible\n\nClick on the “New file” icon, and save it as “process.py” in your project directory.\nRemember to add comments (they start with the # symbol) to document your work: this will be useful if you share your work with others, or even for your future self!\nTo execute something from the script (the current line, or a selected block), use the F9 keyboard shortcut (or the white “Run” button).\n\n\n\nIt is possible to read a CSV file with a pandas function.\n\n\nHave a look at the documentation for the read_csv() function:\nimport pandas as pd\npd.read_csv?\nHow could you use it to store the following dataset into a variable?\nhttps://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv\n\n\n\nWe have to create a variable, and store the output of the function inside it. No need to download the file first: read_csv() can read from a URL!\ngap = pd.read_csv('https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv')\n\npandas contains many functions for interpreting a variety of file formats. Start typing pd.read_ to see what is available.\n\nNow that we have stored our dataset as a variable, we can print the dataset to the console:\ngap\nThe console conveniently shows us only the beginning and end of the dataframe.\nWe can also use the “dot notation” to create commands that are useful to explore the data:\ngap.shape # size of the dataframe (an attribute)\ngap.head() # first few rows (a method)\ngap.head(10) # change the behaviour of the method\ngap.tail() # last few rows\ngap.country # single variable\nVariables have attributes and methods attached to them, depending on the data type. Here, shape is an attribute, i.e. a static characteristic of the variable, whereas head() is a method, i.e. a function that can often take arguments.\n\n\n\n\nLet’s now learn a bit more about our data. The describe() method gives us summary statistics for our numerical data:\ngap.describe()\nTo create a customised summary, we can string different methods one after the other. Here, we first group by year to then get the yearly mean of the numerical columns, using True to indicate that we only want to consider the numeric columns:\ngap.groupby('year').mean(True)\n\n\n\nWe can visualise our data with matplotlib. First, let’s visualise the relationship between gross domestic product per capita (gdpPercap) and life expectancy (lifeExp) with a scatterplot:\nimport matplotlib.pyplot as plt\nplt.plot(gap.gdpPercap, gap.lifeExp, 'g.')\nWe add the data as two arguments, which are understood as what we put on the x and y axes respectively.\nWe can now add labels with extra functions:\nplt.plot(gap.gdpPercap, gap.lifeExp, 'g.')\nplt.xlabel('GDP per capita (USD)')\nplt.ylabel('Life expectancy (years)')\n\nMake sure that you execute all the lines of code that relate to one plot together. When you need to execute many lines together, you might want to start using cells in your script: you can start a new cell with a #%% line, and execute the current cell with the keyboard shortcut Ctrl + Enter.\n\n\n\nYou can save you plots as PNG by right-clicking on them. To save automatically with some code, you can add the following line to the visualisation block:\nplt.savefig('gdp_vs_life_exp.pdf')\nA PDF is a great option for a visualisation in vector format.\nYou can change the extension in the filename to save in a different format. For example, for a PNG file with a higher definition than the default:\nplt.savefig('gdp_vs_life_exp.png', dpi=600)\n\n\n\n\nHow can we reuse previous code to visualise how mean life expectancy evolved over the years?\nTry changing the look of the plot to a magenta dotted line.\n\n\n\n\nWe can reuse the same summary as before, but adding the attribute of the right column we are interested in:\nplt.plot(gap.groupby('year').mean().lifeExp, 'm:')\n\n\n\n\n\nYour project can be reopened from the “Projects” menu in Spyder.\nBy default, your variables are not saved, which is another reason why working with a script is important: you can execute the whole script in one go to get everything back. You can however save your variables as a .spydata file if you want to (for example, if it takes a lot of time to process your data).",
-    "crumbs": [
-      "Workshops",
-      "Fundamentals"
-    ]
-  },
-  {
-    "objectID": "Workshops/Fundamentals.html#introducing-python-and-spyder",
-    "href": "Workshops/Fundamentals.html#introducing-python-and-spyder",
-    "title": "Fundamentals",
-    "section": "",
-    "text": "Python is a programming language that can be used to build programs (i.e. a “general programming language”), but it can also be used to analyse data by importing a number of useful modules.\nWe are using Spyder to interact with Python more comfortably. If you have used RStudio to interact with R before, you should feel right at home: Spyder is a program designed for doing data science with Python.\nPython can be used interactively in a console, or we can build scripts and programs with it, making the most out of Spyder’s code editor.\nWe will start by using the “Console” to work interactively.",
-    "crumbs": [
-      "Workshops",
-      "Fundamentals"
-    ]
-  },
-  {
-    "objectID": "Workshops/Fundamentals.html#operators",
-    "href": "Workshops/Fundamentals.html#operators",
-    "title": "Fundamentals",
-    "section": "",
-    "text": "To start with, we can use Python like a calculator. Type the following commands in the console, and press Enter to execute them:\n1 + 1\n2 * 3\n4 / 10\nAfter running each command, you should see the result as an output.",
-    "crumbs": [
-      "Workshops",
-      "Fundamentals"
-    ]
-  },
-  {
-    "objectID": "Workshops/Fundamentals.html#variables",
-    "href": "Workshops/Fundamentals.html#variables",
-    "title": "Fundamentals",
-    "section": "",
-    "text": "Variables will store data. We need to give them a name, and assign a value to them with the = operator. For example:\nfavNumber = 42\nOne way to think of this is like making a box called “favNumber” and putting the number 42 inside:\nYou can then retrieve the value by running the variable name on its own:\nfavNumber\nLet’s create more variable, and reuse them:\notherNumber = 5.678\nprod1 = favNumber * otherNumber\nsentence = 'Hello world!'\n\nSpyder helps us with extra panels and features apart from the Console. To see what variables you have created, look at the “Variable explorer” tab in the top right.",
-    "crumbs": [
-      "Workshops",
-      "Fundamentals"
-    ]
-  },
-  {
-    "objectID": "Workshops/Fundamentals.html#data-types",
-    "href": "Workshops/Fundamentals.html#data-types",
-    "title": "Fundamentals",
-    "section": "",
-    "text": "Variables have different types. The most common are int for integers, float for decimals and string for strings of characters.\n\nYou can see the type of your existing variables in the Variable explorer.\n\nWe can also create lists, which will store several variables (not necessarily of the same type). We need to use square brackets for that:\nmyList = [1, 6, 4, 3, 9]\ndiverse = [3, 'Hi!', 9.0]\nLists are very flexible as they can contain any number of items, and any type of data. You can even nest lists inside a list, which makes for a very flexible data type.\nOperators give different results depending on types. For example, we can use the * and + operators to repeat and append strings and lists:\nsentence + ' How are you?'\nmyList + diverse\n3 * myList\nHowever, depending on the variable, some operations won’t work:\nsentence + favNumber\nThere are other data types like booleans, tuples, dictionaries and sets, but we won’t get into details today.\n\n\nIndexing is useful to get only a part of a variable. In Python, indexing starts at 0. For example, see what these commands return:\nsentence[0]\nsentence[6]\nmyList[4]\nYou can use a range to index, but note that it will not include the upper bound in the returned values. For example:\nmyList[0:4]\nThat command returns “elements from position 0 up to - but not including! - position 4.”",
-    "crumbs": [
-      "Workshops",
-      "Fundamentals"
-    ]
-  },
-  {
-    "objectID": "Workshops/Fundamentals.html#functions",
-    "href": "Workshops/Fundamentals.html#functions",
-    "title": "Fundamentals",
-    "section": "",
-    "text": "Functions are little programs that do specific jobs. Here are a few examples of built-in functions:\nlen(myList)\nmin(myList)\nmax(myList)\nsum(myList)\nround(otherNumber)\nFunctions always have parentheses behind their name, and they can take one or several arguments, or none at all, depending on what they can do, and how the user wants to use them.\nHere, we use two arguments to modify the default behaviour of the round() function:\nround(otherNumber, 2)\n\nNotice how Spyder gives you hints about the available arguments after typing the function name?",
-    "crumbs": [
-      "Workshops",
-      "Fundamentals"
-    ]
-  },
-  {
-    "objectID": "Workshops/Fundamentals.html#finding-help",
-    "href": "Workshops/Fundamentals.html#finding-help",
-    "title": "Fundamentals",
-    "section": "",
-    "text": "To find help about a function, you can use the help() function, or a ? after a function name:\nhelp(max)\nprint?\nIn Spyder, you can use the Ctrl + I keyboard shortcut to open the help in a separate pane.\nFor a comprehensive manual, go to the official online documentation.\nFor questions and answers, typing the right question in a search engine will usually lead you to something helpful. If you can’t find an answer, StackOverflow is a great Q&A community.",
-    "crumbs": [
-      "Workshops",
-      "Fundamentals"
-    ]
-  },
-  {
-    "objectID": "Workshops/Fundamentals.html#modules",
-    "href": "Workshops/Fundamentals.html#modules",
-    "title": "Fundamentals",
-    "section": "",
-    "text": "To do more with Python, you could write new functions from scratch, but it is easier to import extra modules to extend its capabilities. For example, to access the pi constant:\npi # throws an error: it does not exist!\nimport math # this module contains the pi constant\nmath.pi # we have to specify where it comes from\nimport math as m # give a shorter name\nm.pi\nfrom math import pi # only import what is necessary\npi\nmath is part of the “Python standard library”. You can see all the functions and constants available in the math module here: https://docs.python.org/3/library/math.html\nPython distributions like Anaconda already come with a number of useful extra modules for science.\n\n\nTo install more modules, you might need to use pip (on most systems) or conda (if you use Anaconda or Miniconda) from the command line.\nWith pip, which will fetch the module from the Python Package Index (PyPI):\npip install some-module\nWith conda, which will fetch the module from the Anaconda repository:\nconda install some-module\nRefer to the module’s website to find what is recommended.\nHere, we present a few modules that are very important for data science with Python, and which are already available in the Anaconda distribution.\n\n\n\nArrays are a data type introduced by numpy, a module with many functions useful for numerical computing.\nFor example, you can convert the list we created before to then do mathematical operations on each one of its elements:\nimport numpy as np\nmyArray = np.array(myList)\nmyArray * 2\n\n\n\npandas introduces dataframes, which are often used to store two-dimensional datasets with different kinds of variables in each column. If your data is stored as a spreadsheet, you probably want to import it with a pandas function.\nHere is an example of creating a pandas dataframe from scratch, populating it by hand:\nimport pandas as pd\ndf = pd.DataFrame(columns=['Name', 'Age'])\n# populate the dataframe:\ndf.loc[1] = 'Josephine', 70\ndf.loc[2] = 'Dilsah', 38\ndf\ndf.Age # access a specific variable\n\nYou can double-click on a dataframe in the Variable explorer to explore it in a separate window.\n\n\n\n\nmatplotlib is a large collection of data visualisation functions, and pyplot is a submodule of matplotlib that contains essentials.\nimport matplotlib.pyplot as plt\nplt.plot(myList)\nThis shows a plot in the Plots tab of Spyder.\n\nIn a Python shell, you might have to use the plt.show() command to show the plot.\n\nThe default look is a line plot that joins all the points, but we can style a plot with only a few characters:\n# blue circles\nplt.plot(myList, 'bo')\n# green squares, dashed line:\nplt.plot(myList, 'gs--')\nExtra arguments can be used to style further:\n# red, diamonds, solid line; change width of line and size of diamonds:\nplt.plot(myList, 'rd-', linewidth=3, markersize=10)\nTo find out about the styling shorthand and all other arguments, look at the documentation:\nplt.plot?",
-    "crumbs": [
-      "Workshops",
-      "Fundamentals"
-    ]
-  },
-  {
-    "objectID": "Workshops/Fundamentals.html#example-project",
-    "href": "Workshops/Fundamentals.html#example-project",
-    "title": "Fundamentals",
-    "section": "",
-    "text": "A project is useful to keep everything related to one job all contained in one directory.\n\n\nCreate a project with Projects &gt; New project.... You can name this one “python_intro” for example.\n\n\n\nA script is a simple text file that contains code. It is useful to:\n\nwrite code more comfortably\nstore clearly defined steps in a chronological order\nshare a process with peers easily\nmake your work reproducible\n\nClick on the “New file” icon, and save it as “process.py” in your project directory.\nRemember to add comments (they start with the # symbol) to document your work: this will be useful if you share your work with others, or even for your future self!\nTo execute something from the script (the current line, or a selected block), use the F9 keyboard shortcut (or the white “Run” button).\n\n\n\nIt is possible to read a CSV file with a pandas function.\n\n\nHave a look at the documentation for the read_csv() function:\nimport pandas as pd\npd.read_csv?\nHow could you use it to store the following dataset into a variable?\nhttps://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv\n\n\n\nWe have to create a variable, and store the output of the function inside it. No need to download the file first: read_csv() can read from a URL!\ngap = pd.read_csv('https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv')\n\npandas contains many functions for interpreting a variety of file formats. Start typing pd.read_ to see what is available.\n\nNow that we have stored our dataset as a variable, we can print the dataset to the console:\ngap\nThe console conveniently shows us only the beginning and end of the dataframe.\nWe can also use the “dot notation” to create commands that are useful to explore the data:\ngap.shape # size of the dataframe (an attribute)\ngap.head() # first few rows (a method)\ngap.head(10) # change the behaviour of the method\ngap.tail() # last few rows\ngap.country # single variable\nVariables have attributes and methods attached to them, depending on the data type. Here, shape is an attribute, i.e. a static characteristic of the variable, whereas head() is a method, i.e. a function that can often take arguments.\n\n\n\n\nLet’s now learn a bit more about our data. The describe() method gives us summary statistics for our numerical data:\ngap.describe()\nTo create a customised summary, we can string different methods one after the other. Here, we first group by year to then get the yearly mean of the numerical columns, using True to indicate that we only want to consider the numeric columns:\ngap.groupby('year').mean(True)\n\n\n\nWe can visualise our data with matplotlib. First, let’s visualise the relationship between gross domestic product per capita (gdpPercap) and life expectancy (lifeExp) with a scatterplot:\nimport matplotlib.pyplot as plt\nplt.plot(gap.gdpPercap, gap.lifeExp, 'g.')\nWe add the data as two arguments, which are understood as what we put on the x and y axes respectively.\nWe can now add labels with extra functions:\nplt.plot(gap.gdpPercap, gap.lifeExp, 'g.')\nplt.xlabel('GDP per capita (USD)')\nplt.ylabel('Life expectancy (years)')\n\nMake sure that you execute all the lines of code that relate to one plot together. When you need to execute many lines together, you might want to start using cells in your script: you can start a new cell with a #%% line, and execute the current cell with the keyboard shortcut Ctrl + Enter.\n\n\n\nYou can save you plots as PNG by right-clicking on them. To save automatically with some code, you can add the following line to the visualisation block:\nplt.savefig('gdp_vs_life_exp.pdf')\nA PDF is a great option for a visualisation in vector format.\nYou can change the extension in the filename to save in a different format. For example, for a PNG file with a higher definition than the default:\nplt.savefig('gdp_vs_life_exp.png', dpi=600)\n\n\n\n\nHow can we reuse previous code to visualise how mean life expectancy evolved over the years?\nTry changing the look of the plot to a magenta dotted line.\n\n\n\n\nWe can reuse the same summary as before, but adding the attribute of the right column we are interested in:\nplt.plot(gap.groupby('year').mean().lifeExp, 'm:')",
-    "crumbs": [
-      "Workshops",
-      "Fundamentals"
-    ]
-  },
-  {
-    "objectID": "Workshops/Fundamentals.html#saving-your-work",
-    "href": "Workshops/Fundamentals.html#saving-your-work",
-    "title": "Fundamentals",
-    "section": "",
-    "text": "Your project can be reopened from the “Projects” menu in Spyder.\nBy default, your variables are not saved, which is another reason why working with a script is important: you can execute the whole script in one go to get everything back. You can however save your variables as a .spydata file if you want to (for example, if it takes a lot of time to process your data).",
-    "crumbs": [
-      "Workshops",
-      "Fundamentals"
+      "Workshops"
     ]
   },
   {
     "objectID": "setup.html",
     "href": "setup.html",
-    "title": "R Training Intensive",
+    "title": "Setting Up",
     "section": "",
     "text": "We should have some instructions for setting up here, shouldn’t we?",
     "crumbs": [
-      "R Training Intensive"
+      "Setting Up"
     ]
   },
   {
     "objectID": "setup.html#setting-up",
     "href": "setup.html#setting-up",
-    "title": "R Training Intensive",
+    "title": "Setting Up",
     "section": "",
     "text": "We should have some instructions for setting up here, shouldn’t we?",
     "crumbs": [
-      "R Training Intensive"
+      "Setting Up"
     ]
   },
   {
-    "objectID": "Workshops/Workshops.html",
-    "href": "Workshops/Workshops.html",
-    "title": "Workshops landing page",
+    "objectID": "project.html",
+    "href": "project.html",
+    "title": "The Project",
     "section": "",
-    "text": "Workshops landing page",
+    "text": "The best way to learn is by doing. That’s why, over the these three days, you are tasked with analysing, visualising and reporting on a set of data!\nRoughly 50% of our intensive is dedicated to working on the project. Working in groups of 2-4, you’ll need to use the techniques we learn to draw some observations about your chosen dataset.\nThe end goal will be a quick fire (low stakes) one-minute presentation with a dashboard to complement.",
+    "crumbs": [
+      "The Project"
+    ]
+  },
+  {
+    "objectID": "project.html#the-datasets",
+    "href": "project.html#the-datasets",
+    "title": "The Project",
+    "section": "The datasets",
+    "text": "The datasets\nWe have eight datasets for you to choose from:\n\n\n\nDataset\nDescription\n\n\n\n\nWorld populations\nA summary of world populations and corresponding statistics\n\n\nSoccer players\nA summary of about 250 2024 soccer players\n\n\nCoffee survey\nA survey of coffee preferences\n\n\nMelbourne housing data\nA collection of houses for sale in Melbourne\n\n\nGoodreads books\nData for 50,000 goodreads books\n\n\nQueensland hospitals\nEmergency department statistics\n\n\nQueensland fuel prices\nFuel prices by the pump in Queensland\n\n\nAeroplane bird strikes\nAeroplane bird strike incidents fron the 90s",
+    "crumbs": [
+      "The Project"
+    ]
+  },
+  {
+    "objectID": "project.html#project-outline",
+    "href": "project.html#project-outline",
+    "title": "The Project",
+    "section": "Project outline",
+    "text": "Project outline\nThere are a few key requirements for the project, but otherwise it’s up to you!\n\nAnalyse a dataset and create some visualisations\nPut together a final dashboard-style report. Anything from a powerpoint slide to an interactive dashboard will do!\nDeliver a quick fire one-minute presentation with your group\n\nWe’ll have 5 sessions during the intensive days to work on the project, just shy of six hours. The goal of these sessions is twofold\n\nTo work on the project, analysing data and creating visualisations\nTo dive deeper into the content, perfect for questions and conversations\n\nWhile you’ll be working in groups, everyone should practise analysing and visualising the data. We recommend distributing roles amongst the group, maybe looking at different variables or different presentation formats.\nYou’re welcome to use the project time however you’d like. Below is a rough guide if you’re unsure:\n\n\n\n\n\n\n\nSession\nRecommendation\n\n\n\n\nTuesday afternoon\nPick a dataset and play with the data\n\n\nWednesday morning\nMore exploratory analysis, consider dividing roles amongst group\n\n\nWednesday afternoon\nStart collecting initial visualisations and preparing format (e.g. dashboard)\n\n\nThursday morning\nContinue analysing and creating visualisations\n\n\nThursday afternoon\nPolish up results\n\n\n\nThe presentations will be during Thursday’s final session at 2:50pm.\nGood luck!",
+    "crumbs": [
+      "The Project"
+    ]
+  },
+  {
+    "objectID": "Workshops/2 - Data processing.html",
+    "href": "Workshops/2 - Data processing.html",
+    "title": "R dplyr: preparing data for analysis",
+    "section": "",
+    "text": "UQ Library 2024-11-27",
     "crumbs": [
       "Workshops",
-      "Workshops landing page"
+      "R dplyr: preparing data for analysis"
+    ]
+  },
+  {
+    "objectID": "Workshops/2 - Data processing.html#what-are-we-going-to-learn",
+    "href": "Workshops/2 - Data processing.html#what-are-we-going-to-learn",
+    "title": "R dplyr: preparing data for analysis",
+    "section": "What are we going to learn?",
+    "text": "What are we going to learn?\nIn this hands-on session, we will use the dplyr package to transform your data.\nSpecifically, you will learn how to explore, filter, reorganise and process a dataframe with the following verbs:\n\nselect(): pick variables\nfilter(): pick observations\narrange(): reorder observations\nmutate(): create new variables\nsummarise(): collapse to a single summary\ngroup_by(): change the scope of function",
+    "crumbs": [
+      "Workshops",
+      "R dplyr: preparing data for analysis"
+    ]
+  },
+  {
+    "objectID": "Workshops/2 - Data processing.html#keep-in-mind",
+    "href": "Workshops/2 - Data processing.html#keep-in-mind",
+    "title": "R dplyr: preparing data for analysis",
+    "section": "Keep in mind",
+    "text": "Keep in mind\n\nEverything we write today will be saved in your project. Please remember to save it somewhere you can access it later if you wish to revisit what we do today.\nR is case sensitive: it will tell the difference between uppercase and lowercase.\nRespect the naming rules for objects (no spaces, does not start with a number…)\n\n\nHelp\nFor any dataset or function doubts that you might have, don’t forget the three ways of getting help in RStudio:\n\nthe shortcut command: ?functionname\nthe help function: help(functionname)\nthe keyboard shortcut: press F1 after writing a function name",
+    "crumbs": [
+      "Workshops",
+      "R dplyr: preparing data for analysis"
+    ]
+  },
+  {
+    "objectID": "Workshops/2 - Data processing.html#setting-up",
+    "href": "Workshops/2 - Data processing.html#setting-up",
+    "title": "R dplyr: preparing data for analysis",
+    "section": "Setting up",
+    "text": "Setting up\n\nInstall the dplyr package\nIf you don’t have it already, you can install dplyr with the command: install.packages(\"dplyr\")\n\nAlternatively, you can install the whole “tidyverse”, a meta-package useful for data science: install.packages(\"tidyverse\")\n\n\n\nNew project\n[comment] wonder if we need this, or just build on what happened in the intro? - Click the “File” menu button (top left corner), then “New Project” - Click “New Directory” - Click “New Project” (“Empty project” if you have an older version of RStudio) - In “Directory name”, type the name of your project, e.g. “dplyr_intro” - Select the folder where to locate your project: for example, the Documents/RProjects folder, which you can create if it doesn’t exist yet. - Click the “Create Project” button\n\n\nCreate a script\nWe will use a script to write code more comfortably.\n\nMenu: Top left corner, click the green “plus” symbol, or press the shortcut (for Windows/Linux) Ctrl+Shift+N or (for Mac) Cmd+Shift+N. This will open an “Untitled1” file.\nGo to “File &gt; Save” or press (for Windows/Linux) Ctrl+S or (for Mac) Cmd+S. This will ask where you want to save your file and the name of the new file.\nCall your file “process.R”\n\n\n\nIntroducing our data\nLet’s import and explore our data.\n\ncreate a data object called “gapminder”, using read.csv():\n\ngapminder &lt;- read.csv(\"https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv\")\n\nRemember you can use Ctrl+shift to execute a command from the script.\n\n\nYou can explore the gapminder dataset using dim(), head() and str()\n\nHow can we get the dataframe’s variable names? There are two ways: names(gapminder) returns the names regardless of the object type, such as list, vector, data.frame etc., whereas colnames(gapminder) returns the variable names for matrix-like objects, such as matrices, dataframes…\nTo return one specific column in the dataframe, you can use the dollar syntax: gapminder$year. For example, try these:\nclass(gapminder$country) # what kind of data?\n[1] \"character\"\nrange(gapminder$year) # what is the time range?\n[1] 1952 2007",
+    "crumbs": [
+      "Workshops",
+      "R dplyr: preparing data for analysis"
+    ]
+  },
+  {
+    "objectID": "Workshops/2 - Data processing.html#basic-dplyr-verbs",
+    "href": "Workshops/2 - Data processing.html#basic-dplyr-verbs",
+    "title": "R dplyr: preparing data for analysis",
+    "section": "Basic dplyr verbs",
+    "text": "Basic dplyr verbs\nThe R package dplyr was developed by Hadley Wickham for data manipulation.\nThe book R for Data Science introduces the package as follows:\n\nYou are going to learn the five key dplyr functions that allow you to solve the vast majority of your data manipulation challenges:\n\nPick variables by their names with select()\nPick observations by their values with filter()\nReorder the rows with arrange()\nCreate new variables with functions of existing variables with mutate()\nCollapse many values down to a single summary with summarise()\n\nThese can all be used in conjunction with group_by() which changes the scope of each function from operating on the entire dataset to operating on it group-by-group. These six functions provide the main verbs for a language of data manipulation.\n\nTo use the verbs to their full extent, we will use pipes and logical operators, which we will introduce as we go.\nLet’s load the dplyr package to access its functions:\nlibrary(dplyr)\n\nYou only need to install a package once (with install.packages()), but you need to reload it every time you start a new R session (with library()).\n\n\n1. Pick variables with select()\nselect() allows us to pick variables (i.e. columns) from the dataset. For example, to only keep the data about year, country and GDP per capita:\ngap_small &lt;- select(gapminder, year, country, gdpPercap)\nThe first argument refers to the dataframe that is being transformed, and the following arguments are the columns you want to keep. Notice that it keeps the order you specified?\nYou can also rename columns in the same command:\ngap_small &lt;- select(gapminder, year, country, gdpPerPerson = gdpPercap)\nIf you have many variables but only want to remove a small number, it might be better to deselect instead of selecting. You can do that by using the - character in front of a variable name:\nnames(select(gapminder, -continent))\n[1] \"country\"   \"year\"      \"pop\"       \"lifeExp\"   \"gdpPercap\"\nThere are also a lot of helper functions to select columns according to a logic. For example, to only keep the columns that have “a” in their names:\nnames(select(gapminder, contains(\"a\")))\n[1] \"year\"      \"gdpPercap\"\n\n\n2. Pick observations with filter()\nThe filter() function allows use to pick observations depending on one or several conditions. But to be able to define these conditions, we need to learn about logical operators.\nLogical operators allow us to compare things. Here are some of the most important ones:\n\n==: equal\n!=: different or not equal\n&gt;: greater than\n&lt;: smaller than\n&gt;=: greater or equal\n&lt;=: smaller or equal\n\n\nRemember: = is used to pass on a value to an argument, whereas == is used to check for equality. Using = instead of == for a logical statment is one of the most common errors and R will give you a reminder in the console when this happens.\n\nFor example, to filter the observations for Australia, we can use the following condition:\naustralia &lt;- filter(gapminder, country == \"Australia\")\naustralia\n# A tibble: 12 × 6\n   country    year      pop continent lifeExp gdpPercap\n   &lt;chr&gt;     &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;\n 1 Australia  1952  8691212 Oceania      69.1    10040.\n 2 Australia  1957  9712569 Oceania      70.3    10950.\n 3 Australia  1962 10794968 Oceania      70.9    12217.\n 4 Australia  1967 11872264 Oceania      71.1    14526.\n 5 Australia  1972 13177000 Oceania      71.9    16789.\n 6 Australia  1977 14074100 Oceania      73.5    18334.\n 7 Australia  1982 15184200 Oceania      74.7    19477.\n 8 Australia  1987 16257249 Oceania      76.3    21889.\n 9 Australia  1992 17481977 Oceania      77.6    23425.\n10 Australia  1997 18565243 Oceania      78.8    26998.\n11 Australia  2002 19546792 Oceania      80.4    30688.\n12 Australia  2007 20434176 Oceania      81.2    34435.\nThe function compares the value “Australia” to all the values in the country variable, and only keeps the rows that have TRUE as an answer.\nNow, let’s filter the rows that have a life expectancy lifeExp greater than 81 years:\nlife81 &lt;- filter(gapminder, lifeExp &gt; 81)\ndim(life81)\n[1] 7 6\n\n\n3. Reorder observations with arrange()\narrange() will reorder our rows according to a variable, by default in ascending order:\narrange(life81, lifeExp)\n# A tibble: 7 × 6\n  country          year       pop continent lifeExp gdpPercap\n  &lt;chr&gt;           &lt;int&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;\n1 Australia        2007  20434176 Oceania      81.2    34435.\n2 Hong Kong China  2002   6762476 Asia         81.5    30209.\n3 Switzerland      2007   7554661 Europe       81.7    37506.\n4 Iceland          2007    301931 Europe       81.8    36181.\n5 Japan            2002 127065841 Asia         82      28605.\n6 Hong Kong China  2007   6980412 Asia         82.2    39725.\n7 Japan            2007 127467972 Asia         82.6    31656.\nIf we want to have a look at the entries with highest life expectancy first, we can use the desc() function (for “descending”):\narrange(life81, desc(lifeExp))\n# A tibble: 7 × 6\n  country          year       pop continent lifeExp gdpPercap\n  &lt;chr&gt;           &lt;int&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;\n1 Japan            2007 127467972 Asia         82.6    31656.\n2 Hong Kong China  2007   6980412 Asia         82.2    39725.\n3 Japan            2002 127065841 Asia         82      28605.\n4 Iceland          2007    301931 Europe       81.8    36181.\n5 Switzerland      2007   7554661 Europe       81.7    37506.\n6 Hong Kong China  2002   6762476 Asia         81.5    30209.\n7 Australia        2007  20434176 Oceania      81.2    34435.\n\nThe pipe operator\nWhat if we wanted to get that result in one single command, without an intermediate life81 object?\nWe could nest the commands into each other, the first step as the first argument of the second step:\narrange(filter(gapminder, lifeExp &gt; 81), desc(lifeExp))\n… but this becomes very hard to read, very quickly. (Imagine with 3 steps or more!)\nWe can make our code more readable and avoid creating useless intermediate objects by piping commands into each other. The pipe operator %&gt;% strings commands together, using the left side’s output as the first argument of the right side function.\nFor example, this command:\ngapminder %&gt;%\n  filter(lifeExp &gt; 81) %&gt;% \n  arrange(desc(lifeExp))\n\n… is equivalent to:\n\n``` r\narrange(filter(gapminder, lifeExp &gt; 81), desc(lifeExp))\nThe pipe operator can be read as “then” and makes the code a lot more readable than when nesting functions into each other, and avoids the creation of several intermediate objects. It is also easier to troubleshoot as it makes it easy to execute the pipeline step by step.\nFrom now on, we’ll use the pipe syntax as a default.\n\nNote that this material uses the magrittr pipe. The magrittr package is the one that introduced the pipe operator to the R world, and dplyr automatically imports this useful operator when it is loaded. However, the pipe being such a widespread and popular concept in programming and data science, it ended up making it into Base R (the “native” pipe) in 2021 with the release of R 4.1, using a different operator: |&gt;. You can switch your pipe shortcut to the native pipe in Tools &gt; Global options &gt; Code &gt; Use native pipe operator.\n\n\n\n\n4. Create new variables with mutate()\nHave a look at what the verb mutate() can do with ?mutate.\nLet’s see what the two following variables can be used for:\ngapminder %&gt;%\n    select(gdpPercap, pop)\n# A tibble: 1,704 × 2\n   gdpPercap      pop\n       &lt;dbl&gt;    &lt;dbl&gt;\n 1      779.  8425333\n 2      821.  9240934\n 3      853. 10267083\n 4      836. 11537966\n 5      740. 13079460\n 6      786. 14880372\n 7      978. 12881816\n 8      852. 13867957\n 9      649. 16317921\n10      635. 22227415\n# ℹ 1,694 more rows\nHow do you think we could combine them to add something new to our dataset?\nWe can use mutate() to create a gdp variable that tells us the total gdp.\nName your new dataset gap_gdp. When finished, dim(gap_gdp) should result in 1704 7.\nHint: use the * operator within mutate() to multiply the pop by gdpPercap.\ngap_gdp &lt;- gapminder %&gt;%\n    mutate(gdp = gdpPercap * pop)\ndim(gap_gdp)\n[1] 1704    7\nhead(gap_gdp)\n# A tibble: 6 × 7\n  country      year      pop continent lifeExp gdpPercap          gdp\n  &lt;chr&gt;       &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;\n1 Afghanistan  1952  8425333 Asia         28.8      779.  6567086330.\n2 Afghanistan  1957  9240934 Asia         30.3      821.  7585448670.\n3 Afghanistan  1962 10267083 Asia         32.0      853.  8758855797.\n4 Afghanistan  1967 11537966 Asia         34.0      836.  9648014150.\n5 Afghanistan  1972 13079460 Asia         36.1      740.  9678553274.\n6 Afghanistan  1977 14880372 Asia         38.4      786. 11697659231.\nYou can reuse a variable computed by ‘mutate()’ straight away. For example, we also want a more readable version of our new variable, in billion dollars:\ngap_gdp &lt;- gapminder %&gt;%\n    mutate(gdp = gdpPercap * pop,\n           gdpBil = gdp / 1e9)\n\n\n5. Collapse to a single value with summarise()\nsummarise() collapses many values down to a single summary. For example, to find the mean life expectancy for the whole dataset:\ngapminder %&gt;%\n  summarise(meanLE = mean(lifeExp))\n# A tibble: 1 × 1\n  meanLE\n   &lt;dbl&gt;\n1   59.5\nHowever, a single-value summary is not particularly interesting. summarise() becomes more powerful when used with group_by().\n\n\n6. Change the scope with group_by()\ngroup_by() changes the scope of the following function(s) from operating on the entire dataset to operating on it group-by-group.\nSee the effect of the grouping step:\ngapminder %&gt;%\n    group_by(continent)\n# A tibble: 1,704 × 6\n   country      year      pop continent lifeExp gdpPercap\n   &lt;chr&gt;       &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;\n 1 Afghanistan  1952  8425333 Asia         28.8      779.\n 2 Afghanistan  1957  9240934 Asia         30.3      821.\n 3 Afghanistan  1962 10267083 Asia         32.0      853.\n 4 Afghanistan  1967 11537966 Asia         34.0      836.\n 5 Afghanistan  1972 13079460 Asia         36.1      740.\n 6 Afghanistan  1977 14880372 Asia         38.4      786.\n 7 Afghanistan  1982 12881816 Asia         39.9      978.\n 8 Afghanistan  1987 13867957 Asia         40.8      852.\n 9 Afghanistan  1992 16317921 Asia         41.7      649.\n10 Afghanistan  1997 22227415 Asia         41.8      635.\n# ℹ 1,694 more rows\nThe data in the cells is the same, the size of the object is the same. However, the dataframe was converted to a tibble, because a dataframe is not capable of storing grouping information.\nUsing the group_by() function before summarising makes things more interesting. Let’s re-run the previous command, with the intermediate grouping step:\ngapminder %&gt;%\n  group_by(continent) %&gt;% \n  summarise(meanLE = mean(lifeExp))\n# A tibble: 5 × 2\n  continent meanLE\n  &lt;chr&gt;      &lt;dbl&gt;\n1 Africa      48.9\n2 Americas    64.7\n3 Asia        60.1\n4 Europe      71.9\n5 Oceania     74.3\nWe now have the summary computed for each continent.\nSimilarly, to find out the total population per continent in 2007, we can do the following:\ngapminder %&gt;% \n    filter(year == 2007) %&gt;%\n    group_by(continent) %&gt;%\n    summarise(pop = sum(pop))\n# A tibble: 5 × 2\n  continent        pop\n  &lt;chr&gt;          &lt;dbl&gt;\n1 Africa     929539692\n2 Americas   898871184\n3 Asia      3811953827\n4 Europe     586098529\n5 Oceania     24549947",
+    "crumbs": [
+      "Workshops",
+      "R dplyr: preparing data for analysis"
+    ]
+  },
+  {
+    "objectID": "Workshops/2 - Data processing.html#more-examples",
+    "href": "Workshops/2 - Data processing.html#more-examples",
+    "title": "R dplyr: preparing data for analysis",
+    "section": "More examples",
+    "text": "More examples\nAnother example of a summary, with a the starwars data set that dplyr provides:\nGrouping by species, summarise the number of characters per species and find the mean mass. Only for species groups with more than 1 character.\nstarwars %&gt;%\n  group_by(species) %&gt;%\n  summarise(\n    n = n(), # this counts the number of rows in each group\n    mass = mean(mass, na.rm = TRUE)\n  ) %&gt;%\n  filter(n &gt; 1) # the mean of a single value is not worth reporting\n# A tibble: 9 × 3\n  species      n  mass\n  &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt;\n1 Droid        6  69.8\n2 Gungan       3  74  \n3 Human       35  81.3\n4 Kaminoan     2  88  \n5 Mirialan     2  53.1\n6 Twi'lek      2  55  \n7 Wookiee      2 124  \n8 Zabrak       2  80  \n9 &lt;NA&gt;         4  81  \nAn example of data manipulation and data visualisation in the same command with gapminder:\nSummarise the gapminder population data into total population per continent per year and plot coloured by continent.\n# increase in population per continent\nlibrary(ggplot2)\ngapminder %&gt;% \n  group_by(continent, year) %&gt;% \n  summarise(pop = sum(pop)) %&gt;% \n  ggplot(aes(x = year,\n             y = pop,\n             colour = continent)) +\n  geom_line()\n`summarise()` has grouped output by 'continent'. You can override using the\n`.groups` argument.\n\nAnd another example, using using our gapminder dataset:\nLet’s say we want to calulate the variation (range) in life expectancy per country and plot the top and bottom 10 countries?\ngapminder %&gt;% \n  group_by(country) %&gt;% \n  summarise(maxLifeExp = max(lifeExp),\n            minLifeExp = min(lifeExp)) %&gt;% \n  mutate(dif = maxLifeExp - minLifeExp) %&gt;%  # new col with difference betwen max/min lifeExp\n  arrange(desc(dif)) %&gt;%  # arrange by dif, descending order for the next step\n  slice(1:10, (nrow(.)-10):nrow(.)) %&gt;%  # slice top 10 rows and bottom 10 rows\n  ggplot(aes(x = reorder(country, dif), y = dif)) +\n  geom_col() +\n  coord_flip() + # flip the x and y axis for a horizontal bar chart\n  labs(x = \"Country\",\n       y = \"Difference in Life Expectancy\") + # prettier labels for axes (which have been flipped) \n  annotate(\"segment\", x = 11.5, xend = 21.5, y = 39, yend = 39, colour = \"purple\", size=1, alpha=0.6) +\n  annotate(\"segment\", x = 0.5, xend = 11, y = 39, yend = 39, colour = \"green\", size=1, alpha=0.6) +\n    annotate(\"text\", x = c(5, 16), y = c(40, 40), \n           label = c(\"Smallest 10\", \"Largest 10\") ,\n           color=\"black\", size= 5 , angle=90) # add labels to colored lines\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.",
+    "crumbs": [
+      "Workshops",
+      "R dplyr: preparing data for analysis"
+    ]
+  },
+  {
+    "objectID": "Workshops/2 - Data processing.html#close-project",
+    "href": "Workshops/2 - Data processing.html#close-project",
+    "title": "R dplyr: preparing data for analysis",
+    "section": "Close project",
+    "text": "Close project\nIf you want to close RStudio, make sure you save your script first.\nYou can then close the window, and if your script contains all the steps necessary for your data processing, it is safer to not save your workspace at the prompt. It should only take a second te execute all the commands stored in your script when you re-open your project.",
+    "crumbs": [
+      "Workshops",
+      "R dplyr: preparing data for analysis"
     ]
   }
 ]

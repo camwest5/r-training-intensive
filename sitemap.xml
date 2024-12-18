@@ -1,19 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://camwest5.github.io/r-training-intensive/Project/project.html</loc>
-    <lastmod>2024-12-16T23:51:03.021Z</lastmod>
+    <loc>https://camwest5.github.io/r-training-intensive/Workshops/index.html</loc>
+    <lastmod>2024-12-18T06:00:25.766Z</lastmod>
   </url>
   <url>
-    <loc>https://camwest5.github.io/r-training-intensive/Workshops/Fundamentals.html</loc>
-    <lastmod>2024-12-16T23:51:03.025Z</lastmod>
+    <loc>https://camwest5.github.io/r-training-intensive/Workshops/5 - Statistics.html</loc>
+    <lastmod>2024-12-18T06:00:25.766Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Workshops/3 - Visualisation.html</loc>
+    <lastmod>2024-12-18T06:00:25.766Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Workshops/1 - Fundamentals.html</loc>
+    <lastmod>2024-12-18T06:00:25.766Z</lastmod>
   </url>
   <url>
     <loc>https://camwest5.github.io/r-training-intensive/setup.html</loc>
-    <lastmod>2024-12-16T23:51:03.025Z</lastmod>
+    <lastmod>2024-12-18T06:00:26.110Z</lastmod>
   </url>
   <url>
-    <loc>https://camwest5.github.io/r-training-intensive/Workshops/Workshops.html</loc>
-    <lastmod>2024-12-16T23:51:03.025Z</lastmod>
+    <loc>https://camwest5.github.io/r-training-intensive/project.html</loc>
+    <lastmod>2024-12-18T06:00:26.110Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Workshops/2 - Data processing.html</loc>
+    <lastmod>2024-12-18T06:00:25.766Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Workshops/4 - Sharing and Publishing.html</loc>
+    <lastmod>2024-12-18T06:00:25.766Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Workshops/6 - Programming.html</loc>
+    <lastmod>2024-12-18T06:00:25.766Z</lastmod>
   </url>
 </urlset>
