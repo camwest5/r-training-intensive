@@ -4,7 +4,7 @@ editor: source
 date: today
 format:
   html:
-    self-contained: true
+    embed-resources: true
 ---
 
 In this workshop, we will learn about:
