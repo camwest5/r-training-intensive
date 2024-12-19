@@ -42,7 +42,6 @@ format:
       - default
       - custom.scss
     toc: true
-    self-contained: true
 
 execute:
   freeze: auto
