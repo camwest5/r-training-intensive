@@ -4,14 +4,14 @@
 
 In this workshop, we will learn about:
 
-- The main features of the RStudio IDE
-- The basic building blocks of the R language
-- What functions are
-- Creating different kinds of objects to store data
-- Importing a dataset
-- Some built-in visualisation and statistics functions
-- Extending R with packages
-- Finding help and learning more
+-   The main features of the RStudio IDE
+-   The basic building blocks of the R language
+-   What functions are
+-   Creating different kinds of objects to store data
+-   Importing a dataset
+-   Some built-in visualisation and statistics functions
+-   Extending R with packages
+-   Finding help and learning more
 
 ## Maths and objects
 
@@ -88,9 +88,9 @@ code as we go over several sessions, it is best to work with a
 
 To keep it tidy, we are creating 3 folders in our project directory:
 
-- scripts
-- data
-- plots
+-   scripts
+-   data
+-   plots
 
 You can do that with the “New Folder” button in the “Files” pane (bottom
 right of the window).
@@ -99,11 +99,12 @@ right of the window).
 
 Scripts are simple text files that contain R code. They are useful for:
 
-- saving a set of commands for later use (and executing it in one click)
-- making research reproducible
-- making writing and reading code more comfortable
-- documenting the code with comments, and
-- sharing your work with peers
+-   saving a set of commands for later use (and executing it in one
+    click)
+-   making research reproducible
+-   making writing and reading code more comfortable
+-   documenting the code with comments, and
+-   sharing your work with peers
 
 Let’s create a new R script with the menu: File \> New File \> R Script.
 (This can also be done with the first icon in the toolbar, or with the
@@ -175,11 +176,11 @@ As in many programs, there are many ways to achieve one thing.
 For example, we used the Graphical User Interface (GUI) to create
 directories and a script, but we could also:
 
-- use the shortcut <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> for a
-  new script
-- use commands like `dir.create("scripts")`,
-  `file.create("scripts/process.R")` and
-  `file.edit("scripts/process.R")`
+-   use the shortcut <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> for a
+    new script
+-   use commands like `dir.create("scripts")`,
+    `file.create("scripts/process.R")` and
+    `file.edit("scripts/process.R")`
 
 Learning about functions that do the same thing as the GUI will allow
 you to integrate them in scripts, and will sometimes help you to do
@@ -209,10 +210,10 @@ page.
 There is quite a lot of information in a function’s documentation, but
 the most important bits are:
 
-- **Description**: general description of the function(s)
-- **Usage**: overview of what syntax can be used
-- **Arguments**: description of what each argument is
-- **Examples**: some examples that demonstrate what is possible
+-   **Description**: general description of the function(s)
+-   **Usage**: overview of what syntax can be used
+-   **Arguments**: description of what each argument is
+-   **Examples**: some examples that demonstrate what is possible
 
 See how the `round()` function has a second argument available? Try this
 now:
@@ -262,7 +263,7 @@ dogs’ ages with the `barplot()` function:
 barplot(ages)
 ```
 
-![](1---Fundamentals_files/figure-commonmark/unnamed-chunk-10-1.png)
+![](1---Fundamentals.markdown_strict_files/figure-markdown_strict/unnamed-chunk-10-1.png)
 
 We can customise the plot with a title and some colours, for example:
 
@@ -270,7 +271,7 @@ We can customise the plot with a title and some colours, for example:
 barplot(ages, main = "How old are my dogs?", col = "pink")
 ```
 
-![](1---Fundamentals_files/figure-commonmark/unnamed-chunk-11-1.png)
+![](1---Fundamentals.markdown_strict_files/figure-markdown_strict/unnamed-chunk-11-1.png)
 
 #### Challenge 1 – Finding help
 
@@ -371,14 +372,14 @@ We’ve practised how to find help about functions we know the name of.
 What if we don’t know what the function is called? Or if we want general
 help about R?
 
-- The function `help.start()` is a good starting point: it opens a
-  browser of official R help.
-- If you want to search for a word in all the documentation, you can use
-  the `??` syntax. For example, try executing `??anova`.
-- Finally, you will often go to your web browser and search for a
-  particular question, or a specific error message: most times, there
-  already is an answer somewhere on the Internet. The challenge is to
-  ask the right question!
+-   The function `help.start()` is a good starting point: it opens a
+    browser of official R help.
+-   If you want to search for a word in all the documentation, you can
+    use the `??` syntax. For example, try executing `??anova`.
+-   Finally, you will often go to your web browser and search for a
+    particular question, or a specific error message: most times, there
+    already is an answer somewhere on the Internet. The challenge is to
+    ask the right question!
 
 ## Import data
 
@@ -515,7 +516,7 @@ plot(gapminder$gdpPercap, gapminder$lifeExp,
      ylab = "Life expectancy (years)")
 ```
 
-![](1---Fundamentals_files/figure-commonmark/unnamed-chunk-23-1.png)
+![](1---Fundamentals.markdown_strict_files/figure-markdown_strict/unnamed-chunk-23-1.png)
 
 > For more on visualisations, we will later dive into the popular
 > ggplot2 package.
@@ -580,35 +581,185 @@ library(skimr) # load the package into your library
 skim(gapminder) # use a function from the package
 ```
 
-|                                                  |           |
-|:-------------------------------------------------|:----------|
-| Name                                             | gapminder |
-| Number of rows                                   | 1704      |
-| Number of columns                                | 6         |
-| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_   |           |
-| Column type frequency:                           |           |
-| character                                        | 2         |
-| numeric                                          | 4         |
-| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |           |
-| Group variables                                  | None      |
+<table>
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">gapminder</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">1704</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
 
 Data summary
 
 **Variable type: character**
 
-| skim_variable | n_missing | complete_rate | min | max | empty | n_unique | whitespace |
-|:--------------|----------:|--------------:|----:|----:|------:|---------:|-----------:|
-| country       |         0 |             1 |   4 |  24 |     0 |      142 |          0 |
-| continent     |         0 |             1 |   4 |   8 |     0 |        5 |          0 |
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 13%" />
+<col style="width: 19%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 8%" />
+<col style="width: 12%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">country</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">142</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">continent</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
 
 **Variable type: numeric**
 
-| skim_variable | n_missing | complete_rate | mean | sd | p0 | p25 | p50 | p75 | p100 | hist |
-|:---|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---|
-| year | 0 | 1 | 1979.50 | 17.27 | 1952.00 | 1965.75 | 1979.50 | 1993.25 | 2007.0 | ▇▅▅▅▇ |
-| pop | 0 | 1 | 29601212.33 | 106157896\.75 | 60011.00 | 2793664.00 | 7023595.50 | 19585221.75 | 1318683096.0 | ▇▁▁▁▁ |
-| lifeExp | 0 | 1 | 59.47 | 12.92 | 23.60 | 48.20 | 60.71 | 70.85 | 82.6 | ▁▆▇▇▇ |
-| gdpPercap | 0 | 1 | 7215.33 | 9857.45 | 241.17 | 1202.06 | 3531.85 | 9325.46 | 113523.1 | ▇▁▁▁▁ |
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 8%" />
+<col style="width: 11%" />
+<col style="width: 9%" />
+<col style="width: 10%" />
+<col style="width: 7%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 9%" />
+<col style="width: 10%" />
+<col style="width: 4%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">year</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1979.50</td>
+<td style="text-align: right;">17.27</td>
+<td style="text-align: right;">1952.00</td>
+<td style="text-align: right;">1965.75</td>
+<td style="text-align: right;">1979.50</td>
+<td style="text-align: right;">1993.25</td>
+<td style="text-align: right;">2007.0</td>
+<td style="text-align: left;">▇▅▅▅▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pop</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">29601212.33</td>
+<td style="text-align: right;">106157896.75</td>
+<td style="text-align: right;">60011.00</td>
+<td style="text-align: right;">2793664.00</td>
+<td style="text-align: right;">7023595.50</td>
+<td style="text-align: right;">19585221.75</td>
+<td style="text-align: right;">1318683096.0</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">lifeExp</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">59.47</td>
+<td style="text-align: right;">12.92</td>
+<td style="text-align: right;">23.60</td>
+<td style="text-align: right;">48.20</td>
+<td style="text-align: right;">60.71</td>
+<td style="text-align: right;">70.85</td>
+<td style="text-align: right;">82.6</td>
+<td style="text-align: left;">▁▆▇▇▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gdpPercap</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7215.33</td>
+<td style="text-align: right;">9857.45</td>
+<td style="text-align: right;">241.17</td>
+<td style="text-align: right;">1202.06</td>
+<td style="text-align: right;">3531.85</td>
+<td style="text-align: right;">9325.46</td>
+<td style="text-align: right;">113523.1</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
 
 This function provides further summary statistics, and even displays a
 small histogram for each numeric variable.
@@ -623,12 +774,12 @@ small histogram for each numeric variable.
 
 For a bit of fun:
 
-- Try installing the package “cowsay” and using its function `say()`.
-- Have a look at the documentation and [the package’s
-  website](https://sckott.github.io/cowsay/).
-- Can you make Clippy say the current time?
-- Can you make a chicken say “bok” a thousand times? (Hint: look at the
-  `paste()` function and its arguments.)
+-   Try installing the package “cowsay” and using its function `say()`.
+-   Have a look at the documentation and [the package’s
+    website](https://sckott.github.io/cowsay/).
+-   Can you make Clippy say the current time?
+-   Can you make a chicken say “bok” a thousand times? (Hint: look at
+    the `paste()` function and its arguments.)
 
 ## Closing RStudio
 
@@ -657,8 +808,8 @@ function.
 
 ## Resources
 
-- We have a [compilation of
-  resources](https://github.com/uqlibrary/technology-training/blob/master/R/usefullinks.md)
-  for the rest of your R learning
-- And a cheatsheet of [main terms and concepts for
-  R](https://github.com/uqlibrary/technology-training/blob/master/R/terminology.md)
+-   We have a [compilation of
+    resources](https://github.com/uqlibrary/technology-training/blob/master/R/usefullinks.md)
+    for the rest of your R learning
+-   And a cheatsheet of [main terms and concepts for
+    R](https://github.com/uqlibrary/technology-training/blob/master/R/terminology.md)

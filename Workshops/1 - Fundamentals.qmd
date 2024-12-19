@@ -1,6 +1,6 @@
 ---
 title: The Fundamentals
-format: gfm
+format: md
 editor: source
 date: today
 ---
