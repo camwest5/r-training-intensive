@@ -1,6 +1,5 @@
 ---
 title: The Fundamentals
-format: md
 editor: source
 date: today
 ---
@@ -282,6 +281,7 @@ download.file(url = "https://raw.githubusercontent.com/resbaz/r-novice-gapminder
   destfile = "data/gapminderdata.csv")
 gapminder <- read.csv("data/gapminderdata.csv")
 ```
+
 ```{r include=FALSE}
 gapminder <- read.csv("https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv")
 ```

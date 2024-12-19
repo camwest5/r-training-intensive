@@ -5,7 +5,6 @@ project:
     - project.md
     - "Workshops/*"
     - "Project/*"
-#  output-dir: Workshops/ # attempt for qmd workshops
 website:
   title: "R Training Intensive"
   navbar:
