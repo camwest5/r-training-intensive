@@ -42,6 +42,7 @@ format:
       - default
       - custom.scss
     toc: true
+    embed-resources: true
 
 execute:
   freeze: auto

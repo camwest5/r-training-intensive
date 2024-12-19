@@ -2,9 +2,6 @@
 title: The Fundamentals
 editor: source
 date: today
-format:
-  html:
-    embed-resources: true
 ---
 
 In this workshop, we will learn about:
