@@ -1,0 +1,22 @@
+---
+title: Insert title here
+author: Contributor 1, Contributor 2, ...
+date: today
+warning: false
+error: false
+format: dashboard
+image: relative_filepath_to_thumbnail.png (ideally in the same folder)
+---
+
+## Figures {height=70%}
+
+```{R}
+#| title: Title of card 1
+
+# Run some R here (maybe a plot for the figures)
+```
+
+```{R}
+#| title: Title of card 2
+
+# Some more R

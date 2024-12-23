@@ -1,0 +1,53 @@
+---
+title: Goalkeepers and their heights
+author: Cameron West and Stéphane Guillou
+date: today
+warning: false
+error: false
+format: dashboard
+image: tb.png
+---
+
+```{R}
+library(ggplot2)
+library(dplyr)
+library(plotly)
+
+players <- read.csv("../../data_sources/Players2024.csv")
+
+
+# Remove missing position and ensure reasonable heights
+players <- players %>% filter(positions != "Missing", height_cm > 100)
+```
+
+## Figures {height=70%}
+
+```{R}
+#| title: Goalkeepers tend to be taller
+#| fig-alt: "A scatterplot of the relationsip between height and position."
+
+ggplot(players, aes(x = positions, y = height_cm)) + 
+  geom_boxplot() + 
+  labs(x = "Position", y = "Height (cm)")
+
+ggsave("tb.png")
+```
+
+```{R}
+#| title: Age vs Height
+
+p <- ggplot(players, aes(x = Age, y = height_cm, colour = positions, hover_name = "name", hover_data = "nationality")) + 
+  geom_point() + 
+  facet_wrap(vars(positions)) + 
+  labs(x = "Age", colour = "Position", y = "Height (cm)")
+
+ggplotly(p)
+```
+
+
+## Table
+
+```{R}
+#| title: A glimpse at the dataset
+head(players)
+```
