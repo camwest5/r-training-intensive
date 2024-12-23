@@ -4998,7 +4998,7 @@ window.Quarto = {
   <li><a href="#t-tests" id="toc-t-tests" class="nav-link" data-scroll-target="#t-tests"><span class="math inline">\(t\)</span>-tests</a></li>
   <li><a href="#anovas" id="toc-anovas" class="nav-link" data-scroll-target="#anovas">ANOVAs</a></li>
   <li><a href="#chi2-tests" id="toc-chi2-tests" class="nav-link" data-scroll-target="#chi2-tests"><span class="math inline">\(\chi^2\)</span> tests</a></li>
-  <li><a href="#more-complex-modelling" id="toc-more-complex-modelling" class="nav-link" data-scroll-target="#more-complex-modelling">More complex modelling</a></li>
+  <li><a href="#generalised-linear-models" id="toc-generalised-linear-models" class="nav-link" data-scroll-target="#generalised-linear-models">Generalised linear models</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5131,97 +5131,92 @@ window.Quarto = {
 </section>
 <section id="t-tests" class="level3">
 <h3 class="anchored" data-anchor-id="t-tests"><span class="math inline">\(t\)</span>-tests</h3>
-<p>We can also perform <span class="math inline">\(t\)</span>-tests with the <code>scipy.stats</code> module. Typically, this is performed to examine the statistical signficance of a difference between two samples’ means. Let’s examine whether that earlier groupby result for is accurate for heights, specifically, <strong>are goalkeepers taller than non-goalkeepers?</strong></p>
-<p>Let’s start by separating the goalkeepers from the non-goalkeepers in two variables</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>goalkeepers <span class="op">=</span> df[df[<span class="st">&quot;positions&quot;</span>] <span class="op">==</span> <span class="st">&quot;Goalkeeper&quot;</span>]</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>non_goalkeepers <span class="op">=</span> df[df[<span class="st">&quot;positions&quot;</span>] <span class="op">!=</span> <span class="st">&quot;Goalkeeper&quot;</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The <span class="math inline">\(t\)</span>-test for the means of two independent samples is given by</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>stats.ttest_ind(goalkeepers[<span class="st">&quot;height_cm&quot;</span>], non_goalkeepers[<span class="st">&quot;height_cm&quot;</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Yielding a p-value of <span class="math inline">\(8\times 10^{-247}\approx 0\)</span>, indicating that the null-hypothesis (<em>heights are the same</em>) is extremely unlikely.</p>
+<p>We can also perform <span class="math inline">\(t\)</span>-tests. Typically, these are performed to examine the statistical signficance of a difference between two samples’ means. Let’s examine whether that earlier groupby result for is accurate for heights, specifically, <strong>are goalkeepers taller than non-goalkeepers?</strong></p>
+<p>Let’s start by creating a new column with the values</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td><code>FALSE</code></td>
+<td>Non-goalkeeper</td>
+</tr>
+<tr class="even">
+<td><code>TRUE</code></td>
+<td>Goalkeeper</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>players <span class="ot">&lt;-</span> players <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gk =</span> positions <span class="sc">==</span> <span class="st">&quot;Goalkeeper&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <span class="math inline">\(t\)</span>-test’s goal is to check whether <span class="math inline">\(\text{height_cm}\)</span> depends on <span class="math inline">\(\text{gk}\)</span>, so the formula is <span class="math inline">\(\text{height_cm}\sim\text{gk}\)</span>. This is given to the <code>t.test</code> function:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(height_cm <span class="sc">~</span> gk, <span class="at">data =</span> players)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Yielding a p-value of <span class="math inline">\(p&lt;2.2\times10^{-16}\)</span>, indicating that the null-hypothesis (<em>heights are the same</em>) is extremely unlikely.</p>
+<p>To visualise this result, it might be helpful to produce a histogram of the heights</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(players, </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> height_cm, <span class="at">fill =</span> gk)) <span class="sc">+</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">24</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="anovas" class="level3">
 <h3 class="anchored" data-anchor-id="anovas">ANOVAs</h3>
-<p>What about the means of the other three? We could use an ANOVA to examine them. We use the <code>stats.f_oneway()</code> function for this. However, this requires us to send a list of samples in for each group, so we should separate the three positions.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>defender <span class="op">=</span> df[df[<span class="st">&quot;positions&quot;</span>] <span class="op">==</span> <span class="st">&quot;Defender&quot;</span>].height_cm</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>midfield <span class="op">=</span> df[df[<span class="st">&quot;positions&quot;</span>] <span class="op">==</span> <span class="st">&quot;Midfield&quot;</span>].height_cm</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>attack <span class="op">=</span> df[df[<span class="st">&quot;positions&quot;</span>] <span class="op">==</span> <span class="st">&quot;Attack&quot;</span>].height_cm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>We can then perform the ANOVA on this list of samples</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>stats.f_oneway(defender, midfield, attack)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>With <span class="math inline">\(p = 3\times10^{-84}\)</span>, it looks like their positions are not all independent of height.</p>
+<p>What about the means of the other three? We could use an ANOVA to examine them. We use the <code>aov()</code> function for this.</p>
+<p>Let’s start by making a new dataset without goalkeepers</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>no_gk <span class="ot">&lt;-</span> players <span class="sc">%&gt;%</span> <span class="fu">filter</span>(gk <span class="sc">==</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Next, we save the analysis of variance results</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>res_aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(height_cm <span class="sc">~</span> positions, <span class="at">data =</span> no_gk)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And examine them with <code>summary()</code></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(res_aov)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Even without goalkeepers included, it looks like their positions are not all independent of height.</p>
 </section>
 <section id="chi2-tests" class="level3">
 <h3 class="anchored" data-anchor-id="chi2-tests"><span class="math inline">\(\chi^2\)</span> tests</h3>
 <p><span class="math inline">\(χ^2\)</span> tests are useful for examining the relationship of categorical variables by comparing the frequencies of each. Often, you’d use this if you can make a contingency table.</p>
 <p>We only have one useful categorical variable here, “positions” (the others have too many unique values), so we’ll need to create another. Let’s see if there’s a relationship between players’ positions and names with the letter “a”.</p>
 <p>Make a binary column for players with the letter “a” in their names. To do this, we need to apply a string method to <em>all</em> the columns in the dataframe as follows</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&quot;a_in_name&quot;</span>] <span class="op">=</span> df[<span class="st">&quot;name&quot;</span>].<span class="bu">str</span>.contains(<span class="st">&quot;a&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>players <span class="ot">&lt;-</span> players <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">a_in_name =</span> <span class="fu">grepl</span>(<span class="st">&quot;a&quot;</span>, name))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>The <code>grepl</code> function perform pattern matching: it checks if the pattern <code>&quot;a&quot;</code> is inside the values in <code>name</code>.</p>
+</blockquote>
 <p>Let’s cross tabulate positions with this new column</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>a_vs_pos <span class="op">=</span> pd.crosstab(df[<span class="st">&quot;positions&quot;</span>],df[<span class="st">&quot;a_in_name&quot;</span>])</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a_vs_pos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(players<span class="sc">$</span>positions, players<span class="sc">$</span>a_in_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <span class="math inline">\(χ^2\)</span> test’s job is to examine whether players’ positions depend on the presence of “a” in their name. To evaluate it we need to send the contingency table in:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>stats.chi2_contingency(a_vs_pos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="fu">table</span>(players<span class="sc">$</span>positions, players<span class="sc">$</span>a_in_name))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As expected, there is no signifcant relationship. A simple bar plot can help us here</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(players,</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> positions, <span class="at">fill =</span> a_in_name)) <span class="sc">+</span> </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If we use the <code>position = &quot;fill&quot;</code> parameter to <code>geom_bar</code>, we’ll see each as a proportion</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(players,</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> positions, <span class="at">fill =</span> a_in_name)) <span class="sc">+</span> </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;fill&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>It looks as though the proportions are much the same.</p>
 </section>
-<section id="more-complex-modelling" class="level3">
-<h3 class="anchored" data-anchor-id="more-complex-modelling">More complex modelling</h3>
-<p>If you need to do more advanced statistics, particularly if you need more regressions, you’ll likely need to turn to a different package: <code>statsmodels</code>. It is particularly useful for <strong>statistical modelling</strong>.</p>
-<p>We’ll go through three examples</p>
-<ol type="1">
-<li>Simple linear regressions (like before)</li>
-<li>Multiple linear regressions</li>
-<li>Logistic regressions</li>
-</ol>
-<p>What’s nice about <code>statsmodels</code> is that it gives an R-like interface and summaries.</p>
-<p>To start with, let’s import the tools. We’ll use the <em>formula</em> interface, which offers us an R-like way of creating models.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="simple-linear-regressions-revisited" class="level4">
-<h4 class="anchored" data-anchor-id="simple-linear-regressions-revisited">Simple linear regressions revisited</h4>
-<p>Let’s perform the same linear regression as before, looking at the “Age” and “height variables”. Our thinking is that players’ heights dictate how long they can play, so we’ll make <span class="math inline">\(x = \text{height\_cm}\)</span> and <span class="math inline">\(y = \text{Age}\)</span>.</p>
-<p>The first step is to make the set up the variables. We’ll use the function <code>smf.ols()</code> for ordinary least squares. It takes in two imputs:</p>
-<ul>
-<li>The formula string, in the form <code>y ~ X1 + X2 ...</code></li>
-<li>The data</li>
-</ul>
-<p>We create the model and compute the fit</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>mod <span class="op">=</span> smf.ols(<span class="st">&quot;Age ~ height_cm&quot;</span>, df)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> mod.fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Done! Let’s take a look at the results</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>res.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>That’s a lot nicer than with scipy. We can also make a plot by getting the model’s <span class="math inline">\(y\)</span> values with <code>res.fittedvalues</code></p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>sns.relplot(data <span class="op">=</span> df, x <span class="op">=</span> <span class="st">&quot;height_cm&quot;</span>, y <span class="op">=</span> <span class="st">&quot;Age&quot;</span>)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x <span class="op">=</span> df[<span class="st">&quot;Age&quot;</span>], y <span class="op">=</span> res.fittedvalues, color <span class="op">=</span> <span class="st">&quot;black&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="generalised-linear-models" class="level4">
-<h4 class="anchored" data-anchor-id="generalised-linear-models">Generalised linear models</h4>
-<p>The <code>statsmodels</code> module has lots of advanced statistical models available. We’ll take a look at one more: Generalised Linear Models. The distributions they include are</p>
+<section id="generalised-linear-models" class="level3">
+<h3 class="anchored" data-anchor-id="generalised-linear-models">Generalised linear models</h3>
+<p>We’ll finish by looking at Generalised Linear Models. The distributions they include are</p>
 <ul>
 <li>Binomial</li>
 <li>Poisson</li>
-<li>Negative Binomial</li>
 <li>Gaussian (Normal)</li>
 <li>Gamma</li>
 <li>Inverse Gaussian</li>
-<li>Tweedie</li>
+<li>A few <em>quasi</em> options</li>
 </ul>
 <p>We’ll use the <em>binomial</em> option to create logistic regressions.</p>
-<p>Logistic regressions examine the distribution of binary data. For us, we can compare the heights of <strong>goalkeepers vs non-goalkeepers</strong> again. Let’s make a new column which is <code>1</code> for goalkeepers and <code>0</code> for non-goalkeepers:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&quot;gk&quot;</span>] <span class="op">=</span> (df[<span class="st">&quot;positions&quot;</span>] <span class="op">==</span> <span class="st">&quot;Goalkeeper&quot;</span>)<span class="op">*</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<blockquote class="blockquote">
-<p>We have to multiply by 1 to turn <code>True</code> <span class="math inline">\(\rightarrow\)</span> <code>1</code> and <code>False</code> <span class="math inline">\(\rightarrow\)</span> <code>0</code></p>
-</blockquote>
-<p>Now, we can model this column with height. Specifically,</p>
-<p><span class="math display">\[ \text{gk} \sim \text{height\_cm}\]</span></p>
-<p>Start by making the model with the function <code>smf.glm()</code>. We need to specify the family of distributions; they all live in <code>sm.families</code>:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>mod <span class="op">=</span> smf.glm(<span class="st">&quot;gk ~ height_cm&quot;</span>, data <span class="op">=</span> df, family <span class="op">=</span> sm.families.Binomial())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Next, evaluate the results</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> mod.fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Logistic regressions examine the distribution of binary data. For us, we can compare the heights of <strong>goalkeepers vs non-goalkeepers</strong> again.</p>
+<p>Now, we can model this column with height. We’ll do the same as our <span class="math inline">\(t\)</span>-test case, but this time we need to specify that <code>family = binomial</code> to ensure we’ll get a logistic:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>res_logistic <span class="op">&lt;-</span> glm(gk <span class="op">~</span> height_cm, family <span class="op">=</span> binomial, data <span class="op">=</span> players)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We can take a look at the results with</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>summary(res_logistic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Let’s have a look at the summary:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>res.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Finally, we can plot the result like before</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>sns.relplot(data <span class="op">=</span> df, x <span class="op">=</span> <span class="st">&quot;height_cm&quot;</span>, y <span class="op">=</span> <span class="st">&quot;gk&quot;</span>)</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x <span class="op">=</span> df[<span class="st">&quot;height_cm&quot;</span>], y <span class="op">=</span> res.fittedvalues, color <span class="op">=</span> <span class="st">&quot;black&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>res.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And we can then visualise it with <code>ggplot2</code>. We need to make <em>another</em> variable, because we need to replace <code>TRUE</code> <span class="math inline">\(\rightarrow\)</span> <code>1</code> and <code>FALSE</code> <span class="math inline">\(\rightarrow\)</span> <code>0</code> for the plot.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>players <span class="ot">&lt;-</span> players <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">gk_numeric =</span> <span class="fu">as.numeric</span>(gk))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now we can plot the logistic regression. The fitted values (on the <span class="math inline">\(y\)</span>-axis) are stored in <code>res_logistic$fitted.values</code>, but there are no provided <span class="math inline">\(x\)</span>-values - these come from the <code>players</code> dataset. Use <code>geom_point()</code> for the data and <code>geom_line()</code> for the fit:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>ggplot(players, aes(x <span class="op">=</span> height_cm, y <span class="op">=</span> gk_numeric)) <span class="op">+</span> </span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  geom_point() <span class="op">+</span> </span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  geom_line(aes(y <span class="op">=</span> res_logistic$fitted.values))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 </section>
 </section>
 
