@@ -191,40 +191,60 @@ ggplot(players, aes(x = Age, y = height_cm)) +
 
 ### $t$-tests
 
-We can also perform $t$-tests with the `scipy.stats` module. Typically, this is performed to examine the statistical signficance of a difference between two samples' means. Let's examine whether that earlier groupby result for is accurate for heights, specifically, **are goalkeepers taller than non-goalkeepers?**
+We can also perform $t$-tests. Typically, these are performed to examine the statistical signficance of a difference between two samples' means. Let's examine whether that earlier groupby result for is accurate for heights, specifically, **are goalkeepers taller than non-goalkeepers?**
 
-Let's start by separating the goalkeepers from the non-goalkeepers in two variables
+Let's start by creating a new column with the values
+ 
+| | | 
+| --- | --- |
+| `FALSE` | Non-goalkeeper | 
+| `TRUE` | Goalkeeper | 
+ 
 
-```python
-goalkeepers = df[df["positions"] == "Goalkeeper"]
-non_goalkeepers = df[df["positions"] != "Goalkeeper"]
+```R
+players <- players %>% 
+  mutate(gk = positions == "Goalkeeper")
 ```
 
-The $t$-test for the means of two independent samples is given by
+The $t$-test's goal is to check whether $\text{height_cm}$ depends on $\text{gk}$, so the formula is $\text{height_cm}\sim\text{gk}$. This is given to the `t.test` function:
 
-```python
-stats.ttest_ind(goalkeepers["height_cm"], non_goalkeepers["height_cm"])
+```R
+t.test(height_cm ~ gk, data = players)
 ```
 
-Yielding a p-value of $8\times 10^{-247}\approx 0$, indicating that the null-hypothesis (*heights are the same*) is extremely unlikely.
+Yielding a p-value of $p<2.2\times10^{-16}$, indicating that the null-hypothesis (*heights are the same*) is extremely unlikely.
+
+To visualise this result, it might be helpful to produce a histogram of the heights
+
+```R
+ggplot(players, 
+       aes(x = height_cm, fill = gk)) + 
+  geom_histogram(bins = 24)
+```
 
 ### ANOVAs
 
-What about the means of the other three? We could use an ANOVA to examine them. We use the `stats.f_oneway()` function for this. However, this requires us to send a list of samples in for each group, so we should separate the three positions. 
+What about the means of the other three? We could use an ANOVA to examine them. We use the `aov()` function for this. 
 
-```python
-defender = df[df["positions"] == "Defender"].height_cm
-midfield = df[df["positions"] == "Midfield"].height_cm
-attack = df[df["positions"] == "Attack"].height_cm
+Let's start by making a new dataset without goalkeepers
+
+```R
+no_gk <- players %>% filter(gk == FALSE)
 ```
 
-We can then perform the ANOVA on this list of samples
+Next, we save the analysis of variance results
 
-```python
-stats.f_oneway(defender, midfield, attack)
+```R
+res_aov <- aov(height_cm ~ positions, data = no_gk)
 ```
 
-With $p = 3\times10^{-84}$, it looks like their positions are not all independent of height.
+And examine them with `summary()`
+
+```R
+summary(res_aov)
+```
+
+Even without goalkeepers included, it looks like their positions are not all independent of height.
 
 ### $\chi^2$ tests
 
@@ -234,106 +254,69 @@ We only have one useful categorical variable here, "positions" (the others have 
 
 Make a binary column for players with the letter "a" in their names. To do this, we need to apply a string method to *all* the columns in the dataframe as follows
 
-```python
-df["a_in_name"] = df["name"].str.contains("a")
+```R
+players <- players %>%
+  mutate(a_in_name = grepl("a", name))
 ```
+
+> The `grepl` function perform pattern matching: it checks if the pattern `"a"` is inside the values in `name`.
 
 Let's cross tabulate positions with this new column
 
-```python
-a_vs_pos = pd.crosstab(df["positions"],df["a_in_name"])
-print(a_vs_pos)
+```R
+table(players$positions, players$a_in_name)
 ```
 
 The $χ^2$ test's job is to examine whether players' positions depend on the presence of "a" in their name. To evaluate it we need to send the contingency table in:
 
-```python
-stats.chi2_contingency(a_vs_pos)
+```R
+chisq.test(table(players$positions, players$a_in_name))
 ```
 
-### More complex modelling
+As expected, there is no signifcant relationship. A simple bar plot can help us here
 
-If you need to do more advanced statistics, particularly if you need more regressions, you'll likely need to turn to a different package: `statsmodels`. It is particularly useful for **statistical modelling**.
-
-We'll go through three examples
-
-1. Simple linear regressions (like before)
-2. Multiple linear regressions
-3. Logistic regressions
-
-What's nice about `statsmodels` is that it gives an R-like interface and summaries.
-
-To start with, let's import the tools. We'll use the *formula* interface, which offers us an R-like way of creating models.
-
-```python
-import statsmodels.formula.api as smf
+```R
+ggplot(players,
+       aes(x = positions, fill = a_in_name)) + 
+  geom_bar()
 ```
 
-#### Simple linear regressions revisited
+If we use the `position = "fill"` parameter to `geom_bar`, we'll see each as a proportion
 
-Let's perform the same linear regression as before, looking at the "Age" and "height variables". Our thinking is that players' heights dictate how long they can play, so we'll make $x = \text{height\_cm}$ and $y = \text{Age}$.
-
-The first step is to make the set up the variables. We'll use the function `smf.ols()` for ordinary least squares. It takes in two imputs:
-
-* The formula string, in the form `y ~ X1 + X2 ...`
-* The data
-
-We create the model and compute the fit
-
-```python
-mod = smf.ols("Age ~ height_cm", df)
-res = mod.fit()
+```R
+ggplot(players,
+       aes(x = positions, fill = a_in_name)) + 
+  geom_bar(position = "fill")
 ```
 
-Done! Let's take a look at the results
+It looks as though the proportions are much the same.
 
-```python
-res.summary()
-```
+### Generalised linear models
 
-That's a lot nicer than with scipy. We can also make a plot by getting the model's $y$ values with `res.fittedvalues`
-
-```python
-sns.relplot(data = df, x = "height_cm", y = "Age")
-sns.lineplot(x = df["Age"], y = res.fittedvalues, color = "black")
-```
-
-#### Generalised linear models
-
-The `statsmodels` module has lots of advanced statistical models available. We'll take a look at one more: Generalised Linear Models. The distributions they include are
+We'll finish by looking at Generalised Linear Models. The distributions they include are
 
 * Binomial
 * Poisson
-* Negative Binomial
 * Gaussian (Normal)
 * Gamma
 * Inverse Gaussian
-* Tweedie
+* A few *quasi* options
 
 We'll use the *binomial* option to create logistic regressions.
 
-Logistic regressions examine the distribution of binary data. For us, we can compare the heights of **goalkeepers vs non-goalkeepers** again. Let's make a new column which is `1` for goalkeepers and `0` for non-goalkeepers:
+Logistic regressions examine the distribution of binary data. For us, we can compare the heights of **goalkeepers vs non-goalkeepers** again. 
+
+Now, we can model this column with height. We'll do the same as our $t$-test case, but this time we need to specify that `family = binomial` to ensure we'll get a logistic:
+
 
 ```python
-df["gk"] = (df["positions"] == "Goalkeeper")*1
+res_logistic <- glm(gk ~ height_cm, family = binomial, data = players)
 ```
 
-> We have to multiply by 1 to turn `True` $\rightarrow$ `1` and `False` $\rightarrow$ `0`
-
-Now, we can model this column with height. Specifically,
-
-$$ \text{gk} \sim \text{height\_cm}$$
-
-Start by making the model with the function `smf.glm()`. We need to specify the family of distributions; they all live in `sm.families`:
+We can take a look at the results with
 
 ```python
-mod = smf.glm("gk ~ height_cm", data = df, family = sm.families.Binomial())
-```
-
-Next, evaluate the results
-
-```python
-res = mod.fit()
+summary(res_logistic)
 ```
 
 Let's have a look at the summary:
@@ -342,9 +325,16 @@ Let's have a look at the summary:
 res.summary()
 ```
 
-Finally, we can plot the result like before
+And we can then visualise it with `ggplot2`. We need to make *another* variable, because we need to replace `TRUE` $\rightarrow$ `1` and `FALSE` $\rightarrow$ `0` for the plot.
+
+```R
+players <- players %>% mutate(gk_numeric = as.numeric(gk))
+```
+
+Now we can plot the logistic regression. The fitted values (on the $y$-axis) are stored in `res_logistic$fitted.values`, but there are no provided $x$-values - these come from the `players` dataset. Use `geom_point()` for the data and `geom_line()` for the fit:
 
 ```python
-sns.relplot(data = df, x = "height_cm", y = "gk")
-sns.lineplot(x = df["height_cm"], y = res.fittedvalues, color = "black")
+ggplot(players, aes(x = height_cm, y = gk_numeric)) + 
+  geom_point() + 
+  geom_line(aes(y = res_logistic$fitted.values))
 ```
