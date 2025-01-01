@@ -89,25 +89,25 @@ summary(players$height_cm)
 
 ### Measures of correlation
 
-If you've got two numeric variables, you might want to examine covariance and correlation. These indicate how strongly the variables are linearly related. We'll need to use the `players$Age` variable as well.
+If you've got two numeric variables, you might want to examine covariance and correlation. These indicate how strongly the variables are linearly related. We'll need to use the `players$age` variable as well.
 
-The covariance between "height_cm" and "Age" is
+The covariance between "height_cm" and "age" is
 
 ```R
-cov(players$height_cm, players$Age)
+cov(players$height_cm, players$age)
 ```
 
 Similarly, we can find the Pearson correlation coefficient between two columns. 
 
 ```R
-cor(players$height_cm, players$Age)
+cor(players$height_cm, players$age)
 ```
 
 You can also specify "kendall" or "spearman" for their respective correlation coefficients
 
 ```R
-cor(players$height_cm, players$Age, method = "kendall")
-cor(players$height_cm, players$Age, method = "spearman")
+cor(players$height_cm, players$age, method = "kendall")
+cor(players$height_cm, players$age, method = "spearman")
 ```
 
 ### Reminder about groupbys
@@ -142,13 +142,13 @@ $$ Y = β_1 X + β_0 $$
 and we use the regression tool to estimate the parameters $β_0\,,β_1$. We can equivalently say that $Y \sim X$, which is what R takes in
 
 ```R
-lm("height_cm ~ Age", players)
+lm("height_cm ~ age", players)
 ```
 
 If we store this as a variable, we can then produce a summary of the results
 
 ```R
-model <- lm("height_cm ~ Age", players)
+model <- lm("height_cm ~ age", players)
 summary(model)
 ```
 
@@ -171,7 +171,7 @@ library(ggplot2)
 Start by making a scatterplot of the data,
 
 ```R
-ggplot(players, aes(x = height_cm, y = Age)) 
+ggplot(players, aes(x = height_cm, y = age)) 
     + geom_point()
 ```
 
@@ -184,7 +184,7 @@ So
 b0 <- model$coefficients[1]
 b1 <- model$coefficients[2]
 
-ggplot(players, aes(x = Age, y = height_cm)) + 
+ggplot(players, aes(x = age, y = height_cm)) + 
     geom_point() + 
     geom_abline(intercept = b0, slope = b1)
 ```
