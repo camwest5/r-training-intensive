@@ -206,7 +206,7 @@ players <- players %>%
   mutate(gk = positions == "Goalkeeper")
 ```
 
-The $t$-test's goal is to check whether $\text{height_cm}$ depends on $\text{gk}$, so the formula is $\text{height\_cm}\sim\text{gk}$. This is given to the `t.test` function:
+The $t$-test's goal is to check whether $\text{height\_cm}$ depends on $\text{gk}$, so the formula is $\text{height\_cm}\sim\text{gk}$. This is given to the `t.test` function:
 
 ```R
 t.test(height_cm ~ gk, data = players)
