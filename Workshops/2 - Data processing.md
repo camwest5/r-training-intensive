@@ -1,28 +1,6 @@
 ---
-title: "R dplyr: preparing data for analysis"
+title: "Preparing data for analysis"
 ---
-
-UQ Library
-2024-11-27
-
-- [What are we going to learn?](#what-are-we-going-to-learn)
-- [Keep in mind](#keep-in-mind)
-  - [Help](#help)
-- [Setting up](#setting-up)
-  - [Install the dplyr package](#install-the-dplyr-package)
-  - [New project](#new-project)
-  - [Create a script](#create-a-script)
-  - [Introducing our data](#introducing-our-data)
-- [Basic dplyr verbs](#basic-dplyr-verbs)
-  - [1. Pick variables with `select()`](#1-pick-variables-with-select)
-  - [2. Pick observations with `filter()`](#2-pick-observations-with-filter)
-  - [3. Reorder observations with `arrange()`](#3-reorder-observations-with-arrange)
-    - [The pipe operator](#the-pipe-operator)
-  - [4. Create new variables with `mutate()`](#4-create-new-variables-with-mutate)
-  - [5. Collapse to a single value with `summarise()`](#5-collapse-to-a-single-value-with-summarise)
-  - [6. Change the scope with `group_by()`](#6-change-the-scope-with-group_by)
-- [More examples](#more-examples)
-- [Close project](#close-project)
 
 ## What are we going to learn?
 
@@ -561,8 +539,6 @@ gapminder %>%
     `summarise()` has grouped output by 'continent'. You can override using the
     `.groups` argument.
 
-![](dplyr_files/figure-commonmark/unnamed-chunk-31-1.png)
-
 And another example, using using our gapminder dataset:
 
 Let’s say we want to calulate the variation (range) in life expectancy
@@ -590,8 +566,6 @@ gapminder %>%
 
     Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
     ℹ Please use `linewidth` instead.
-
-![](dplyr_files/figure-commonmark/unnamed-chunk-32-1.png)
 
 ## Close project
 
