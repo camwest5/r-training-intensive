@@ -1,5 +1,53 @@
 [
   {
+    "objectID": "Projects/project_gallery.html",
+    "href": "Projects/project_gallery.html",
+    "title": "Project Gallery",
+    "section": "",
+    "text": "Goalkeepers and their heights\n\n\n\n\n\n\nCameron West and Stéphane Guillou\n\n\nJan 2, 2025\n\n\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Workshops",
+      "The Project",
+      "Project Gallery"
+    ]
+  },
+  {
+    "objectID": "Projects/details.html",
+    "href": "Projects/details.html",
+    "title": "Overview",
+    "section": "",
+    "text": "The best way to learn is by doing. That’s why, over the these three days, you are tasked with analysing, visualising and reporting on a set of data!\nRoughly 50% of our intensive is dedicated to working on the project. Working in groups of 2-4, you’ll need to use the techniques we learn to draw some observations about your chosen dataset.\nThe end goal will be a quick fire (low stakes) one-minute presentation with a dashboard to complement.\nSee the datasets page for the data and below for submission details.",
+    "crumbs": [
+      "Workshops",
+      "The Project",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "Projects/details.html#project-outline",
+    "href": "Projects/details.html#project-outline",
+    "title": "Overview",
+    "section": "Project outline",
+    "text": "Project outline\nThere are a few key requirements for the project, but otherwise it’s up to you!\n\nAnalyse a dataset and create some visualisations\nPut together a final dashboard-style report. Anything from a powerpoint slide to an interactive dashboard will do!\nDeliver a quick fire one-minute presentation with your group\n\nWe’ll have 5 sessions during the intensive days to work on the project, just shy of six hours. The goal of these sessions is twofold\n\nTo work on the project, analysing data and creating visualisations\nTo dive deeper into the content, perfect for questions and conversations\n\nWhile you’ll be working in groups, everyone should practise analysing and visualising the data. We recommend distributing roles amongst the group, maybe looking at different variables or different presentation formats.\nYou’re welcome to use the project time however you’d like. Below is a rough guide if you’re unsure:\n\n\n\n\n\n\n\nSession\nRecommendation\n\n\n\n\nTuesday afternoon\nPick a dataset and play with the data\n\n\nWednesday morning\nMore exploratory analysis, consider dividing roles amongst group\n\n\nWednesday afternoon\nStart collecting initial visualisations and preparing format (e.g. dashboard)\n\n\nThursday morning\nContinue analysing and creating visualisations\n\n\nThursday afternoon\nPolish up results\n\n\n\nThe presentations will be during Thursday’s final session at 2:50pm.\nGood luck!",
+    "crumbs": [
+      "Workshops",
+      "The Project",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "Projects/details.html#design-and-submissions",
+    "href": "Projects/details.html#design-and-submissions",
+    "title": "Overview",
+    "section": "Design and submissions",
+    "text": "Design and submissions\nWe’ve put together an example dashboard which you’re welcome to start from. Download the code to have a look at our example. You can also see a gallery of examples on Quarto’s website.\nThere are two ways you can upload your visualisations.\n\nUpload dashboard to GitHub\nThis is the advanced way of doing things - we recommend this way, because it’ll show you a good insight into using GitHub.\n\nCreate a GitHub account and log in\nCreate a fork of our r-training-intensive repository. This is a copy of the repo in your account, changes will not automatically affect the main repo. Leave all settings unchanged.\nCreate a folder for your dashboard inside the Projects directory\n\nGo into the Projects folder, and click Add file \\(\\rightarrow\\) Create new file. This will be your folder.\nGive it a name but no content.\nPress Commit changes....\n\nUpload your files\n\nGo into your new folder and click Add file \\(\\rightarrow\\) Upload files.\nUpload your dashboard and associated files.\nPress Commit changes.\n\nMerge your repo with ours\n\nPress &lt;&gt; Code (top left) to go back to the top level of the repo\nPress Contribute \\(\\rightarrow\\) Open pull request to request merging your files into the main repo\nPress Create pull request when you’re ready.\nIf you need to make further changes, no worries - the pull request will stay up to date with these until approved or closed.\n\n\nGive it a go if you can!\nIf there’s any issues, we’ll leave a comment for you to fix up the merge and we’ll approve it when ready.\n\n\nUpload dashboard to Teams\nIf you’re having issues with the GitHub approach, we can upload it for you. Just put your folder with the dashboard into our Teams folder.",
+    "crumbs": [
+      "Workshops",
+      "The Project",
+      "Overview"
+    ]
+  },
+  {
     "objectID": "Workshops/index.html",
     "href": "Workshops/index.html",
     "title": "Workshops",
@@ -472,63 +520,39 @@
     ]
   },
   {
-    "objectID": "Projects/details.html",
-    "href": "Projects/details.html",
-    "title": "Overview",
+    "objectID": "Projects/datasets.html",
+    "href": "Projects/datasets.html",
+    "title": "Datasets and tips",
     "section": "",
-    "text": "The best way to learn is by doing. That’s why, over the these three days, you are tasked with analysing, visualising and reporting on a set of data!\nRoughly 50% of our intensive is dedicated to working on the project. Working in groups of 2-4, you’ll need to use the techniques we learn to draw some observations about your chosen dataset.\nThe end goal will be a quick fire (low stakes) one-minute presentation with a dashboard to complement.\nSee below for submission details.",
+    "text": "We have eight datasets for you to choose from. We recommend saving your data inside your project.\n\n\n\nDataset\nDescription\n\n\n\n\nWorld populations\nA summary of world populations and corresponding statistics\n\n\nSoccer players\nA summary of about 250 2024 soccer players\n\n\nCoffee survey\nA survey of coffee preferences\n\n\nMelbourne housing data\nA collection of houses for sale in Melbourne\n\n\nGoodreads books\nData for 50,000 goodreads books\n\n\nQueensland hospitals\nEmergency department statistics\n\n\nQueensland fuel prices\nFuel prices by the pump in Queensland\n\n\nAeroplane bird strikes\nAeroplane bird strike incidents fron the 90s",
     "crumbs": [
       "Workshops",
       "The Project",
-      "Overview"
+      "Datasets and tips"
     ]
   },
   {
-    "objectID": "Projects/details.html#the-datasets",
-    "href": "Projects/details.html#the-datasets",
-    "title": "Overview",
-    "section": "The datasets",
-    "text": "The datasets\nWe have eight datasets for you to choose from:\n\n\n\nDataset\nDescription\n\n\n\n\nWorld populations\nA summary of world populations and corresponding statistics\n\n\nSoccer players\nA summary of about 250 2024 soccer players\n\n\nCoffee survey\nA survey of coffee preferences\n\n\nMelbourne housing data\nA collection of houses for sale in Melbourne\n\n\nGoodreads books\nData for 50,000 goodreads books\n\n\nQueensland hospitals\nEmergency department statistics\n\n\nQueensland fuel prices\nFuel prices by the pump in Queensland\n\n\nAeroplane bird strikes\nAeroplane bird strike incidents fron the 90s",
-    "crumbs": [
-      "Workshops",
-      "The Project",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "Projects/details.html#project-outline",
-    "href": "Projects/details.html#project-outline",
-    "title": "Overview",
-    "section": "Project outline",
-    "text": "Project outline\nThere are a few key requirements for the project, but otherwise it’s up to you!\n\nAnalyse a dataset and create some visualisations\nPut together a final dashboard-style report. Anything from a powerpoint slide to an interactive dashboard will do!\nDeliver a quick fire one-minute presentation with your group\n\nWe’ll have 5 sessions during the intensive days to work on the project, just shy of six hours. The goal of these sessions is twofold\n\nTo work on the project, analysing data and creating visualisations\nTo dive deeper into the content, perfect for questions and conversations\n\nWhile you’ll be working in groups, everyone should practise analysing and visualising the data. We recommend distributing roles amongst the group, maybe looking at different variables or different presentation formats.\nYou’re welcome to use the project time however you’d like. Below is a rough guide if you’re unsure:\n\n\n\n\n\n\n\nSession\nRecommendation\n\n\n\n\nTuesday afternoon\nPick a dataset and play with the data\n\n\nWednesday morning\nMore exploratory analysis, consider dividing roles amongst group\n\n\nWednesday afternoon\nStart collecting initial visualisations and preparing format (e.g. dashboard)\n\n\nThursday morning\nContinue analysing and creating visualisations\n\n\nThursday afternoon\nPolish up results\n\n\n\nThe presentations will be during Thursday’s final session at 2:50pm.\nGood luck!",
-    "crumbs": [
-      "Workshops",
-      "The Project",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "Projects/details.html#submission",
-    "href": "Projects/details.html#submission",
-    "title": "Overview",
-    "section": "Submission",
-    "text": "Submission\nThere are two ways you can upload your visualisations.\n\nUpload dashboard to GitHub\nThis is the advanced way of doing things - we recommend this way, because it’ll show you a good insight into using GitHub.\n\nCreate a GitHub account and log in\nCreate a fork of our r-training-intensive repository. This is a copy of the repo in your account, changes will not automatically affect the main repo. Leave all settings unchanged.\nCreate a folder for your dashboard inside the Projects directory\n\nGo into the Projects folder, and click Add file \\(\\rightarrow\\) Create new file. This will be your folder.\nGive it a name but no content.\nPress Commit changes....\n\nUpload your files\n\nGo into your new folder and click Add file \\(\\rightarrow\\) Upload files.\nUpload your dashboard and associated files.\nPress Commit changes.\n\nMerge your repo with ours\n\nPress &lt;&gt; Code (top left) to go back to the top level of the repo\nPress Contribute \\(\\rightarrow\\) Open pull request to request merging your files into the main repo\nPress Create pull request when you’re ready.\nIf you need to make further changes, no worries - the pull request will stay up to date with these until approved or closed.\n\n\nGive it a go if you can!\nIf there’s any issues, we’ll leave a comment for you to fix up the merge and we’ll approve it when ready.\n\n\nUpload dashboard to Teams\nIf you’re having issues with the GitHub approach, we can upload it for you. Just put your folder with the dashboard into our Teams folder.",
-    "crumbs": [
-      "Workshops",
-      "The Project",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "Projects/project_gallery.html",
-    "href": "Projects/project_gallery.html",
-    "title": "Project Gallery",
+    "objectID": "Projects/datasets.html#datasets",
+    "href": "Projects/datasets.html#datasets",
+    "title": "Datasets and tips",
     "section": "",
-    "text": "Goalkeepers and their heights\n\n\n\n\n\n\nCameron West and Stéphane Guillou\n\n\nJan 2, 2025\n\n\n\n\n\n\n\n\nNo matching items",
+    "text": "We have eight datasets for you to choose from. We recommend saving your data inside your project.\n\n\n\nDataset\nDescription\n\n\n\n\nWorld populations\nA summary of world populations and corresponding statistics\n\n\nSoccer players\nA summary of about 250 2024 soccer players\n\n\nCoffee survey\nA survey of coffee preferences\n\n\nMelbourne housing data\nA collection of houses for sale in Melbourne\n\n\nGoodreads books\nData for 50,000 goodreads books\n\n\nQueensland hospitals\nEmergency department statistics\n\n\nQueensland fuel prices\nFuel prices by the pump in Queensland\n\n\nAeroplane bird strikes\nAeroplane bird strike incidents fron the 90s",
     "crumbs": [
       "Workshops",
       "The Project",
-      "Project Gallery"
+      "Datasets and tips"
+    ]
+  },
+  {
+    "objectID": "Projects/datasets.html#tips",
+    "href": "Projects/datasets.html#tips",
+    "title": "Datasets and tips",
+    "section": "Tips",
+    "text": "Tips",
+    "crumbs": [
+      "Workshops",
+      "The Project",
+      "Datasets and tips"
     ]
   }
 ]
