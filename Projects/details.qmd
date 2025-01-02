@@ -1,11 +1,14 @@
 ---
 title: "Overview"
 ---
+
 The best way to learn is by doing. That's why, over the these three days, **you are tasked with analysing, visualising and reporting on a set of data!**
 
 Roughly 50% of our intensive is dedicated to working on the project. Working in groups of 2-4, you'll need to use the techniques we learn to draw some observations about your chosen dataset. 
 
 The end goal will be a quick fire (low stakes) one-minute presentation with a dashboard to complement.
+
+[See below](#submission) for submission details.
 
 ## The datasets
 
@@ -13,9 +16,9 @@ We have eight datasets for you to choose from:
 
 | Dataset | Description |
 | --- | --- |
-| [World populations](data_sources/population.csv) | A summary of world populations and corresponding statistics | 
-| [Soccer players](data_sources/Players2024.csv) | A summary of about 250 2024 soccer players |
-| [Coffee survey](data_sources/coffee_survey.csv) | A survey of coffee preferences | 
+| [World populations](../data_sources/population.csv) | A summary of world populations and corresponding statistics | 
+| [Soccer players](../data_sources/Players2024.csv) | A summary of about 250 2024 soccer players |
+| [Coffee survey](../data_sources/coffee_survey.csv) | A survey of coffee preferences | 
 | [Melbourne housing data](data_sources/melb_data.csv) | A collection of houses for sale in Melbourne | 
 | [Goodreads books](data_sources/books.csv) | Data for 50,000 goodreads books |
 | [Queensland hospitals](data_sources/hospital_data.csv) | Emergency department statistics |
@@ -50,3 +53,30 @@ You're welcome to use the project time however you'd like. Below is a rough guid
 The presentations will be during Thursday's final session at 2:50pm.
 
 Good luck!
+
+## Submission
+
+There are two ways you can upload your visualisations.
+
+### Upload dashboard to GitHub
+
+This is the advanced way of doing things - we recommend this way, because it'll show you a good insight into using GitHub.
+
+1. [Create a GitHub account and log in](https://github.com/)
+2. Create a fork of our [python-training-intensive] repository. This is a copy of the repo in your account, changes *will not automatically affect the main repo*. **Leave all settings unchanged**.
+3. Go into the `Projects` folder, and click `Add file` $\rightarrow$ `Create new file`.
+4. Give it a name but **no content**. This will be your folder. Press `Commit changes...`.
+5. Go into your new folder and click `Add file` $\rightarrow$ `Upload files`.
+6. Upload your dashboard and associated files. Press `Commit changes`.
+7. Press `<> Code` (top left) to go back to the top level of the repo
+8. Press `Contribute` $\rightarrow$ `Open pull request` to request merging your files into the main repo
+9. Press `Create pull request` when you're ready.
+10. If you need to make further changes, no worries - the pull request will stay up to date with these **until approved or closed**.
+
+Give it a go if you can! 
+
+If there's any issues, we'll leave a comment for you to fix up the merge and we'll approve it when ready.
+
+### Upload dashboard to Teams
+
+If you're having issues with the GitHub approach, we can upload it for you. Just put your folder with the dashboard into our [Teams folder](https://uq.sharepoint.com/:f:/r/teams/1qktlisq/Shared%20Documents/R%20User%20Group/R%20Training%20Intensive%20Projects?csf=1&web=1&e=Oahf5h).
