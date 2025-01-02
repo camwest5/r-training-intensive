@@ -18,3 +18,31 @@ We have eight datasets for you to choose from. **We recommend saving your data i
 | [Aeroplane bird strikes](../data_sources/birds_strikes.csv) | Aeroplane bird strike incidents fron the 90s| 
 
 ## Tips
+
+Here's a few general tips. 
+
+### Importing data
+In case you've forgotten, use the `read.csv()` function to import data:
+
+```r
+dataset <- read.csv("data/dataset.csv")
+```
+
+### Time series data
+If you've picked a dataset with time-series data (e.g. a "date" variable), you should transform that column so that it visualises better:
+
+```r
+dataset <- dataset %>%
+  mutate(time_based_column = as.Date(time_based_column))
+```
+
+| Dataset | Tips | 
+| --- | --- |
+| World populations |  | 
+| Soccer players |  |
+| Coffee survey |  | 
+| Melbourne housing data || 
+| Goodreads books |  |
+| Queensland hospitals |  |
+| Queensland fuel prices | | 
+| Aeroplane bird strikes | | 
