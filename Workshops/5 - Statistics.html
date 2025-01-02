@@ -4895,9 +4895,24 @@ window.Quarto = {
     <span class="navbar-title">R Training Intensive</span>
     </a>
   </div>
-        <div class="quarto-navbar-tools tools-end">
+            <div id="quarto-search" class title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../Workshops/index.html" aria-current="page"> 
+<span class="menu-text">Workshops</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../Projects/gallery.html"> 
+<span class="menu-text">Project Gallery</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
 </div>
-          <div id="quarto-search" class title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
@@ -4974,6 +4989,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../project.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Project</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Projects/gallery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project Gallery</span></a>
   </div>
 </li>
     </ul>
@@ -5075,14 +5096,14 @@ window.Quarto = {
 </section>
 <section id="measures-of-correlation" class="level3">
 <h3 class="anchored" data-anchor-id="measures-of-correlation">Measures of correlation</h3>
-<p>If you’ve got two numeric variables, you might want to examine covariance and correlation. These indicate how strongly the variables are linearly related. We’ll need to use the <code>players$Age</code> variable as well.</p>
-<p>The covariance between “height_cm” and “Age” is</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(players<span class="sc">$</span>height_cm, players<span class="sc">$</span>Age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you’ve got two numeric variables, you might want to examine covariance and correlation. These indicate how strongly the variables are linearly related. We’ll need to use the <code>players$age</code> variable as well.</p>
+<p>The covariance between “height_cm” and “age” is</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(players<span class="sc">$</span>height_cm, players<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Similarly, we can find the Pearson correlation coefficient between two columns.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(players<span class="sc">$</span>height_cm, players<span class="sc">$</span>Age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(players<span class="sc">$</span>height_cm, players<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You can also specify “kendall” or “spearman” for their respective correlation coefficients</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(players<span class="sc">$</span>height_cm, players<span class="sc">$</span>Age, <span class="at">method =</span> <span class="st">&quot;kendall&quot;</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(players<span class="sc">$</span>height_cm, players<span class="sc">$</span>Age, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(players<span class="sc">$</span>height_cm, players<span class="sc">$</span>age, <span class="at">method =</span> <span class="st">&quot;kendall&quot;</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(players<span class="sc">$</span>height_cm, players<span class="sc">$</span>age, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="reminder-about-groupbys" class="level3">
 <h3 class="anchored" data-anchor-id="reminder-about-groupbys">Reminder about groupbys</h3>
@@ -5104,9 +5125,9 @@ window.Quarto = {
 <p>Least-squares regression for two sets of measurements can be performed with the function <code>lm</code>. Recall that linear regressions have the mathematical form</p>
 <p><span class="math display">\[ Y = β_1 X + β_0 \]</span></p>
 <p>and we use the regression tool to estimate the parameters <span class="math inline">\(β_0\,,β_1\)</span>. We can equivalently say that <span class="math inline">\(Y \sim X\)</span>, which is what R takes in</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="st">&quot;height_cm ~ Age&quot;</span>, players)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="st">&quot;height_cm ~ age&quot;</span>, players)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If we store this as a variable, we can then produce a summary of the results</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="st">&quot;height_cm ~ Age&quot;</span>, players)</span>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="st">&quot;height_cm ~ age&quot;</span>, players)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If you want to get specific parameters out, we can index with <code>$</code>:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -5116,7 +5137,7 @@ window.Quarto = {
 <p>Naturally, you’d want to plot this. We’ll need to use techniques from the visualisation session. Let’s import <strong>ggplot2</strong></p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Start by making a scatterplot of the data,</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(players, <span class="fu">aes</span>(<span class="at">x =</span> height_cm, <span class="at">y =</span> Age)) </span>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(players, <span class="fu">aes</span>(<span class="at">x =</span> height_cm, <span class="at">y =</span> age)) </span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then, you’ll need to plot the regression as a line. For reference,</p>
 <p><span class="math display">\[ y = \text{slope}\times x + \text{intercept}\]</span></p>
@@ -5124,7 +5145,7 @@ window.Quarto = {
 <div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>b0 <span class="ot">&lt;-</span> model<span class="sc">$</span>coefficients[<span class="dv">1</span>]</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>b1 <span class="ot">&lt;-</span> model<span class="sc">$</span>coefficients[<span class="dv">2</span>]</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(players, <span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">y =</span> height_cm)) <span class="sc">+</span> </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(players, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> height_cm)) <span class="sc">+</span> </span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_abline</span>(<span class="at">intercept =</span> b0, <span class="at">slope =</span> b1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
