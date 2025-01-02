@@ -1,6 +1,6 @@
 ---
 title: Project Gallery
 listing:
-    contents: example_project.qmd
+    contents: "*/*.{py,qmd,md,Rmd,R}"
     type: grid
 ---
