@@ -36,7 +36,7 @@ ggsave("tb.png")
 ```{R}
 #| title: Age vs Height
 
-p <- ggplot(players, aes(x = Age, y = height_cm, colour = positions, hover_name = "name", hover_data = "nationality")) + 
+p <- ggplot(players, aes(x = age, y = height_cm, colour = positions, hover_name = "name", hover_data = "nationality")) + 
   geom_point() + 
   facet_wrap(vars(positions)) + 
   labs(x = "age", colour = "Position", y = "Height (cm)")
