@@ -43,6 +43,171 @@
     ]
   },
   {
+    "objectID": "Workshops/3 - Visualisation.html",
+    "href": "Workshops/3 - Visualisation.html",
+    "title": "Visualisation",
+    "section": "",
+    "text": "During this session, you will:",
+    "crumbs": [
+      "Workshops",
+      "Visualisation"
+    ]
+  },
+  {
+    "objectID": "Workshops/3 - Visualisation.html#installing-ggplot2",
+    "href": "Workshops/3 - Visualisation.html#installing-ggplot2",
+    "title": "Visualisation",
+    "section": "Installing ggplot2",
+    "text": "Installing ggplot2\nWe first need to make sure we have the ggplot2 package available on our computer. We can use the “Install” button in the “Packages” pane, or we can execute this command in the console: install.packages(\"ggplot2\")\nYou only need to install a package once, but you need to load it every time you start a new R session.\nWe will write ggplot2 code more comfortably in a script. Feel free to continue using the script from previous sessions, or create a new one about visualisations.\nWe can straight away load the package into the library by adding this command to our script and executing it:\n\nlibrary(ggplot2)",
+    "crumbs": [
+      "Workshops",
+      "Visualisation"
+    ]
+  },
+  {
+    "objectID": "Workshops/3 - Visualisation.html#finding-help",
+    "href": "Workshops/3 - Visualisation.html#finding-help",
+    "title": "Visualisation",
+    "section": "Finding help",
+    "text": "Finding help\nWe are going to work with different datasets that come with the ggplot2 package. For any dataset or function doubts that you might have, don’t forget the three ways to bring up a help page:\n\nthe command: ?functionname\nthe keyboard shortcut: press F1 after writing a function name\nthe search box in the Help pane\n\n\nIntroducing ggplot2\nThe R package ggplot2 was developed by Hadley Wickham with the objective of creating a grammar of graphics for categorical data (in 2007). It is based on the book The Grammar of Graphics Developed by Leland Wilkinson (first edition published in 1999).\nIt is now part of the group of data science packages called Tidyverse.",
+    "crumbs": [
+      "Workshops",
+      "Visualisation"
+    ]
+  },
+  {
+    "objectID": "Workshops/3 - Visualisation.html#the-components-of-the-grammar-of-graphics",
+    "href": "Workshops/3 - Visualisation.html#the-components-of-the-grammar-of-graphics",
+    "title": "Visualisation",
+    "section": "The components of the Grammar of Graphics",
+    "text": "The components of the Grammar of Graphics\nThe Grammar of Graphics is based on the idea that you can build every graph from the same few components.\nThe components are:\n\nData\nMapping\nStatistics\nScales\nGeometries\nFacets\nCoordinates\nTheme\n\nIn this introductory session, we will mainly focus on the data, the mapping, the statistics, the geometries and the theme.",
+    "crumbs": [
+      "Workshops",
+      "Visualisation"
+    ]
+  },
+  {
+    "objectID": "Workshops/3 - Visualisation.html#ggplot2s-three-essential-components",
+    "href": "Workshops/3 - Visualisation.html#ggplot2s-three-essential-components",
+    "title": "Visualisation",
+    "section": "ggplot2’s three essential components",
+    "text": "ggplot2’s three essential components\nIn ggplot2, the 3 main components that we usually have to provide are:\n\nWhere the data comes from,\nthe aesthetic mappings, and\na geometry.\n\nFor our first example, let’s use the msleep dataset (from the ggplot2 package), which contains data about mammals’ sleeping patterns.\n\nYou can find out about the dataset with ?msleep.\n\nLet’s start with specifying where the data comes from in the ggplot() function:\n\nggplot(data = msleep)\n\n\n\n\n\n\n\n\nThis is not very interesting. We need to tell ggplot2 what we want to visualise, by mapping aesthetic elements (like our axes) to variables from the data. We want to visualise how common different conservations statuses are, so let’s associate the right variable to the x axis:\n\nggplot(data = msleep,\n       mapping = aes(x = conservation))\n\n\n\n\n\n\n\n\nggplot2 has done what we asked it to do: the conservation variable is on the x axis. But nothing is shown on the plot area, because we haven’t defined how to represent the data, with a geometry_* function:\n\nggplot(data = msleep,\n       mapping = aes(x = conservation)) +\n  geom_bar()\n\n\n\n\n\n\n\n\nNow we have a useful plot: we can see that a lot of animals in this dataset don’t have a conservation status, and that “least concern” is the next most common value.\nWe can see our three essential elements in the code:\n\nthe data comes from the msleep object;\nthe variable conservation is mapped to the aesthetic x (i.e. the x axis);\nthe geometry is \"bar\", for “bar chart”.\n\nHere, we don’t need to specify what variable is associated to the y axis, as the “bar” geometry automatically does a count of the different values in the conservation variable. That is what statistics are applied automatically to the data.\n\nIn ggplot2, each geometry has default statistics, so we often don’t need to specify which stats we want to use. We could use a stat_*() function instead of a geom_*() function, but most people start with the geometry (and let ggplot2 pick the default statistics that are applied).",
+    "crumbs": [
+      "Workshops",
+      "Visualisation"
+    ]
+  },
+  {
+    "objectID": "Workshops/3 - Visualisation.html#line-plots",
+    "href": "Workshops/3 - Visualisation.html#line-plots",
+    "title": "Visualisation",
+    "section": "Line plots",
+    "text": "Line plots\nLet’s have a look at another dataset: the economics dataset from the US. Learn more about it with ?economics, and have a peak at its structure with:\n\nstr(economics)\n\nspc_tbl_ [574 × 6] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n $ date    : Date[1:574], format: \"1967-07-01\" \"1967-08-01\" ...\n $ pce     : num [1:574] 507 510 516 512 517 ...\n $ pop     : num [1:574] 198712 198911 199113 199311 199498 ...\n $ psavert : num [1:574] 12.6 12.6 11.9 12.9 12.8 11.8 11.7 12.3 11.7 12.3 ...\n $ uempmed : num [1:574] 4.5 4.7 4.6 4.9 4.7 4.8 5.1 4.5 4.1 4.6 ...\n $ unemploy: num [1:574] 2944 2945 2958 3143 3066 ...\n\n\nDo you think that unemployment is stable over the years? Let’s have a look with a line plot, often used to visualise time series:\n\nggplot(data = economics,\n       mapping = aes(x = date,\n                     y = unemploy)) + \n    geom_line()\n\n\n\n\n\n\n\n\nLet’s go through our essential elements once more:\n\nThe ggplot() function initialises a ggplot object. In it, we declare the input data frame and specify the set of plot aesthetics used throughout all layers of our plot;\nThe aes() function groups our mappings of aesthetics to variables;\nThe geom_&lt;...&gt;() function specifies what geometric element we want to use.",
+    "crumbs": [
+      "Workshops",
+      "Visualisation"
+    ]
+  },
+  {
+    "objectID": "Workshops/3 - Visualisation.html#scatterplots",
+    "href": "Workshops/3 - Visualisation.html#scatterplots",
+    "title": "Visualisation",
+    "section": "Scatterplots",
+    "text": "Scatterplots\nScatterplots are often used to look at the relationship between two variables. Let’s try it with a new dataset: mpg (which stands for “miles per gallon”), a dataset about fuel efficiency of different models of cars.\n\n?mpg\nstr(mpg)\n\nDo you think that big engines use fuel more efficiently than small engines?\nWe can focus on two variables:\n\ndispl: a car’s engine size, in litres.\nhwy: a car’s fuel efficiency on the highway, in miles per gallon.\n\nFor the geometry, we now have use “points”:\n\nggplot(data = mpg,\n       mapping = aes(x = displ,\n                     y = hwy)) +\n    geom_point()\n\n\n\n\n\n\n\n\nNotice how the points seem to be aligned on a grid? That’s because the data was rounded. If we want to better visualise the density of points, we can use the “count” geometry, which makes the dots bigger when data points have the same x and y values:\n\nggplot(data = mpg,\n       mapping = aes(x = displ,\n                     y = hwy)) +\n    geom_count()\n\n\n\n\n\n\n\n\nAlternatively, we can avoid overlapping of points by using the “jitter” geometry, which gives the points a little shake:\n\nggplot(data = mpg,\n       mapping = aes(x = displ,\n                     y = hwy)) +\n    geom_jitter()\n\n\n\n\n\n\n\n\nEven though the position of the dots does not match exactly the original x and y values, it does help visualise densities better.\nThe plot shows a negative relationship between engine size (displ) and fuel efficiency (hwy). In other words, cars with big engines use more fuel. Does this confirm or refute your hypothesis about fuel efficiency and engine size?\nHowever, we can see some outliers. We need to find out more about our data.",
+    "crumbs": [
+      "Workshops",
+      "Visualisation"
+    ]
+  },
+  {
+    "objectID": "Workshops/3 - Visualisation.html#adding-aesthetics",
+    "href": "Workshops/3 - Visualisation.html#adding-aesthetics",
+    "title": "Visualisation",
+    "section": "Adding aesthetics",
+    "text": "Adding aesthetics\nWe can highlight the “class” factor by adding a new aesthetic:\n\nggplot(data = mpg,\n       mapping = aes(x = displ,\n                     y = hwy,\n                     colour = class)) +\n    geom_jitter()\n\n\n\n\n\n\n\n\nIt seems that two-seaters are more fuel efficient than other cars with a similar engine size, which can be explained by the lower weight of the car. The general trend starts to make more sense!\nWe now know how to create a simple scatterplot, and how to visualise extra variables. But how can we better represent a correlation?",
+    "crumbs": [
+      "Workshops",
+      "Visualisation"
+    ]
+  },
+  {
+    "objectID": "Workshops/3 - Visualisation.html#trend-lines",
+    "href": "Workshops/3 - Visualisation.html#trend-lines",
+    "title": "Visualisation",
+    "section": "Trend lines",
+    "text": "Trend lines\nA trend line can be created with the geom_smooth() function:\n\nggplot(mpg,\n       aes(x = displ,\n           y = hwy)) +\n    geom_smooth()\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\nWe stopped using the argument names because we know in which order they appear: first the data, then the mapping of aesthetics. Let’s save ourselves some typing from now on!\n\nThe console shows you what function / formula was used to draw the trend line. This is important information, as there are countless ways to do that. To better understand what happens in the background, open the function’s help page and notice that the default value for the method argument is “NULL”. Read up on how it automatically picks a suitable method depending on the sample size, in the “Arguments” section.\nWant a linear trend line instead? Add the argument method = \"lm\" to your function:\n\nggplot(mpg,\n       aes(x = displ,\n           y = hwy)) +\n    geom_smooth(method = \"lm\")\n\n`geom_smooth()` using formula = 'y ~ x'",
+    "crumbs": [
+      "Workshops",
+      "Visualisation"
+    ]
+  },
+  {
+    "objectID": "Workshops/3 - Visualisation.html#layering",
+    "href": "Workshops/3 - Visualisation.html#layering",
+    "title": "Visualisation",
+    "section": "Layering",
+    "text": "Layering\nA trend line is usually displayed on top of the scatterplot. How can we combine several layers? We can string them with the + operator:\n\nggplot(mpg,\n       aes(x = displ,\n           y = hwy)) + \n    geom_point() +\n    geom_smooth()\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\nThe order of the functions matters: the points will be drawn before the trend line, which is probably what you’re after.",
+    "crumbs": [
+      "Workshops",
+      "Visualisation"
+    ]
+  },
+  {
+    "objectID": "Workshops/3 - Visualisation.html#the-colour-aesthetic",
+    "href": "Workshops/3 - Visualisation.html#the-colour-aesthetic",
+    "title": "Visualisation",
+    "section": "The colour aesthetic",
+    "text": "The colour aesthetic\nWe can once again add some information to our visualisation by mapping the class variable to the colour aesthetic:\n\nggplot(mpg,\n       aes(x = displ,\n           y = hwy)) + \n    geom_point(aes(colour = class)) + \n    geom_smooth()\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nChallenge 1 – where should aesthetics be defined?\nTake the last plot we created:\n\nggplot(mpg,\n       aes(x = displ,\n           y = hwy)) + \n    geom_point(aes(colour = class)) + \n    geom_smooth()\n\nWhat would happen if you moved the colour = class aesthetic from the geometry function to the ggplot() call?\nDifferent geometries can also have their own mappings that overwrite the defaults. If you place mappings in a geom function, ggplot2 will treat them as local mappings for the layer. It will use these mappings to extend or overwrite the global mappings for that layer only. This makes it possible to display different aesthetics in different layers.",
+    "crumbs": [
+      "Workshops",
+      "Visualisation"
+    ]
+  },
+  {
+    "objectID": "Workshops/3 - Visualisation.html#saving-a-plot",
+    "href": "Workshops/3 - Visualisation.html#saving-a-plot",
+    "title": "Visualisation",
+    "section": "Saving a plot",
+    "text": "Saving a plot\nLike your visualisation? You can export it with the “Export” menu in the “Plots” pane.\n\nBuilding a document or a slideshow? You can copy it straight to your clipboard, and paste it into it.\nA PDF is a good, quick option to export an easily shareable file with vector graphics. Try for example the “A5” size, the “Landscape” orientation, and save it into your “plots” directory.\nMore options are available in the “Save as image…” option. PNG is a good compressed format for graphics, but if you want to further customise your visualisation in a different program, use SVG or EPS, which are vector formats. (Try to open an SVG file in Inkscape for example.)\n\nTo save the last plot with a command, you can use the ggsave() function:\n\nggsave(filename = \"plots/fuel_efficiency.png\")\n\nThis is great to automate the export process for each plot in your script, but ggsave() also has extra options, like setting the DPI, which is useful for getting the right resolution for a specific use. For example, to export a plot for your presentation:\n\nggsave(filename = \"plots/fuel_efficiency.png\", dpi = \"screen\")\n\n\nSaving a .svg file with requires installing the svglite package. This packages seems so work best installing in a fresh R session (Session &gt; Restart R) from source install.packages(\"svglite\", type = \"source\"). Then load the library library(svglite) rerun your code including loading previous libraries (ggplot2 etc.) and now saving a plot with a .svg extension should work!\n\nChallenge 2 – add a variable and a smooth line\nLet’s use a similar approach to what we did with the mpg dataset.\nTake our previous unemployment visualisation, but represented with points this time:\n\nggplot(economics,\n       aes(x = date,\n           y = unemploy)) + \n    geom_point()\n\nHow could we:\n\nAdd a smooth line for the number of unemployed people. Are there any interesting arguments that could make the smoother more useful?\nColour the points according to the median duration of unemployment (see ?economics)\n\n\nggplot(economics,\n       aes(x = date,\n           y = unemploy)) + \n    geom_point(aes(colour = uempmed)) +\n    geom_smooth()\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\nSee how the legend changes depending on the type of data mapped to the colour aesthetic? (i.e. categorical vs continuous)\n\nThis default “trend line” is not particularly useful. We could make it follow the data more closely by using the span argument. The closer to 0, the closer to the data the smoother will be:\n\nggplot(economics,\n       aes(x = date,\n           y = unemploy)) + \n    geom_point(aes(colour = uempmed)) +\n    geom_smooth(span = 0.1)\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nYou can now see why this is called a “smoother”: we can fit a smooth curve to data that varies a lot.\nTo further refine our visualisation , we could visualise the unemployment rate rather than the number of unemployed people, by calculating it straight into our code:\n\nggplot(economics,\n       aes(x = date,\n           y = unemploy / pop)) + \n    geom_point(aes(colour = uempmed)) +\n    geom_smooth(span = 0.1)\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nThe early 1980s recession now seems to have had a more significant impact on unemployment than the Global Financial Crisis of 2007-2008.",
+    "crumbs": [
+      "Workshops",
+      "Visualisation"
+    ]
+  },
+  {
+    "objectID": "Workshops/3 - Visualisation.html#bar-charts-and-ordered-factors",
+    "href": "Workshops/3 - Visualisation.html#bar-charts-and-ordered-factors",
+    "title": "Visualisation",
+    "section": "Bar charts and ordered factors",
+    "text": "Bar charts and ordered factors\nLet’s use the diamonds dataset now. The diamonds dataset comes with ggplot2 and contains information about ~54,000 diamonds, including the price, carat, colour, clarity, and cut quality of each diamond.\nLet’s have a look at the data:\n\ndiamonds\nsummary(diamonds)\n?diamonds\n\nBack to bar charts. Consider a basic bar chart, as drawn with geom_bar(). The following chart displays the total number of diamonds in the diamonds dataset, grouped by cut:\n\nggplot(diamonds,\n       aes(x = cut)) + \n    geom_bar()\n\n\n\n\n\n\n\n\nThe chart shows that more diamonds are available with high quality cuts than with low quality cuts.\ncut is an ordered factor, which you can confirm by printing it to the console:\n\nhead(diamonds$cut)\n\n[1] Ideal     Premium   Good      Premium   Good      Very Good\nLevels: Fair &lt; Good &lt; Very Good &lt; Premium &lt; Ideal\n\n\nSee how ggplot2 respects that order in the bar chart?\n\nCustomising a plot\nLet’s see how we can customise our bar chart’s look.\n\nChange a geometry’s default colour\nFirst, we can pick our favourite colour in geom_bar():\n\nggplot(diamonds,\n       aes(x = cut)) + \n    geom_bar(fill = \"tomato\")\n\n\n\n\n\n\n\n\nIf you are curious about what colour names exist in R, you can use the colours() function.\n\n\n\nChange labels\nWe can also modify labels with the labs() function to make our plot more self-explanatory:\n\nggplot(diamonds,\n       aes(x = cut)) + \n    geom_bar(fill = \"tomato\") +\n    labs(title = \"Where are the bad ones?\",\n         x = \"Quality of the cut\",\n         y = \"Number of diamonds\")\n\n\n\n\n\n\n\n\nLet’s have a look at what labs() can do:\n\n?labs\n\nIt can edit the title, the subtitle, the x and y axes labels, and the caption.\n\nRemember that captions and titles are better sorted out in the publication itself, especially for accessibility reasons (e.g. to help with screen readers).\n\n\n\nHorizontal bar charts\nFor a horizontal bar chart, we can map the cut variable to the y aesthetic instead of x. But remember to also change your labels around!\n\nggplot(diamonds,\n       aes(y = cut)) + # switch here...\n  geom_bar(fill = \"tomato\") +\n  labs(title = \"Where are the bad ones?\",\n       y = \"Quality of the cut\", # ...but also here!\n       x = \"Number of diamonds\") # ...and here!\n\n\n\n\n\n\n\n\nThis is particularly helpful when long category names overlap under the x axis.\n\n\nBuilt-in themes\nThe theme() function allows us to really get into the details of our plot’s look, but some theme_*() functions make it easy to apply a built-in theme, like theme_bw():\n\nggplot(diamonds,\n       aes(y = cut)) + \n  geom_bar(fill = \"tomato\") +\n  labs(title = \"Where are the bad ones?\",\n       y = \"Quality of the cut\",\n       x = \"Number of diamonds\") +\n  theme_bw()\n\n\n\n\n\n\n\n\nTry theme_minimal() as well, and if you want more options, install the ggthemes package!",
+    "crumbs": [
+      "Workshops",
+      "Visualisation"
+    ]
+  },
+  {
+    "objectID": "Workshops/3 - Visualisation.html#play-time",
+    "href": "Workshops/3 - Visualisation.html#play-time",
+    "title": "Visualisation",
+    "section": "Play time!",
+    "text": "Play time!\nChallenge 3: explore geometries\nWhen creating a new layer, start typing geom_ and see what suggestions pop up. Are there any suggestions that sound useful or familiar to you?\nModify your plots, play around with different layers and functions, and ask questions!",
+    "crumbs": [
+      "Workshops",
+      "Visualisation"
+    ]
+  },
+  {
+    "objectID": "Workshops/3 - Visualisation.html#useful-links",
+    "href": "Workshops/3 - Visualisation.html#useful-links",
+    "title": "Visualisation",
+    "section": "Useful links",
+    "text": "Useful links\n\nFor ggplot2:\n\nggplot2 cheatsheet\nOfficial ggplot2 documentation\nOfficial ggplot2 website\nChapter on data visualisation in the book R for Data Science\nFrom Data to Viz, a website to explore different visualisations and the code that generates them\nSelva Prabhakaran’s r-statistics.co section on ggplot2\nCoding Club’s data visualisation tutorial\nCookbook for R graphs\nSTHDA’s ggplot2 essentials",
+    "crumbs": [
+      "Workshops",
+      "Visualisation"
+    ]
+  },
+  {
     "objectID": "Workshops/1 - Fundamentals.html",
     "href": "Workshops/1 - Fundamentals.html",
     "title": "The Fundamentals",
