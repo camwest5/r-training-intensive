@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R dplyr: preparing data for analysis – R Training Intensive</title>
+<title>Preparing data for analysis – R Training Intensive</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -4781,7 +4781,7 @@ vertical-align: -.125em;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Workshops/index.html">Workshops</a></li><li class="breadcrumb-item"><a href="../Workshops/2 - Data processing.html">R dplyr: preparing data for analysis</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Workshops/index.html">Workshops</a></li><li class="breadcrumb-item"><a href="../Workshops/2 - Data processing.html">Preparing data for analysis</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -4817,7 +4817,7 @@ vertical-align: -.125em;
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Workshops/2 - Data processing.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">R dplyr: preparing data for analysis</span></a>
+ <span class="menu-text">Preparing data for analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -4914,9 +4914,9 @@ vertical-align: -.125em;
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Workshops/index.html">Workshops</a></li><li class="breadcrumb-item"><a href="../Workshops/2 - Data processing.html">R dplyr: preparing data for analysis</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Workshops/index.html">Workshops</a></li><li class="breadcrumb-item"><a href="../Workshops/2 - Data processing.html">Preparing data for analysis</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">R dplyr: preparing data for analysis</h1>
+<h1 class="title">Preparing data for analysis</h1>
 </div>
 
 
@@ -4933,35 +4933,6 @@ vertical-align: -.125em;
 </header>
 
 
-<p>UQ Library 2024-11-27</p>
-<ul>
-<li><a href="#what-are-we-going-to-learn">What are we going to learn?</a></li>
-<li><a href="#keep-in-mind">Keep in mind</a>
-<ul>
-<li><a href="#help">Help</a></li>
-</ul></li>
-<li><a href="#setting-up">Setting up</a>
-<ul>
-<li><a href="#install-the-dplyr-package">Install the dplyr package</a></li>
-<li><a href="#new-project">New project</a></li>
-<li><a href="#create-a-script">Create a script</a></li>
-<li><a href="#introducing-our-data">Introducing our data</a></li>
-</ul></li>
-<li><a href="#basic-dplyr-verbs">Basic dplyr verbs</a>
-<ul>
-<li><a href="#1-pick-variables-with-select">1. Pick variables with <code>select()</code></a></li>
-<li><a href="#2-pick-observations-with-filter">2. Pick observations with <code>filter()</code></a></li>
-<li><a href="#3-reorder-observations-with-arrange">3. Reorder observations with <code>arrange()</code></a>
-<ul>
-<li><a href="#the-pipe-operator">The pipe operator</a></li>
-</ul></li>
-<li><a href="#4-create-new-variables-with-mutate">4. Create new variables with <code>mutate()</code></a></li>
-<li><a href="#5-collapse-to-a-single-value-with-summarise">5. Collapse to a single value with <code>summarise()</code></a></li>
-<li><a href="#6-change-the-scope-with-group_by">6. Change the scope with <code>group_by()</code></a></li>
-</ul></li>
-<li><a href="#more-examples">More examples</a></li>
-<li><a href="#close-project">Close project</a></li>
-</ul>
 <section id="what-are-we-going-to-learn" class="level2">
 <h2 class="anchored" data-anchor-id="what-are-we-going-to-learn">What are we going to learn?</h2>
 <p>In this hands-on session, we will use the <code>dplyr</code> package to transform your data.</p>
@@ -5297,7 +5268,6 @@ vertical-align: -.125em;
 <span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>`summarise()` has grouped output by &#39;continent&#39;. You can override using the
 `.groups` argument.</code></pre>
-<p><img role="img" src="dplyr_files/figure-commonmark/unnamed-chunk-31-1.png" class="img-fluid"></p>
 <p>And another example, using using our gapminder dataset:</p>
 <p>Let’s say we want to calulate the variation (range) in life expectancy per country and plot the top and bottom 10 countries?</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
@@ -5319,7 +5289,6 @@ vertical-align: -.125em;
 <span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>           <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">size=</span> <span class="dv">5</span> , <span class="at">angle=</span><span class="dv">90</span>) <span class="co"># add labels to colored lines</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.</code></pre>
-<p><img role="img" src="dplyr_files/figure-commonmark/unnamed-chunk-32-1.png" class="img-fluid"></p>
 </section>
 <section id="close-project" class="level2">
 <h2 class="anchored" data-anchor-id="close-project">Close project</h2>
