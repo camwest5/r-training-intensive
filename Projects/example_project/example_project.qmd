@@ -8,10 +8,14 @@ format: dashboard
 image: tb.png
 ---
 
+## Row {height = 10%}
+**[Download the code for this dashboard](../example_project.zip)**
+
 ```{R}
 library(ggplot2)
 library(dplyr)
 library(plotly)
+library(knitr)
 
 players <- read.csv("../../data_sources/Players2024.csv")
 
@@ -49,5 +53,5 @@ ggplotly(p)
 
 ```{R}
 #| title: A glimpse at the dataset
-head(players)
+kable(players)
 ```
