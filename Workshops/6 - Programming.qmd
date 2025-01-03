@@ -1,6 +1,8 @@
 ---
 title: Programming Essentials
---- 
+editor: source
+date: today
+---
 
 In this workshop we cover the building blocks for developing more complex code, looking at
 
@@ -14,9 +16,9 @@ In the first half of this session we'll look at two types of control flows: **co
 
 Conditionals allow you to put "gates" in your code, only running sections if a certain **condition** is true. They are common to most programming languages.
 
-In Python, they are called `if` statements, because you use the `if` command. For example,
+In R, they are called `if` statements, because you use the `if` command. For example,
 
-```R
+```{r}
 if (5 > 0) {
   print("We're inside the if statement")
 }
@@ -26,7 +28,7 @@ The line `print("We're inside the if statement")` **will only run if `5 > 0` is 
 
 Curly brackets are essential. Only code inside them will be governed by conditional
 
-```R
+```{r}
 if (5 > 0) {
   print("We're inside the if statement")
 }
@@ -36,7 +38,7 @@ print("This code always runs")
 
 Watch what happens if we change the condition
 
-```R
+```{r}
 if (5 > 10) {
   print("We're inside the if statement")
 }
@@ -48,7 +50,7 @@ Now, the first line **doesn't run**. That's the essence of a conditional.
 
 There's not much point to using a condition that will always be true. Typically, you'd use a variable in the condition, for example.
 
-```R
+```{r}
 pet_age <- 10
 
 if (pet_age > 10) {
@@ -75,7 +77,7 @@ Here is a table of the different operators you can make conditions with. When yo
 
 `if` statements only run if the condition is **True**. What happens if its **False**? That's what the `else` command is for, it's like a net that catches anything that slipped past `if`:
 
-```R
+```{r}
 pet_age <- 5
 
 if (pet_age > 10) {
@@ -91,7 +93,7 @@ Check what happens when you change the age from 5 to 15.
 
 Finally, what if you wanted to check another condition **only if the first one fails**? That's what `else if` is for. It's another if statement but it only runs if the first fails.
 
-```R
+```{r}
 pet_age = 5
 
 if (pet_age > 10) {
@@ -106,7 +108,7 @@ if (pet_age > 10) {
 
 You can include as many as you'd like
 
-```R
+```{r}
 pet_age = 5
 
 if (pet_age > 10) {
@@ -129,8 +131,8 @@ R's loops offer us a way to run a section of code multiple times. There are two 
 ### `while` loops
 These are almost the same as `if` statements, except for the fact that they run the code multiple times. Let's begin with a basic conditional
 
-```python
-number <- 5
+```{r}
+number <- 1
 
 if (number < 5) {
   paste(number, "is less than 10.")
@@ -141,8 +143,8 @@ if (number < 5) {
 
 What if we wanted to check all the numbers between 5 and 10? We can use a while loop.
 
-```python
-number <- 5
+```{r}
+number <- 1
 
 while (number < 5) {
   print(paste(number, "is less than 10."))
@@ -168,13 +170,13 @@ In R, `for` loops iterate through a sequence, like the objects in a list. This i
 
 Let's say you have a vector of different fruit
 
-```R
+```{r}
 list_of_fruits <- c("apple", "banana", "cherry")
 ```
 
 and you want to run a section of code on `"apple"`, then `"banana"`, then `"cherry"`. Maybe you want to know which ones have the letter "a". We can start with a `for` loop
 
-```R
+```{r}
 list_of_fruits <- c("apple", "banana", "cherry")
 
 for (fruit in list_of_fruits) {
@@ -184,7 +186,7 @@ for (fruit in list_of_fruits) {
 
 This loop's job is to print out the variable `fruit`. But where is `fruit` defined? Well, the `for` loop runs `print(fruit)` for every element of `list_of_fruits`, **storing the current element in the variable `fruit`**. If we were to write it out explicitly, it would look like
 
-```R
+```{r}
 fruit <- list_of_fruits[0]
 print(fruit)
 
@@ -197,11 +199,11 @@ print(fruit)
 
 Let's return to our goal: working out which ones have an "a". We need to put a **conditional** inside the loop:
 
-```R
+```{r}
 list_of_fruits <- c("apple", "banana", "cherry")
 
 for (fruit in list_of_fruits) {
-    if grepl("a", fruit) { 
+    if (grepl("a", fruit)) { 
       print(paste("a is in", fruit))
     }
     else {
@@ -212,26 +214,26 @@ for (fruit in list_of_fruits) {
 
 Finally, it's often convenient to loop through a list of numbers. R makes this easy with the `x:y` notation:
 
-```R
+```{r}
 1:10
 ```
 
 contains all the integers between $1$ and $10$. To loop through each,
 
-```R
+```{r}
 for (i in 1:10) {
   print(i)
 }
 ```
 
 The advantage of this approach is that we can loop through many numbers:
-```R
+```{r eval=FALSE}
 for (i in 1:1000) {
   print(i)
 }
 ```
 
-This can be useful if you need to loop through multiple objects by indexing.
+This can be useful if you need to loop through multiple objects by indexing. We'll spare you the output here.
 
 ### Mapping with purrr
 
@@ -243,39 +245,45 @@ What is a map? Generally, a map takes *something* and makes it *something else*.
 
 Essentially, maps are a way of transforming a selection of variables in the same way. We'll start by brining in the `purrr` library
 
-```R
+```{r output=FALSE}
 library(purrr)
 ```
 
 Let's use the same data as in the statistics session:
 
-```R
+```{r eval=FALSE}
 library(dplyr)
-players <- read.csv("data_sources/Players2024.csv")
+players <- read.csv("data/Players2024.csv")
+players <- players %>% filter(positions != "Missing", height_cm > 100)
+```
+
+```{r echo=FALSE}
+library(dplyr)
+players <- read.csv("../data_sources/Players2024.csv")
 players <- players %>% filter(positions != "Missing", height_cm > 100)
 ```
 
 What if you want the median value from *all* columns? We can use the `map_dbl()` function to map *doubles* (long decimal numbers):
 
-```R
+```{r}
 map_dbl(players, median)
 ```
 
 Don't worry about the warnings - they're just there because you can't take the median of a non-numeric variable. To check which ones are, we can map the logical operator `is.numeric`:
 
-```R
+```{r}
 map_lgl(players, is.numeric)
 ```
 
 We can use the pipe here,
 
-```R
+```{r}
 players %>% map_lgl(is.numeric)
 ```
 
 Let's select the numeric columns and look at the medians again
 
-```R
+```{r}
 players %>% 
   select_if(is.numeric) %>%
   map_dbl(median)
@@ -283,7 +291,7 @@ players %>%
 
 We can also create custom functions. We use `.x` to refer to the variable:
 
-```R
+```{r}
 players %>% 
   select_if(is.numeric) %>%
   map_dbl(~max(.x) - min(.x))
@@ -310,7 +318,7 @@ We include these in three steps
 3. We end with a `return` statement, specifying the output
 
 
-```R
+```{r}
 insert_function_name_here <- function(input_1_name, input_2_name, ...) {
   # Code code code
 }
@@ -318,7 +326,7 @@ insert_function_name_here <- function(input_1_name, input_2_name, ...) {
 
 For example, let's create a function that converts centimetres to metres.
 
-```R
+```{r}
 cm_to_m <- function(value_in_cm) {
     value_in_cm / 100
 }
@@ -334,7 +342,7 @@ Importantly, **nothing appears when you run this code**. Why? Because you've onl
 
 To use this function, we need to call it. Let's convert $10\text{ cm}$ to $\text{m}$.
 
-```R
+```{r}
 cm_to_m <- function(value_in_cm) {
     value_in_cm / 100
 }
@@ -352,7 +360,7 @@ Because functions must be defined before called, and defining them produces no o
 
 One quirk of R functions is that, by default, they return the output of the line. Let's add a new line that prints the message "$x\text{ cm} = y\text{ m}$". We'll need to also save our calculation in the process:
 
-```R
+```{r}
 cm_to_m <- function(value_in_cm) {
     value_in_m <- value_in_cm / 100
     print(paste(value_in_cm, "cm =", value_in_m, "m"))
@@ -363,7 +371,7 @@ cm_to_m(10)
 
 It works, but we have a problem. The output of the function is the **whole message**, not the value. The easiest way to fix this is to call the output on the last line:
 
-```R
+```{r}
 cm_to_m <- function(value_in_cm) {
     value_in_m <- value_in_cm / 100
     print(paste(value_in_cm, "cm =", value_in_m, "m"))
