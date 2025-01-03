@@ -48,7 +48,7 @@ format:
       - default
       - custom.scss
     toc: true
-    embed-resources: true
+    embed-resources: false
 
 # if the GitHub action does the rendering, no need to freeze
 # see https://quarto.org/docs/publishing/github-pages.html#executing-code

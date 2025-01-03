@@ -13,4 +13,4 @@ Over these three days we'll cover six sessions of content:
 | [Statistics](./5%20-%20Statistics.md) | Descriptive and inferential statistics, with some regressions and hypothesis testing, using `scipy.stats` and `statsmodels` |
 | [Programming Essentials](./6%20-%20Programming.md) | Python tools everyone should know. Conditionals, loops, functions and importing scripts. |
 
-These content sessions are pretty packed, and we won't have too much time to deviate. That's why we'll also have five project sessions - see [The Project](../project.md) for details. You're welcome to ask lengthier questions and play around there!
+These content sessions are pretty packed, and we won't have too much time to deviate. That's why we'll also have five project sessions - see [Project Overview](../Projects/details.qmd) for details. You're welcome to ask lengthier questions and play around there!
