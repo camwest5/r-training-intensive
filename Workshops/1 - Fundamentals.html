@@ -258,10 +258,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#incomplete-functions" id="toc-incomplete-functions" class="nav-link" data-scroll-target="#incomplete-functions">Incomplete functions</a></li>
   <li><a href="#more-help" id="toc-more-help" class="nav-link" data-scroll-target="#more-help">More help</a></li>
   </ul></li>
-  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data">Import data</a>
-  <ul class="collapse">
-  <li><a href="#challenge-2-import-data" id="toc-challenge-2-import-data" class="nav-link" data-scroll-target="#challenge-2-import-data">Challenge 2 – Import data</a></li>
-  </ul></li>
+  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data">Import data</a></li>
   <li><a href="#explore-data" id="toc-explore-data" class="nav-link" data-scroll-target="#explore-data">Explore data</a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a>
   <ul class="collapse">
@@ -555,14 +552,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="import-data" class="level2">
 <h2 class="anchored" data-anchor-id="import-data">Import data</h2>
-<section id="challenge-2-import-data" class="level3">
-<h3 class="anchored" data-anchor-id="challenge-2-import-data">Challenge 2 – Import data</h3>
-<p>Copy and paste the following two commands into your script:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url =</span> <span class="st">"https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv"</span>,</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">destfile =</span> <span class="st">"data/gapminderdata.csv"</span>)</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>gapminder <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/gapminderdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s bring in some data. <a href="../data_sources/gapminder.csv">Download our gapminder dataset</a> and save it in the <code>data/</code> folder you just created.</p>
+<p>Once you’ve got the data, use the <code>read.csv()</code> command to bring it into R:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/gapminder.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>What do you think they do? Describe each one in detail, and try executing them.</p>
-</section>
 </section>
 <section id="explore-data" class="level2">
 <h2 class="anchored" data-anchor-id="explore-data">Explore data</h2>
