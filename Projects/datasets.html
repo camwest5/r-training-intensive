@@ -245,14 +245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#datasets" id="toc-datasets" class="nav-link active" data-scroll-target="#datasets">Datasets</a></li>
-  <li><a href="#tips" id="toc-tips" class="nav-link" data-scroll-target="#tips">Tips</a>
-  <ul class="collapse">
-  <li><a href="#importing-data" id="toc-importing-data" class="nav-link" data-scroll-target="#importing-data">Importing data</a></li>
-  <li><a href="#initial-exploration" id="toc-initial-exploration" class="nav-link" data-scroll-target="#initial-exploration">Initial exploration</a></li>
-  <li><a href="#time-series-data" id="toc-time-series-data" class="nav-link" data-scroll-target="#time-series-data">Time series data</a></li>
-  <li><a href="#ordered-data" id="toc-ordered-data" class="nav-link" data-scroll-target="#ordered-data">Ordered data</a></li>
-  <li><a href="#renaming-columns" id="toc-renaming-columns" class="nav-link" data-scroll-target="#renaming-columns">Renaming columns</a></li>
-  </ul></li>
+  <li><a href="#tips" id="toc-tips" class="nav-link" data-scroll-target="#tips">Tips</a></li>
   </ul>
 </nav>
     </div>
@@ -327,13 +320,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="tips" class="level2">
 <h2 class="anchored" data-anchor-id="tips">Tips</h2>
 <p>Here’s a few general tips.</p>
-<section id="importing-data" class="level3">
-<h3 class="anchored" data-anchor-id="importing-data">Importing data</h3>
+<section id="hotkeys" class="level4">
+<h4 class="anchored" data-anchor-id="hotkeys">Hotkeys</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Hotkey</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><kbd>Ctrl</kbd>+<kbd>Enter</kbd></td>
+<td>Run current line (when in Script)</td>
+</tr>
+<tr class="even">
+<td><code>&lt;-</code></td>
+<td><kbd>Alt</kbd>+<kbd>Enter</kbd></td>
+<td>Assignment</td>
+</tr>
+<tr class="odd">
+<td><code>%&gt;%</code></td>
+<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd></td>
+<td>Pipe</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><kbd>Esc</kbd></td>
+<td>Cancel current operation (when in Console)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><kbd>F1</kbd></td>
+<td>Help documentation for selected function</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="importing-data" class="level4">
+<h4 class="anchored" data-anchor-id="importing-data">Importing data</h4>
 <p>In case you’ve forgotten, use the <code>read.csv()</code> function to import data:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/dataset.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="initial-exploration" class="level3">
-<h3 class="anchored" data-anchor-id="initial-exploration">Initial exploration</h3>
+<section id="initial-exploration" class="level4">
+<h4 class="anchored" data-anchor-id="initial-exploration">Initial exploration</h4>
 <p>You’ll want to explore the data to start with - below are a few functions to get started.</p>
 <table class="caption-top table">
 <colgroup>
@@ -377,14 +414,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="time-series-data" class="level3">
-<h3 class="anchored" data-anchor-id="time-series-data">Time series data</h3>
+<section id="time-series-data" class="level4">
+<h4 class="anchored" data-anchor-id="time-series-data">Time series data</h4>
 <p>If you’ve picked a dataset with time-series data (e.g.&nbsp;a “date” variable), you should transform that column so that it visualises better:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_based_column =</span> <span class="fu">as.Date</span>(time_based_column))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="ordered-data" class="level3">
-<h3 class="anchored" data-anchor-id="ordered-data">Ordered data</h3>
+<section id="ordered-data" class="level4">
+<h4 class="anchored" data-anchor-id="ordered-data">Ordered data</h4>
 <p>Some datasets have ordered data, but by default R doesn’t know this. To communicate the proper order to R, we use <code>factor()</code>, and send in an ordered list of the levels joined with <code>c()</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ordered_column =</span> <span class="fu">factor</span>(ordered_column, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"first_val"</span>, <span class="st">"second_val"</span>, ... )))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -392,8 +429,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This is particularly useful for the <strong>Coffee survey</strong> dataset.</p>
 </blockquote>
 </section>
-<section id="renaming-columns" class="level3">
-<h3 class="anchored" data-anchor-id="renaming-columns">Renaming columns</h3>
+<section id="renaming-columns" class="level4">
+<h4 class="anchored" data-anchor-id="renaming-columns">Renaming columns</h4>
 <p>Some datasets have cumbersome names for their variables. We can change variable names with</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">new_name =</span> old_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
