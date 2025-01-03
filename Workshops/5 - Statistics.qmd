@@ -1,6 +1,8 @@
 ---
 title: Statistics
---- 
+editor: source
+date: today
+---
 
 This session is aimed as an overview of how to perform some statistical modelling with R. **It is an R workshop, not a statistics workshop** - if you'd like to better understand the statistical models, or need help deciding what's best for you, please consult a statistics resource or contact a statistician.
 
@@ -18,31 +20,38 @@ In this session, we'll cover
   - $\chi^2$ test
   - ANOVAs
 
-We'll be working from our "Players2024" dataset. To bring it in and clean it up,
+We'll be working from our ["Players2024" dataset](../data_sources/Players2024.csv). After downloading it and putting it in your data folder, to bring it in and clean it up,
 
-```R
+```{r eval=FALSE}
 library(dplyr)
-players <- read.csv("data_sources/Players2024.csv")
+players <- read.csv("data/Players2024.csv")
 players <- players %>% filter(positions != "Missing", height_cm > 100)
 ```
+
+```{r echo=FALSE}
+library(dplyr)
+players <- read.csv("../data_sources/Players2024.csv")
+players <- players %>% filter(positions != "Missing", height_cm > 100)
+```
+
 
 ## Descriptive Statistics
 
 We'll start with sample size. To calculate the number of non-empty observations in a column, say the numeric variable `players$height_cm`, we use the `length()` function
 
-```R
+```{r}
 length(players$height_cm)
 ```
 
 We can compute measures of central tendancy similarly. The average value is given by
 
-```R
+```{r}
 mean(players$height_cm)
 ```
 
 and the median by
 
-```R
+```{r}
 median(players$height_cm)
 ```
 
@@ -50,40 +59,40 @@ median(players$height_cm)
 
 We can also compute measures of variance. The minimum and maximum are as expected
 
-```R
+```{r}
 min(players$height_cm)
 max(players$height_cm)
 ```
 
 The function `range()` yields both
 
-```R
+```{r}
 range(players$height_cm)
 ```
 
 So the actual range, i.e. the difference, is
 
-```R
+```{r}
 diff(range(players$height_cm))
 ```
 
 Quartiles are given by `quantile()` and the inter-quartile range (IQR)  by `IQR()`:
 
-```R
+```{r}
 quantile(players$height_cm)
 IQR(players$height_cm)
 ```
 
 A column's standard deviation and variance are given by
 
-```R
+```{r}
 sd(players$height_cm)
 var(players$height_cm)
 ```
 
 All together, you can see a nice statistical summary with
 
-```R
+```{r}
 summary(players$height_cm)
 ```
 
@@ -93,19 +102,19 @@ If you've got two numeric variables, you might want to examine covariance and co
 
 The covariance between "height_cm" and "age" is
 
-```R
+```{r}
 cov(players$height_cm, players$age)
 ```
 
 Similarly, we can find the Pearson correlation coefficient between two columns. 
 
-```R
+```{r}
 cor(players$height_cm, players$age)
 ```
 
 You can also specify "kendall" or "spearman" for their respective correlation coefficients
 
-```R
+```{r}
 cor(players$height_cm, players$age, method = "kendall")
 cor(players$height_cm, players$age, method = "spearman")
 ```
@@ -116,14 +125,14 @@ Before we move to inferential statistics, it's worth reiterating the power of gr
 
 To group by a specific variable, like "positions", we use 
 
-```R
+```{r}
 players %>% 
     group_by(positions)
 ```
 
 By applying our statistics to the `group_by` object, we'll apply them to *every* variable for *each* position.
 
-```R
+```{r}
 players %>% 
     group_by(positions) %>% 
     summarise(mean_height = mean(height_cm))
@@ -141,20 +150,20 @@ $$ Y = β_1 X + β_0 $$
 
 and we use the regression tool to estimate the parameters $β_0\,,β_1$. We can equivalently say that $Y \sim X$, which is what R takes in
 
-```R
+```{r}
 lm("height_cm ~ age", players)
 ```
 
 If we store this as a variable, we can then produce a summary of the results
 
-```R
+```{r}
 model <- lm("height_cm ~ age", players)
 summary(model)
 ```
 
 If you want to get specific parameters out, we can index with `$`:
 
-```R
+```{r}
 summary(model)$r.squared
 ```
 
@@ -164,15 +173,15 @@ That's a pretty shocking fit.
 
 Naturally, you'd want to plot this. We'll need to use techniques from the visualisation session. Let's import **ggplot2**
 
-```R
+```{r}
 library(ggplot2)
 ```
 
 Start by making a scatterplot of the data,
 
-```R
-ggplot(players, aes(x = height_cm, y = age)) 
-    + geom_point()
+```{r}
+ggplot(players, aes(x = height_cm, y = age)) +
+  geom_point()
 ```
 
 Then, you'll need to plot the regression as a line. For reference,
@@ -180,7 +189,7 @@ Then, you'll need to plot the regression as a line. For reference,
 $$ y = \text{slope}\times x + \text{intercept}$$
 
 So
-```R
+```{r}
 b0 <- model$coefficients[1]
 b1 <- model$coefficients[2]
 
@@ -201,14 +210,14 @@ Let's start by creating a new column with the values
 | `TRUE` | Goalkeeper | 
  
 
-```R
+```{r}
 players <- players %>% 
   mutate(gk = positions == "Goalkeeper")
 ```
 
 The $t$-test's goal is to check whether $\text{height\_cm}$ depends on $\text{gk}$, so the formula is $\text{height\_cm}\sim\text{gk}$. This is given to the `t.test` function:
 
-```R
+```{r}
 t.test(height_cm ~ gk, data = players)
 ```
 
@@ -216,7 +225,7 @@ Yielding a p-value of $p<2.2\times10^{-16}$, indicating that the null-hypothesis
 
 To visualise this result, it might be helpful to produce a histogram of the heights
 
-```R
+```{r}
 ggplot(players, 
        aes(x = height_cm, fill = gk)) + 
   geom_histogram(bins = 24)
@@ -228,19 +237,19 @@ What about the means of the other three? We could use an ANOVA to examine them. 
 
 Let's start by making a new dataset without goalkeepers
 
-```R
+```{r}
 no_gk <- players %>% filter(gk == FALSE)
 ```
 
 Next, we save the analysis of variance results
 
-```R
+```{r}
 res_aov <- aov(height_cm ~ positions, data = no_gk)
 ```
 
 And examine them with `summary()`
 
-```R
+```{r}
 summary(res_aov)
 ```
 
@@ -254,7 +263,7 @@ We only have one useful categorical variable here, "positions" (the others have 
 
 Make a binary column for players with the letter "a" in their names. To do this, we need to apply a string method to *all* the columns in the dataframe as follows
 
-```R
+```{r}
 players <- players %>%
   mutate(a_in_name = grepl("a", name))
 ```
@@ -263,19 +272,19 @@ players <- players %>%
 
 Let's cross tabulate positions with this new column
 
-```R
+```{r}
 table(players$positions, players$a_in_name)
 ```
 
 The $χ^2$ test's job is to examine whether players' positions depend on the presence of "a" in their name. To evaluate it we need to send the contingency table in:
 
-```R
+```{r}
 chisq.test(table(players$positions, players$a_in_name))
 ```
 
 As expected, there is no signifcant relationship. A simple bar plot can help us here
 
-```R
+```{r}
 ggplot(players,
        aes(x = positions, fill = a_in_name)) + 
   geom_bar()
@@ -283,7 +292,7 @@ ggplot(players,
 
 If we use the `position = "fill"` parameter to `geom_bar`, we'll see each as a proportion
 
-```R
+```{r}
 ggplot(players,
        aes(x = positions, fill = a_in_name)) + 
   geom_bar(position = "fill")
@@ -309,31 +318,25 @@ Logistic regressions examine the distribution of binary data. For us, we can com
 Now, we can model this column with height. We'll do the same as our $t$-test case, but this time we need to specify that `family = binomial` to ensure we'll get a logistic:
 
 
-```python
+```{r}
 res_logistic <- glm(gk ~ height_cm, family = binomial, data = players)
 ```
 
 We can take a look at the results with
 
-```python
+```{r}
 summary(res_logistic)
-```
-
-Let's have a look at the summary:
-
-```python
-res.summary()
 ```
 
 And we can then visualise it with `ggplot2`. We need to make *another* variable, because we need to replace `TRUE` $\rightarrow$ `1` and `FALSE` $\rightarrow$ `0` for the plot.
 
-```R
+```{r}
 players <- players %>% mutate(gk_numeric = as.numeric(gk))
 ```
 
-Now we can plot the logistic regression. The fitted values (on the $y$-axis) are stored in `res_logistic$fitted.values`, but there are no provided $x$-values - these come from the `players` dataset. Use `geom_point()` for the data and `geom_line()` for the fit:
+Now we can plot the logistic regression. The fitted values (on the $y$-axis) are stored in `{r}es_logistic$fitted.values`, but there are no provided $x$-values - these come from the `players` dataset. Use `geom_point()` for the data and `geom_line()` for the fit:
 
-```python
+```{r}
 ggplot(players, aes(x = height_cm, y = gk_numeric)) + 
   geom_point() + 
   geom_line(aes(y = res_logistic$fitted.values))
