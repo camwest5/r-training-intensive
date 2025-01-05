@@ -4,7 +4,7 @@
     "href": "Projects/project_gallery.html",
     "title": "Project Gallery",
     "section": "",
-    "text": "Goalkeepers and their heights\n\n\n\n\n\n\nCameron West and Stéphane Guillou\n\n\nJan 3, 2025\n\n\n\n\n\n\n\n\nNo matching items",
+    "text": "Goalkeepers and their heights\n\n\n\n\n\n\nCameron West and Stéphane Guillou\n\n\nJan 5, 2025\n\n\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Workshops",
       "The Project",
@@ -370,7 +370,18 @@
     "href": "setup.html",
     "title": "Intro and Setting Up",
     "section": "",
-    "text": "The R programming language is a language used for calculations, statistics, visualisations and many more data science tasks.\nRStudio is an open source Integrated Development Environment (IDE) for R, which means it provides many features on top of R to make it easier to write and run code.\nR’s main strong points are:\n\nOpen Source: you can install it anywhere and adapt it to your needs;\nReproducibility: makes an analysis repeatable by detailing the process in a script;\nCustomisable: being a programming language, you can create your own custom tools;\nLarge datasets: it can handle very large datasets (certainly well beyond the row limitations of Excel, and even further using HPCs and other tricks);\nDiverse ecosystem: packages allow you to extend R for thousands of different analyses.\n\nThe learning curve will be steeper than point-and-click tools, but as far as programming languages go, R is more user-friendly than others.\n\n\nFor this course, you need to have both R and RStudio installed (installation instructions).",
+    "text": "Welcome to our three-day R training intensive! By Thursday afternoon, you’ll have learnt the R skills to manipulate, visualise and present data. We’ll spend roughly half the time learning content, and half the time working on a project in groups.\nAs we set up, there’s a few things to do, if you haven’t already\n\nInstall the software\nIntroduce yourself to your table\nJoin our Teams channel\nRegister your attendance",
+    "crumbs": [
+      "Workshops",
+      "Intro and Setting Up"
+    ]
+  },
+  {
+    "objectID": "setup.html#overview",
+    "href": "setup.html#overview",
+    "title": "Intro and Setting Up",
+    "section": "",
+    "text": "Welcome to our three-day R training intensive! By Thursday afternoon, you’ll have learnt the R skills to manipulate, visualise and present data. We’ll spend roughly half the time learning content, and half the time working on a project in groups.\nAs we set up, there’s a few things to do, if you haven’t already\n\nInstall the software\nIntroduce yourself to your table\nJoin our Teams channel\nRegister your attendance",
     "crumbs": [
       "Workshops",
       "Intro and Setting Up"
@@ -380,8 +391,8 @@
     "objectID": "setup.html#r-rstudio",
     "href": "setup.html#r-rstudio",
     "title": "Intro and Setting Up",
-    "section": "",
-    "text": "The R programming language is a language used for calculations, statistics, visualisations and many more data science tasks.\nRStudio is an open source Integrated Development Environment (IDE) for R, which means it provides many features on top of R to make it easier to write and run code.\nR’s main strong points are:\n\nOpen Source: you can install it anywhere and adapt it to your needs;\nReproducibility: makes an analysis repeatable by detailing the process in a script;\nCustomisable: being a programming language, you can create your own custom tools;\nLarge datasets: it can handle very large datasets (certainly well beyond the row limitations of Excel, and even further using HPCs and other tricks);\nDiverse ecosystem: packages allow you to extend R for thousands of different analyses.\n\nThe learning curve will be steeper than point-and-click tools, but as far as programming languages go, R is more user-friendly than others.\n\n\nFor this course, you need to have both R and RStudio installed (installation instructions).",
+    "section": "R + RStudio",
+    "text": "R + RStudio\nThe R programming language is a language used for calculations, statistics, visualisations and many more data science tasks.\nRStudio is an open source Integrated Development Environment (IDE) for R, which means it provides many features on top of R to make it easier to write and run code.\nR’s main strong points are:\n\nOpen Source: you can install it anywhere and adapt it to your needs;\nReproducibility: makes an analysis repeatable by detailing the process in a script;\nCustomisable: being a programming language, you can create your own custom tools;\nLarge datasets: it can handle very large datasets (certainly well beyond the row limitations of Excel, and even further using HPCs and other tricks);\nDiverse ecosystem: packages allow you to extend R for thousands of different analyses.\n\nThe learning curve will be steeper than point-and-click tools, but as far as programming languages go, R is more user-friendly than others.\n\nInstallation\nFor this course, you need to have both R and RStudio installed (installation instructions).",
     "crumbs": [
       "Workshops",
       "Intro and Setting Up"
