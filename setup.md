@@ -2,6 +2,16 @@
 title: Intro and Setting Up
 ---
 
+## Overview
+Welcome to our three-day R training intensive! By Thursday afternoon, you'll have learnt the R skills to manipulate, visualise and present data. We'll spend roughly half the time learning content, and half the time working on a project in groups.
+
+As we set up, there's a few things to do, if you haven't already
+
+1. [Install the software](#r--rstudio)
+2. Introduce yourself to your table
+3. [Join our Teams channel](https://forms.office.com/Pages/ResponsePage.aspx?id=z3fjtrOdy0aRovrZYFuxXEzmI13TctBBiWhneXZv-1lUQ1MwQ0JUM0ZBS0hXV1NJSU04TEZEUFg2Si4u)
+4. Register your attendance
+
 ## R + RStudio
 
 The [R programming language](https://cran.r-project.org/) is a language
