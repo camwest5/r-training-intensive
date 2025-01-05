@@ -239,8 +239,8 @@ ggplotly(p)
 
 ```{r}
 #| title: A glimpse at the dataset
-head(players) |> 
-  knitr::kable()
+library(knitr)
+kable(players)
 ```
 ````
 
