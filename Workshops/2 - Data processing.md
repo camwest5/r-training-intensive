@@ -294,6 +294,7 @@ For example, this command:
 gapminder %>%
   filter(lifeExp > 81) %>% 
   arrange(desc(lifeExp))
+```
 
 … is equivalent to:
 
