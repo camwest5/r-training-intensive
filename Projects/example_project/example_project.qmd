@@ -28,7 +28,7 @@ players <- players %>% filter(positions != "Missing", height_cm > 100)
 
 ```{R}
 #| title: Goalkeepers tend to be taller
-#| fig-alt: "A scatterplot of the relationsip between height and position."
+#| fig-alt: "A boxplot of the relationship between height and position."
 
 ggplot(players, aes(x = positions, y = height_cm)) + 
   geom_boxplot() + 
@@ -40,10 +40,10 @@ ggsave("tb.png")
 ```{R}
 #| title: Age vs Height
 
-p <- ggplot(players, aes(x = age, y = height_cm, colour = positions, hover_name = "name", hover_data = "nationality")) + 
+p <- ggplot(players, aes(x = age, y = height_cm, colour = positions, label = name, label2 = nationality)) + 
   geom_point() + 
   facet_wrap(vars(positions)) + 
-  labs(x = "age", colour = "Position", y = "Height (cm)")
+  labs(x = "Age", colour = "Position", y = "Height (cm)")
 
 ggplotly(p)
 ```
