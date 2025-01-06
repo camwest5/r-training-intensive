@@ -334,7 +334,7 @@ And we can then visualise it with `ggplot2`. We need to make *another* variable,
 players <- players %>% mutate(gk_numeric = as.numeric(gk))
 ```
 
-Now we can plot the logistic regression. The fitted values (on the $y$-axis) are stored in `{r}es_logistic$fitted.values`, but there are no provided $x$-values - these come from the `players` dataset. Use `geom_point()` for the data and `geom_line()` for the fit:
+Now we can plot the logistic regression. The fitted values (on the $y$-axis) are stored in `res_logistic$fitted.values`, but there are no provided $x$-values - these come from the `players` dataset. Use `geom_point()` for the data and `geom_line()` for the fit:
 
 ```{r}
 ggplot(players, aes(x = height_cm, y = gk_numeric)) + 
