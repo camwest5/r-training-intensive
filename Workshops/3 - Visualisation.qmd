@@ -302,6 +302,7 @@ How could we:
 2. Colour the points according to the median duration of unemployment (see `?economics`)
 
 ```{r}
+#| message: false
 ggplot(economics,
        aes(x = date,
            y = unemploy)) + 
@@ -314,6 +315,7 @@ ggplot(economics,
 This default "trend line" is not particularly useful. We could make it follow the data more closely by using the `span` argument. The closer to 0, the closer to the data the smoother will be:
 
 ```{r}
+#| message: false
 ggplot(economics,
        aes(x = date,
            y = unemploy)) + 
@@ -326,6 +328,7 @@ You can now see why this is called a "smoother": we can fit a smooth curve to da
 To further refine our visualisation, we could visualise the unemployment rate rather than the number of unemployed people, by calculating it straight into our code:
 
 ```{r}
+#| message: false
 ggplot(economics,
        aes(x = date,
            y = unemploy / pop)) + 
@@ -380,7 +383,7 @@ ggplot(diamonds,
     geom_bar(fill = "tomato")
 ```
 
-If you are curious about what colour names exist in R, you can use the `colours()` function. Alernatively, you can use any hex value like "#".
+If you are curious about what colour names exist in R, you can use the `colours()` function. Alernatively, you can use any hex value like "#760daa".
 
 ### Change labels
 
@@ -443,6 +446,8 @@ Plotly is a package that allows creating interactive visualisation. A nifty aspe
 After installing the package, you can convert our mpg visualisation by saving it as an object, and passing it to the `ggplotly()` function:
 
 ```{r}
+#| message: false
+#| warning: false
 static_plot <- ggplot(mpg,
                       aes(x = displ,
                           y = hwy)) + 
@@ -457,6 +462,8 @@ We can now use our mouse to hover over points and see the associated data, turn 
 This kind of visualisation is a good way to expose extra data through the tooltips. For example, associating the "manufacturer" and "model" variables to "label" aesthetics in the ggplot2 command won't show that information on the static visualisation (unless labelling geometry is used), but it will be included in the plotly tooltip:
 
 ```{r}
+#| message: false
+#| warning: false
 static_plot <- ggplot(mpg,
                       aes(x = displ,
                           y = hwy)) + 
@@ -468,15 +475,14 @@ library(plotly)
 ggplotly(static_plot)
 ```
 
-## Useful links
+## Further resources
 
-* For ggplot2:
-  + [ggplot2 cheatsheet](https://www.rstudio.org/links/data_visualization_cheat_sheet)
-  + Official [ggplot2 documentation](https://docs.ggplot2.org/current/)
-  + Official [ggplot2 website](https://ggplot2.tidyverse.org/)
-  + [Chapter on data visualisation](https://r4ds.had.co.nz/data-visualisation.html) in the book _R for Data Science_
-  + [From Data to Viz](https://www.data-to-viz.com/), a website to explore different visualisations and the code that generates them
-  + Selva Prabhakaran's [_r-statistics.co_ section on ggplot2](https://r-statistics.co/ggplot2-Tutorial-With-R.html)
-  + [Coding Club's data visualisation tutorial](https://ourcodingclub.github.io/2017/01/29/datavis.html)
-  + [Cookbook for R graphs](https://www.cookbook-r.com/Graphs/)
-  + [STHDA's ggplot2 essentials](https://www.sthda.com/english/wiki/ggplot2-essentials)
++ [ggplot2 cheatsheet](https://www.rstudio.org/links/data_visualization_cheat_sheet)
++ Official [ggplot2 documentation](https://ggplot2.tidyverse.org/reference/)
++ Official [ggplot2 website](https://ggplot2.tidyverse.org/)
++ [Chapter on data visualisation](https://r4ds.hadley.nz/data-visualize.html) in the book _R for Data Science_
++ [From Data to Viz](https://www.data-to-viz.com/), a website to explore different visualisations and the code that generates them
++ Selva Prabhakaran's [_r-statistics.co_ section on ggplot2](https://r-statistics.co/ggplot2-Tutorial-With-R.html)
++ [Coding Club's data visualisation tutorial](https://ourcodingclub.github.io/tutorials/datavis/)
++ [STHDA's ggplot2 essentials](https://www.sthda.com/english/wiki/ggplot2-essentials)
++ Lear more about plotly and exploratory data analysis with the book _[Interactive web-based data visualization with R, plotly, and shiny](https://plotly-r.com/)_
