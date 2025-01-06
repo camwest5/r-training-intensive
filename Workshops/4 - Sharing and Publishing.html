@@ -360,10 +360,10 @@ date: 2025-01-01
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>#| title: Age vs Height</span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>#| echo: false</span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>p &lt;- ggplot(players, aes(x = age, y = height_cm, colour = positions, hover_name = "name", hover_data = "nationality")) + </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>p &lt;- ggplot(players, aes(x = age, y = height_cm, colour = positions, label = name, label2 = nationality)) + </span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  geom_point() + </span>
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  facet_wrap(vars(positions)) + </span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  labs(x = "age", colour = "Position", y = "Height (cm)")</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  labs(x = "Age", colour = "Position", y = "Height (cm)")</span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>library(plotly)</span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>ggplotly(p)</span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -404,10 +404,10 @@ format: pdf
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>#| title: Age vs Height</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>#| echo: false</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>#| eval: false</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>p &lt;- ggplot(players, aes(x = age, y = height_cm, colour = positions, hover_name = "name", hover_data = "nationality")) + </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>p &lt;- ggplot(players, aes(x = age, y = height_cm, colour = positions, label = name, label2 = nationality)) + </span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  geom_point() + </span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  facet_wrap(vars(positions)) + </span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  labs(x = "age", colour = "Position", y = "Height (cm)")</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  labs(x = "Age", colour = "Position", y = "Height (cm)")</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>library(plotly)</span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>ggplotly(p)</span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -460,10 +460,10 @@ format: dashboard
 <span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>```{r}</span>
 <span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>#| title: Age vs Height by position</span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>p &lt;- ggplot(players, aes(x = age, y = height_cm, colour = positions, hover_name = "name", hover_data = "nationality")) + </span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>p &lt;- ggplot(players, aes(x = age, y = height_cm, colour = positions, label = name, label2 = nationality)) + </span>
 <span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>  geom_point() + </span>
 <span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  facet_wrap(vars(positions)) + </span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>  labs(x = "age", colour = "Position", y = "Height (cm)")</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>  labs(x = "Age", colour = "Position", y = "Height (cm)")</span>
 <span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>library(plotly)</span>
 <span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>ggplotly(p)</span>
 <span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>```</span>
@@ -487,8 +487,8 @@ format: dashboard
 </section>
 <section id="git-and-github" class="level2">
 <h2 class="anchored" data-anchor-id="git-and-github">Git and GitHub</h2>
-<p><strong>Git</strong> is a vesion control system that allows to record a clean history of your project, track precise authorship, and collaborate asynchronously with others. It can be used offline, from the command line or with integration into Itegrated Desktop Environments (like RStudio, VS Code… Unfortunately, Spyder does not have Git integration).</p>
-<p><strong>GitHub</strong> is one of many websites that allow you to host project that are tracked with Git. But even without using Git at all, it is possible to use GitHub to share and make your project public. Many researchers use it to make their code public alongside a published paper, to increase reproducibility and transparency. It can also be useful to build and share a portfolio of your work.</p>
+<p><strong>Git</strong> is a version control system that allows to record a clean history of your project, track precise authorship, and collaborate asynchronously with others. It can be used offline, from the command line or with integration into Itegrated Desktop Environments (like RStudio, VS Code… Unfortunately, Spyder does not have Git integration).</p>
+<p><strong>GitHub</strong> is one of many websites that allow you to host projects that are tracked with Git. But even without using Git at all, it is possible to use GitHub to share and make your project public. Many researchers use it to make their code public alongside a published paper, to increase reproducibility and transparency. It can also be useful to build and share a portfolio of your work.</p>
 <p>Learning about the ins and out of Git takes time, so in this section we will mainly use GitHub as a place to upload and share your code and outputs, and as a starting point for learning more about Git in the future.</p>
 <section id="github" class="level3">
 <h3 class="anchored" data-anchor-id="github">GitHub</h3>
@@ -510,6 +510,7 @@ format: dashboard
 <li>How to contribute</li>
 </ul>
 <p>For inspiration, see the <a href="https://github.com/pandas-dev/pandas?tab=readme-ov-file#pandas-powerful-python-data-analysis-toolkit">pandas README file</a>.</p>
+<p>To practice managing a git repository on GitHub, try creating a personal portfolio repository where you can showcase what you have worked on and the outputs your are most proud of.</p>
 </section>
 </section>
 <section id="further-resources" class="level2">
