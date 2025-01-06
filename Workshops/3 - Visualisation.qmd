@@ -209,6 +209,7 @@ The console shows you what function / formula was used to draw the trend line. T
 Want a linear trend line instead? Add the argument `method = "lm"` to your function:
 
 ```{r}
+#| message: false
 ggplot(mpg,
        aes(x = displ,
            y = hwy)) +
@@ -220,6 +221,7 @@ ggplot(mpg,
 A trend line is usually displayed on top of the scatterplot. How can we combine several layers? We can string them with the `+` operator:
 
 ```{r}
+#| message: false
 ggplot(mpg,
        aes(x = displ,
            y = hwy)) + 
@@ -234,6 +236,7 @@ ggplot(mpg,
 We can once again add some information to our visualisation by mapping the `class` variable to the `colour` aesthetic:
 
 ```{r}
+#| message: false
 ggplot(mpg,
        aes(x = displ,
            y = hwy)) + 
