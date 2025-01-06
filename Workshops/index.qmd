@@ -9,7 +9,7 @@ Over these three days we'll cover six sessions of content:
 | [The Fundamentals](./1%20-%20Fundamentals.qmd) | The basics of R. Variables, functions and packages.
 | [Data processing](./2%20-%20Data%20processing.md) | Importing, manipulating and analysing data with `dplyr` |
 | [Visualisation](./3%20-%20Visualisation.qmd) | Creating visualisations of our data with `ggplot2` |
-| [Sharing and Publishing](./4%20-%20Sharing%20and%20Publishing.md) | Using GitHub for sharing and version control, as well as quarto for publishing dashboards and websites. |
+| [Sharing and Publishing](./4%20-%20Sharing%20and%20Publishing.qmd) | Using GitHub for sharing and version control, as well as quarto for publishing dashboards and websites. |
 | [Statistics](./5%20-%20Statistics.md) | Descriptive and inferential statistics, with some regressions and hypothesis testing. |
 | [Programming Essentials](./6%20-%20Programming.md) | R tools everyone should know. Conditionals, loops and functions. |
 
