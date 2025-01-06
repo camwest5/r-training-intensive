@@ -256,7 +256,7 @@ ggplot(mpg,
 What would happen if you moved the `colour = class` aesthetic from the geometry function to the `ggplot()` call?
 
 Different geometries can also have their own mappings that overwrite the defaults.
-If you place mappings in a geom function, ggplot2 will treat them as local mappings for the layer. It will use these mappings to extend or overwrite the global mappings for that layer only. This makes it possible to display different aesthetics in different layers.
+If you place mappings in a `geom_*` function, ggplot2 will treat them as local mappings for the layer. It will use these mappings to extend or overwrite the global mappings for that layer only. This makes it possible to display different aesthetics in different layers.
 
 ## Saving a plot
 
@@ -320,7 +320,7 @@ ggplot(economics,
 
 You can now see why this is called a "smoother": we can fit a smooth curve to data that varies a lot.
 
-To further refine our visualisation , we could visualise the unemployment rate rather than the number of unemployed people, by calculating it straight into our code:
+To further refine our visualisation, we could visualise the unemployment rate rather than the number of unemployed people, by calculating it straight into our code:
 
 ```{r}
 ggplot(economics,
@@ -377,7 +377,7 @@ ggplot(diamonds,
     geom_bar(fill = "tomato")
 ```
 
-If you are curious about what colour names exist in R, you can use the `colours()` function.
+If you are curious about what colour names exist in R, you can use the `colours()` function. Alernatively, you can use any hex value like "#".
 
 ### Change labels
 
@@ -433,13 +433,37 @@ ggplot(diamonds,
 
 Try `theme_minimal()` as well, and if you want more options, install the `ggthemes` package!
 
-## Play time!
+## Interactive visualisations
 
-**Challenge 3: explore geometries**
+Plotly is a package that allows creating interactive visualisation. A nifty aspect of it is that it can directly convert most static ggplot2 visualisations to interactive HTML visualisations.
 
-When creating a new layer, start typing `geom_` and see what suggestions pop up. Are there any suggestions that sound useful or familiar to you?
+After installing the package, you can convert our mpg visualisation by saving it as an object, and passing it to the `ggplotly()` function:
 
-Modify your plots, play around with different layers and functions, and ask questions!
+```{r}
+static_plot <- ggplot(mpg,
+                      aes(x = displ,
+                          y = hwy)) + 
+  geom_jitter(aes(colour = class)) + 
+  geom_smooth()
+library(plotly)
+ggplotly(static_plot)
+```
+
+We can now use our mouse to hover over points and see the associated data, turn series off and on, and draw rectangles to zoom in.
+
+This kind of visualisation is a good way to expose extra data through the tooltips. For example, associating the "manufacturer" and "model" variables to "label" aesthetics in the ggplot2 command won't show that information on the static visualisation (unless labelling geometry is used), but it will be included in the plotly tooltip:
+
+```{r}
+static_plot <- ggplot(mpg,
+                      aes(x = displ,
+                          y = hwy)) + 
+  geom_jitter(aes(colour = class,
+                  label = manufacturer,
+                  label2 = model)) + 
+  geom_smooth()
+library(plotly)
+ggplotly(static_plot)
+```
 
 ## Useful links
 
