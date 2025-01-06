@@ -45,18 +45,6 @@ If you don’t have it already, you can install dplyr with the command:
 > “[tidyverse](https://www.tidyverse.org/)”, a meta-package useful for
 > data science: `install.packages("tidyverse")`
 
-### New project
-[comment] *wonder if we need this, or just build on what happened in the intro?*
-- Click the “File” menu button (top left corner), then “New Project”
-- Click “New Directory”
-- Click “New Project” (“Empty project” if you have an older version of
-  RStudio)
-- In “Directory name”, type the name of your project, e.g. “dplyr_intro”
-- Select the folder where to locate your project: for example, the
-  `Documents/RProjects` folder, which you can create if it doesn’t exist
-  yet.
-- Click the “Create Project” button
-
 ### Create a script
 
 We will use a script to write code more comfortably.
@@ -73,12 +61,12 @@ We will use a script to write code more comfortably.
 
 ### Introducing our data
 
-Let’s import and explore our data.
+Let’s import and explore the gapminder data again.
 
-1.  create a data object called “gapminder”, using `read.csv()`:
+1.  use the `read.csv()` command to bring it into R:
 
-``` r
-gapminder <- read.csv("https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv")
+```r
+gapminder <- read.csv("data/gapminder.csv")
 ```
 
 > Remember you can use <kbd>Ctrl</kbd>+<kbd>shift</kbd> to execute a
