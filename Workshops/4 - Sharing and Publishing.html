@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2025-01-06">
 
 <title>Sharing and Publishing – R Training Intensive</title>
 <style>
@@ -19,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -205,8 +240,24 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link active" data-scroll-target="#quarto">Quarto</a>
+  <ul class="collapse">
+  <li><a href="#rendering" id="toc-rendering" class="nav-link" data-scroll-target="#rendering">Rendering</a></li>
+  <li><a href="#cell-options" id="toc-cell-options" class="nav-link" data-scroll-target="#cell-options">Cell options</a></li>
+  <li><a href="#output-formats" id="toc-output-formats" class="nav-link" data-scroll-target="#output-formats">Output formats</a></li>
+  </ul></li>
+  <li><a href="#git-and-github" id="toc-git-and-github" class="nav-link" data-scroll-target="#git-and-github">Git and GitHub</a>
+  <ul class="collapse">
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">GitHub</a></li>
+  </ul></li>
+  <li><a href="#further-resources" id="toc-further-resources" class="nav-link" data-scroll-target="#further-resources">Further resources</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -221,6 +272,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 6, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -230,8 +287,240 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>In this workshop we cover using GitHub for sharing your source code, Git for version control, and Quarto for publishing outputs. Specifically, we look at:</p>
+<ul>
+<li>How to create code-dependent documents, dashboards and presentation using Quarto</li>
+<li>How to create a Git repository on GitHub and add files to it</li>
+<li>How Git can help record a clean history of a project and collaborate with others</li>
+<li>How Git and GitHub integrate with different tools</li>
+</ul>
+<section id="quarto" class="level2">
+<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
+<p>Quarto is a publishing system that allows creating documents, presentations, websites and dashboards that contain prose, code and code outputs. This means that such outputs can detail exactly what happened to the data, and outputs can be re-generated very quickly if, for example, the underlying dataset was updated, or if the analysis needs to change.</p>
+<p>Let’s create a document using some of the syntax we learned in previous sessions.</p>
+<p>Use “New File &gt; Quarto Document…” to create a <code>.qmd</code> file. The dialog that open allows us to change a few settings. Let’s give the title “Reproducible Output”, and untick “Use visual markdown editor” so we can learn about the syntax. Save the new file in your project directory.</p>
+<p>This new <code>.rmd</code> script will be made of <strong>markdown text</strong> and <strong>code chunks</strong>. Code chunks can be inserted with the editor pane’s toolbar or the keyboard shortcut <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd>.</p>
+<p>At the top of our script, we need to include a header (also called “front matter”) that contains the document’s settings. We can start with:</p>
+<pre><code>---
+title: Reproducible Output
+author: Your Name
+date: 2025-01-01
+---</code></pre>
+<p>The rest of the document will be a mix of markdown-formatted prose and executable code chunks. For example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>## Import the data</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Let's **import** the data:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>```{r}</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>players &lt;- read.csv("data_sources/Players2024.csv")</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>## Prepare the data</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>Remove missing position and ensure **reasonable heights**:</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>```{r}</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>library(dplyr)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>players &lt;- players %&gt;% filter(positions != "Missing", height_cm &gt; 100)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>## Plot the data</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>A boxplot of player **height by position**:</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>```{r}</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>library(ggplot2)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>ggplot(players, aes(x = positions, y = height_cm)) + </span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  geom_boxplot() + </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  labs(x = "Position", y = "Height (cm)")</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Outside the code chunks, we use the Markdown markup language to format the text. For example, using <code>##</code> before some text defines a heading of level 2 (level 1 being the document’s title), and using <code>**</code> around some text makes it bold. See <a href="https://quarto.org/docs/authoring/markdown-basics.html">more Markdown hints in the Quarto documentation</a>.</p>
+<section id="rendering" class="level3">
+<h3 class="anchored" data-anchor-id="rendering">Rendering</h3>
+<p>To render the document and see the result, use the “Render” button in the source pane toolbar.</p>
+<p>This should create a HTML document in your project directory, which you can open in a web browser by clicking it and choosing “View in web browser” (if it is not opened automatically already). The file can be left open and will automatically update in your browser when the document is rendered again.</p>
+<p>As the default Quarto output is a HTML file, we can include interactive visualisations too.</p>
+</section>
+<section id="cell-options" class="level3">
+<h3 class="anchored" data-anchor-id="cell-options">Cell options</h3>
+<p>If you want to show the code but don’t want to run it, you can add the cell option <code>#| eval: false</code>. And if you want to show the output but not show the underlying code, use <code>#| echo: false</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>## Interactive plots</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>We need plotly. If you need to install it:</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>```{r}</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>#| eval: false</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>install.packages("plotly")</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>An interactive scartterplot:</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>```{r}</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>#| title: Age vs Height</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>#| echo: false</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>p &lt;- ggplot(players, aes(x = age, y = height_cm, colour = positions, hover_name = "name", hover_data = "nationality")) + </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  geom_point() + </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  facet_wrap(vars(positions)) + </span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  labs(x = "age", colour = "Position", y = "Height (cm)")</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>library(plotly)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>ggplotly(p)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And for adding a caption and alternative text to a figure, we can modify our boxplot chunk as follows:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>```{r}</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>#| fig-cap: "Goalkeepers tend to be taller."</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>#| fig-alt: "A boxplot of the relationship between height and position."</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>library(ggplot2)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ggplot(players, aes(x = positions, y = height_cm)) + </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  geom_boxplot() + </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  labs(x = "Position", y = "Height (cm)")</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><a href="https://quarto.org/docs/computations/execution-options.html">Many more cell options</a> exist, including captioning and formatting visualisations. Note that these options can be used at the cell level as well as globally (by modifying the front matter at the top of the document).</p>
+<p>For example, to make sure error and warning messages are never shown:</p>
+<pre><code>---
+title: Reproducible Output
+author: Your Name
+date: 2025-01-01
+warning: false
+error: false
+---</code></pre>
+</section>
+<section id="output-formats" class="level3">
+<h3 class="anchored" data-anchor-id="output-formats">Output formats</h3>
+<p>The default output format in Quarto is HTML, which is by far the most flexible. However, Quarto is a very versatile publishing system and can generate many different output formats, including PDF, DOCX and ODT, slide formats, Markdown suited for GitHub… and even whole blogs, books and dashboards.</p>
+<p>Let’s try rendering a PDF:</p>
+<pre><code>---
+title: Reproducible Output
+author: Your Name
+date: 2025-01-01
+format: pdf
+---</code></pre>
+<p>When rendering PDFs, the first issue we might run into is the lack of a LaTeX distribution. If Quarto didn’t detect one, it will suggest to install tinytex (a minimal LaTeX distribution) with this terminal command:</p>
+<pre><code>quarto install tinytex</code></pre>
+<p>Once that is installed, Quarto should render a PDF.</p>
+<p>Another issue with our example document is that an interactive HTML visualisation won’t be rendered in the PDF. You can suppress it by using the <code>#| eval: false</code> option:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>```{r}</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>#| title: Age vs Height</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>#| echo: false</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>#| eval: false</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>p &lt;- ggplot(players, aes(x = age, y = height_cm, colour = positions, hover_name = "name", hover_data = "nationality")) + </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  geom_point() + </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  facet_wrap(vars(positions)) + </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  labs(x = "age", colour = "Position", y = "Height (cm)")</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>library(plotly)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>ggplotly(p)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="dashboard" class="level4">
+<h4 class="anchored" data-anchor-id="dashboard">Dashboard</h4>
+<p>A great way to present a variety of outputs in a grid is by creating a HTML dashboard.</p>
+<p>Let’s modify our script to render a dashboard. First, change the output format:</p>
+<pre><code>---
+title: Reproducible Output
+author: Your Name
+date: 2025-01-01
+format: dashboard
+---</code></pre>
+<p>We can already render the dashboard and see the result. Each panel can be expanded with the bottom-right button. Note that by default:</p>
+<ul>
+<li>each cell is rendered in a separate card</li>
+<li>headings define the rows</li>
+<li>the heading text is discarded</li>
+<li>code is not shown (but can be by using <code>echo: true</code>)</li>
+</ul>
+<p>Given this default behaviour, you might have to rethink a good part of your script to make it suited for a striking dashboard. For example, removing most of the text, customising the layout (tabsets, rows, card heights…) and adding custom cards like “value boxes”. Learn more about all these in the <a href="https://quarto.org/docs/dashboards/">Quarto Dashboards documentation</a>.</p>
+<p>As a starting point, copy the current script across to a new script called <code>dashboard.rmd</code> and modify it so it matches the following:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>title: "My dashboard"</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>author: Your Name</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>date: 2025-01-01</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>format: dashboard</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>warning: false</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>```{r}</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>players &lt;- read.csv("data_sources/Players2024.csv")</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>```{r}</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>library(dplyr)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>players &lt;- players %&gt;% filter(positions != "Missing", height_cm &gt; 100)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>## Figures {height=70%}</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>```{r}</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>#| title: Goalkeepers tend to be taller</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>#| fig-alt: "A boxplot of the relationship between height and position."</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>library(ggplot2)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>ggplot(players, aes(x = positions, y = height_cm)) + </span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  geom_boxplot() + </span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  labs(x = "Position", y = "Height (cm)")</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>```{r}</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>#| title: Age vs Height by position</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>p &lt;- ggplot(players, aes(x = age, y = height_cm, colour = positions, hover_name = "name", hover_data = "nationality")) + </span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>  geom_point() + </span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  facet_wrap(vars(positions)) + </span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>  labs(x = "age", colour = "Position", y = "Height (cm)")</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>library(plotly)</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>ggplotly(p)</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>## Table</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>```{r}</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>#| title: A glimpse at the dataset</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>library(knitr)</span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>kable(players)</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This results in a dashboard containing three cards organised in two rows. The top row uses 70% of the available height, and the bottom row shows a table of the top 10 rows of the dataset. Each card has a title.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/dashboard.png" class="img-fluid figure-img"></p>
+<figcaption>Quarto dashboard with three cards: static visualisation, interactive visualisation, and table.</figcaption>
+</figure>
+</div>
+</section>
+</section>
+</section>
+<section id="git-and-github" class="level2">
+<h2 class="anchored" data-anchor-id="git-and-github">Git and GitHub</h2>
+<p><strong>Git</strong> is a vesion control system that allows to record a clean history of your project, track precise authorship, and collaborate asynchronously with others. It can be used offline, from the command line or with integration into Itegrated Desktop Environments (like RStudio, VS Code… Unfortunately, Spyder does not have Git integration).</p>
+<p><strong>GitHub</strong> is one of many websites that allow you to host project that are tracked with Git. But even without using Git at all, it is possible to use GitHub to share and make your project public. Many researchers use it to make their code public alongside a published paper, to increase reproducibility and transparency. It can also be useful to build and share a portfolio of your work.</p>
+<p>Learning about the ins and out of Git takes time, so in this section we will mainly use GitHub as a place to upload and share your code and outputs, and as a starting point for learning more about Git in the future.</p>
+<section id="github" class="level3">
+<h3 class="anchored" data-anchor-id="github">GitHub</h3>
+<p><a href="https://github.com/">GitHub</a> is currently the most popular place for hosting, sharing and collaborating on code. You can create an account for free, and then create a <strong>repository</strong> for your project.</p>
+<ol type="1">
+<li>Create an account and log in</li>
+<li>Click on the “+” button (top right of the page)</li>
+<li>Select “New repository”</li>
+<li>Choose a name and description for your repository</li>
+<li>Tick “Add a README file” - this will be where you introduce your project</li>
+<li>Click “Create repository”</li>
+</ol>
+<p>From there, you can upload your files, and edit text-based files straight from your web browser if you need to.</p>
+<p>The README file is a markdown file that can contain the most important information about your project. It’s important to populate it as it is the first document most people see. It could contain:</p>
+<ul>
+<li>Name and description of the project</li>
+<li>How to use it (installation process if any, examples…)</li>
+<li>Who is the author, who maintains it</li>
+<li>How to contribute</li>
+</ul>
+<p>For inspiration, see the <a href="https://github.com/pandas-dev/pandas?tab=readme-ov-file#pandas-powerful-python-data-analysis-toolkit">pandas README file</a>.</p>
+</section>
+</section>
+<section id="further-resources" class="level2">
+<h2 class="anchored" data-anchor-id="further-resources">Further resources</h2>
+<ul>
+<li>…</li>
+<li>…</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -252,7 +252,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#setting-up" id="toc-setting-up" class="nav-link" data-scroll-target="#setting-up">Setting up</a>
   <ul class="collapse">
   <li><a href="#install-the-dplyr-package" id="toc-install-the-dplyr-package" class="nav-link" data-scroll-target="#install-the-dplyr-package">Install the dplyr package</a></li>
-  <li><a href="#new-project" id="toc-new-project" class="nav-link" data-scroll-target="#new-project">New project</a></li>
   <li><a href="#create-a-script" id="toc-create-a-script" class="nav-link" data-scroll-target="#create-a-script">Create a script</a></li>
   <li><a href="#introducing-our-data" id="toc-introducing-our-data" class="nav-link" data-scroll-target="#introducing-our-data">Introducing our data</a></li>
   </ul></li>
@@ -331,10 +330,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Alternatively, you can install the whole “<a href="https://www.tidyverse.org/">tidyverse</a>”, a meta-package useful for data science: <code>install.packages("tidyverse")</code></p>
 </blockquote>
 </section>
-<section id="new-project" class="level3">
-<h3 class="anchored" data-anchor-id="new-project">New project</h3>
-<p>[comment] <em>wonder if we need this, or just build on what happened in the intro?</em> - Click the “File” menu button (top left corner), then “New Project” - Click “New Directory” - Click “New Project” (“Empty project” if you have an older version of RStudio) - In “Directory name”, type the name of your project, e.g.&nbsp;“dplyr_intro” - Select the folder where to locate your project: for example, the <code>Documents/RProjects</code> folder, which you can create if it doesn’t exist yet. - Click the “Create Project” button</p>
-</section>
 <section id="create-a-script" class="level3">
 <h3 class="anchored" data-anchor-id="create-a-script">Create a script</h3>
 <p>We will use a script to write code more comfortably.</p>
@@ -346,11 +341,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="introducing-our-data" class="level3">
 <h3 class="anchored" data-anchor-id="introducing-our-data">Introducing our data</h3>
-<p>Let’s import and explore our data.</p>
+<p>Let’s import and explore the gapminder data again.</p>
 <ol type="1">
-<li>create a data object called “gapminder”, using <code>read.csv()</code>:</li>
+<li>use the <code>read.csv()</code> command to bring it into R:</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/gapminder.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <blockquote class="blockquote">
 <p>Remember you can use <kbd>Ctrl</kbd>+<kbd>shift</kbd> to execute a command from the script.</p>
 </blockquote>
