@@ -66,8 +66,10 @@ We can use the `dplyr` package to remove rows which have NA:
 library(dplyr)
 
 dataset <- dataset %>%
-  filter(is.na(variable_to_check_for_NAs))
+  filter(!is.na(variable_to_check_for_NAs))
 ```
+
+> We use the exclamation mark `!` to negate the result, because `is.na` returns all the rows that *are* `NA`.
 
 #### Time series data
 If you've picked a dataset with time-series data (e.g. a "date" variable), you should transform that variable so that it visualises better:
