@@ -476,6 +476,29 @@ gapminder %>%
     4 Europe     586098529
     5 Oceania     24549947
 
+## Exporting your data
+
+If you want to save your data as a .csv file, you can use the `write.csv()` function:
+
+```r
+pop07 <- gapminder %>% 
+  filter(year == 2007) %>%
+  group_by(continent) %>%
+  summarise(pop = sum(pop))
+
+write.csv(pop07, "pop07.csv")
+```
+
+You can also use it with the pipe:
+```r
+gapminder %>% 
+  filter(year == 2007) %>%
+  group_by(continent) %>%
+  summarise(pop = sum(pop)) %>%
+  write.csv("pop07.csv")
+```
+
+
 ## More examples
 
 Another example of a summary, with a the starwars data set that dplyr
@@ -555,6 +578,9 @@ gapminder %>%
 
     Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
     ℹ Please use `linewidth` instead.
+
+
+
 
 ## Close project
 
