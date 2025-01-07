@@ -50,12 +50,23 @@ You'll want to explore the data to start with - below are a few functions to get
 | `unique()` | `unique(dataset$variable)` | Returns the unique values of a variable |
 | `summary()` | `summary(dataset$variable)` | Returns a statistical summary of a variable |
 
+#### Removing `NA`s
+
+We can use the `dplyr` package to remove rows which have NA:
+
+```r
+library(dplyr)
+
+dataset <- dataset %>%
+  filter(is.na(variable_to_check_for_NAs))
+```
+
 #### Time series data
-If you've picked a dataset with time-series data (e.g. a "date" variable), you should transform that column so that it visualises better:
+If you've picked a dataset with time-series data (e.g. a "date" variable), you should transform that variable so that it visualises better:
 
 ```r
 dataset <- dataset %>%
-  mutate(time_based_column = as.Date(time_based_column))
+  mutate(time_based_variable = as.Date(time_based_variable))
 ```
 
 #### Ordered data
@@ -63,12 +74,12 @@ Some datasets have ordered data, but by default R doesn't know this. To communic
 
 ```r
 dataset <- dataset %>%
-  mutate(ordered_column = factor(ordered_column, levels = c("first_val", "second_val", ... )))
+  mutate(ordered_variable = factor(ordered_variable, levels = c("first_val", "second_val", ... )))
 ```
 
 > This is particularly useful for the **Coffee survey** dataset.
 
-#### Renaming columns
+#### Renaming variables
 Some datasets have cumbersome names for their variables. We can change variable names with
 
 ```r
