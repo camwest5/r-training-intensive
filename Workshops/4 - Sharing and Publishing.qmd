@@ -282,5 +282,8 @@ To practice managing a git repository on GitHub, try creating a personal portfol
 
 ## Further resources
 
-* ...
-* ...
+* Some alternatives to GitHub: [Codeberg](https://codeberg.org/) and [Gitlab](https://gitlab.com)
+* [Quarto documentation](https://quarto.org/)
+* [Course on Git from the command line](https://github.com/uqlibrary/technology-training/blob/master/Git/git.md)
+* [Course on Git with GitHub](https://github.com/uqlibrary/technology-training/blob/master/Git/GitHub/GitHub_intro.md)
+* [Book on Git for R and RStudio users](https://happygitwithr.com/), by Jenny Bryan
