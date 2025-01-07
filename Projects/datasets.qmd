@@ -56,6 +56,21 @@ You'll want to explore the data to start with - below are a few functions to get
 | `unique()` | `unique(dataset$variable)` | Returns the unique values of a variable |
 | `summary()` | `summary(dataset$variable)` | Returns a statistical summary of a variable |
 
+#### Visualisation
+We use the `ggplot()` function with geometries to create visualisations
+
+```r
+library(ggplot2)
+
+ggplot(data = dataset,
+       mapping = aes(x = ..., y = ..., colour = ..., ...)) +
+  geom_first_layer() + 
+  geom_second_layer() + 
+  ...
+```
+
+Take a look at the [ggplot2 documentation](https://ggplot2.tidyverse.org/) for more information.
+
 #### Removing `NA`s
 
 We can use the `dplyr` package to remove rows which have NA:
