@@ -7,7 +7,7 @@ Welcome to our three-day R training intensive! By Thursday afternoon, you'll hav
 
 As we set up, there's a few things to do, if you haven't already
 
-1. [Install the software](#r--rstudio)
+1. [Install the software](https://rstudio.com/products/rstudio/)
 2. Introduce yourself to your table
 3. [Join our Teams channel](https://forms.office.com/Pages/ResponsePage.aspx?id=z3fjtrOdy0aRovrZYFuxXEzmI13TctBBiWhneXZv-1lUQ1MwQ0JUM0ZBS0hXV1NJSU04TEZEUFg2Si4u)
 4. [Register your attendance](https://shorturl.at/eZRdZ)
