@@ -71,7 +71,7 @@ Here is a table of the different operators you can make conditions with. When yo
 | `<` | `5 < 10` | Less than |
 | `<=` | `5 <= 10` | Less than or equal to |
 | `&&` | `10 == 10 && "apple" == "apple"` | Only true if **both** conditions are true. |
-| `\|\|` | `10 == 10 \|\| "a" == "b"` | Always true if **one** condition is true.|
+| `||` | `10 == 10 || "a" == "b"` | Always true if **one** condition is true.|
 
 ### `elif` and `else`
 
