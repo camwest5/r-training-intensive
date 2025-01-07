@@ -535,7 +535,7 @@
     "href": "Workshops/4 - Sharing and Publishing.html#further-resources",
     "title": "Sharing and Publishing",
     "section": "Further resources",
-    "text": "Further resources\n\n…\n…",
+    "text": "Further resources\n\nSome alternatives to GitHub: Codeberg and Gitlab\nQuarto documentation\nCourse on Git from the command line\nCourse on Git with GitHub\nBook on Git for R and RStudio users, by Jenny Bryan",
     "crumbs": [
       "Workshops",
       "Sharing and Publishing"
