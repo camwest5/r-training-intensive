@@ -75,19 +75,30 @@ dataset <- dataset %>%
 If you've picked a dataset with time-series data (e.g. a "date" variable), you should transform that variable so that it visualises better:
 
 ```r
-dataset <- dataset %>%
-  mutate(time_based_variable = as.Date(time_based_variable))
+dataset$variable <- as.Date(dataset$variable)
 ```
 
-#### Ordered data
-Some datasets have ordered data, but by default R doesn't know this. To communicate the proper order to R, we use `factor()`, and send in an ordered list of the levels joined with `c()`:
+#### Categorical and ordered data
+If you're dealing with categorical data, it can be helpful to tell R that it has levels:
 
 ```r
-dataset <- dataset %>%
-  mutate(ordered_variable = factor(ordered_variable, levels = c("first_val", "second_val", ... )))
+dataset$variable <- factor(dataset$variable)
+```
+
+To manually specify the order to R, send in an ordered list of the levels joined with `c()`:
+
+```r
+dataset$variable <- factor(dataset$variable, levels = c("first_val", "second_val", ... ))
 ```
 
 > This is particularly useful for the **Coffee survey** dataset.
+
+Alternatively, if you only need to specify the first (reference) level, use
+
+```r
+dataset$variable <- factor(dataset$variable)
+dataset$variable <- relevel(dataset$variable, ref = "reference_level")
+```
 
 #### Renaming variables
 Some datasets have cumbersome names for their variables. We can change variable names with
