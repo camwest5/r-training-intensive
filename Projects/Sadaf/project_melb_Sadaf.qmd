@@ -1,0 +1,102 @@
+---
+title: "Project_melb_data"
+author: "sadaf"
+format: dashboard
+date: today
+echo: false
+warning: false
+---
+
+## Melbourne Housing Data {80%}
+```{r}
+library(sf)     # For spatial data handling
+library(tmap)   # For creating thematic maps
+library(dplyr)  # For data manipulation
+library(readr)  # For reading CSV files
+library(ggplot2)
+# Load the data
+housing_data <- read_csv("../data/melb_data.csv")
+
+# Renaming columns
+housing_data <- dplyr::rename(housing_data, "longitude" = Longtitude, "latitude" = Lattitude)
+
+# Convert to an sf object
+melb_sf <- st_as_sf(housing_data, coords = c("longitude", "latitude"), crs = 4326)
+library(tmaptools)
+library(OpenStreetMap)
+
+# Convert bounding box of the housing data to a spatial object
+bbox_sf <- st_as_sfc(st_bbox(melb_sf))
+
+# Read OSM tiles for the bounding box
+osm_basemap <- read_osm(
+  x = bbox_sf,       # Pass the spatial object representing the bounding box
+  type = "osm",      # OpenStreetMap basemap
+  zoom = 10          # Adjust zoom level as needed
+)
+
+tmap_mode("plot")
+# Create the static map with the basemap
+tm_shape(osm_basemap) +
+  tm_rgb() +                        # Display the OSM basemap
+  tm_shape(melb_sf) +
+  tm_dots(
+    col = "Price",
+    palette = "viridis",
+    size = 0.2,
+    title = "Housing Prices"
+  ) +
+  tm_layout(
+    title = "Melbourne Housing Data",
+    title.size = 2,
+    title.fontface = "bold",
+    legend.title.size = 0.6,
+    legend.outside = TRUE
+  )
+```
+
+##
+
+```{r}
+#Property Sales Over Time
+housing_data <- read_csv("../data/melb_data.csv")
+housing_data$Date <- as.Date(housing_data$Date, "%d/%m/%Y")
+
+ggplot(housing_data, aes(x = Date)) +
+  geom_line(stat = "count", color = "blue") +
+  labs(
+    title = "Property Sales Over Time",
+    x = "Date",
+    y = "Number of Properties Sold"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+#Count of Properties and Average Price by Region
+# Summarize data
+region_summary <- housing_data %>%
+  group_by(Regionname) %>%
+  summarize(
+    PropertyCount = n(),
+    AveragePrice = mean(Price, na.rm = TRUE)
+  )
+
+# Create dual-axis plot
+ggplot(region_summary, aes(x = reorder(Regionname, -PropertyCount))) +
+  geom_bar(aes(y = PropertyCount), stat = "identity", fill = "steelblue", alpha = 0.7) +
+  geom_line(aes(y = AveragePrice / 1000, group = 1), color = "orange", size = 1) +
+  geom_point(aes(y = AveragePrice / 1000), color = "orange", size = 2) +
+  scale_y_continuous(
+    name = "Property Count",
+    sec.axis = sec_axis(~ . * 1000, name = "Average Price (AUD)")
+  ) +
+  labs(
+    title = "Count of Properties and Average Price by Region",
+    x = "Region",
+    y = "Property Count"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
