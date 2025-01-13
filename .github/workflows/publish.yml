@@ -18,13 +18,16 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Install libcurl4
-        run: sudo apt-get update && sudo apt-get install libcurl4-openssl-dev
+        run: sudo apt update && sudo apt install libcurl4-openssl-dev
         
       - name: install JDK
         run: sudo apt install openjdk-21-jdk
         
       - name: install terra dependencies
-        run: sudo apt-get install libgdal-dev libgeos-dev libproj-dev
+        run: sudo apt install libgdal-dev libgeos-dev libproj-dev
+        
+      - name: install units dependencies
+        run: sudo apt install libudunits2-dev
         
       - name: Install R
         uses: r-lib/actions/setup-r@v2
