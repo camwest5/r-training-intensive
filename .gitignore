@@ -1,7 +1,9 @@
 /.quarto/
 /_site/
 /.vscode/
-.*
 *.Rproj
+.Rhistory
+.Rprofile
 .Rproj.user
 *.html
+
