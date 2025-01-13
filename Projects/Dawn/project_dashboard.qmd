@@ -37,8 +37,7 @@ ggplot(data = coffee_smaller,
                      colour = employment_status)) +
   geom_jitter() +
   labs(x = "Employment Status", 
-       y = "Consumed", 
-       colour="Employment Status") +
+       y = "Consumed") +
   scale_x_discrete(labels = scales::label_wrap(10)) +
   theme(legend.position = "none")
 ```

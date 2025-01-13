@@ -1,4 +1,4 @@
-library(tidyverse)
+library(dplyr)
 birds_strikes <- read.csv("data/birds_strikes.csv")
 
 range(birds_strikes$date)
@@ -69,7 +69,6 @@ library(plotly)
 ggplotly(static_severity_plot)
 
 # Getting statistics for birds strikes dataset
-library(dplyr)
 birds_strikes %>% 
   group_by(height) %>% 
   summarise(mean_height = mean(height))
