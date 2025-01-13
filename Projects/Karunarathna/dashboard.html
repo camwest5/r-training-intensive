@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dawn">
 <meta name="dcterms.date" content="2025-01-13">
 
-<title>📝 Coffee vs Employment status – R Training Intensive</title>
+<title>Melbourne Housing – R Training Intensive</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -123,9 +122,9 @@ ul.task-list li input[type="checkbox"] {
     <div class="navbar-brand-container">       
 
       <div class="navbar-title">
-        <div class="navbar-title-text"><a href="#">📝 Coffee vs Employment status</a></div>
+        <div class="navbar-title-text"><a href="#">Melbourne Housing</a></div>
         
-        <div class="navbar-author">Dawn</div>
+        
       </div>
     </div>
 </div>
@@ -137,14 +136,18 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
 <!-- main -->
 
-<!-- ## Import -->
-<!-- ## Data -->
-<!-- ## Visual -->
-<div class="bslib-grid-item html-fill-item bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
-<div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="bslib-grid-item html-fill-item bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, max-content) minmax(3em, 40%,) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
 <div class="card-body html-fill-item html-fill-container">
-<div class="cell-output-display html-fill-item html-fill-container">
-<img src="project_dashboard_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-dashboard-img-contain">
+<div style="text-align:center;" class="html-fill-item html-fill-container">
+<p>Objective: Identify factors affect selling price of houses<br>
+Details of Data set ::<br>
+No of factors : 20<br>
+No of Quantitative factors : 10<br>
+No of Qualitative factors : 9<br>
+No of records : 13580</p>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -153,10 +156,392 @@ ul.task-list li input[type="checkbox"] {
         <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
     </span>
 </bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="bslib-grid" data-width="50%" style="display: grid; grid-template-columns: minmax(3em, 30fr) minmax(3em, 70fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Item</th>
+<th style="text-align: left;">Number.Range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">No of Suburb</td>
+<td style="text-align: left;">314</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">No of Council Areas</td>
+<td style="text-align: left;">34</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">No of Regions</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">No of Postcodes</td>
+<td style="text-align: left;">198</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">No of Seller Agencies</td>
+<td style="text-align: left;">268</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">No of Methods of selling</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">No of Types of house</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Period-House Built</td>
+<td style="text-align: left;">1830-2018</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Period-House Selling</td>
+<td style="text-align: left;">1/07/2017 - 9/09/2017</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Range-Lattitude</td>
+<td style="text-align: left;">(-38.18255) - (-37.40853)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Range-Longtitude</td>
+<td style="text-align: left;">(144.4318) - (145.5264)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">No of records</td>
+<td style="text-align: left;">13580</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">No of factors</td>
+<td style="text-align: left;">20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">No of Quantitative factors</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">No of Qualitative factors</td>
+<td style="text-align: left;">9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 15%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: right;">Min.</th>
+<th style="text-align: right;">X1st.Qu.</th>
+<th style="text-align: right;">Median</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">X3rd.Qu.</th>
+<th style="text-align: right;">Max.</th>
+<th style="text-align: right;">NA.s</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Rooms</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">2.938</td>
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">10.00</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Price</td>
+<td style="text-align: right;">85000.00</td>
+<td style="text-align: right;">650000.00</td>
+<td style="text-align: right;">903000.0</td>
+<td style="text-align: right;">1075684.000</td>
+<td style="text-align: right;">1330000.00</td>
+<td style="text-align: right;">9000000.00</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Distance</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">6.10</td>
+<td style="text-align: right;">9.2</td>
+<td style="text-align: right;">10.140</td>
+<td style="text-align: right;">13.00</td>
+<td style="text-align: right;">48.10</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bedrooms2</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">2.915</td>
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">20.00</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bathrooms</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">1.534</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">8.00</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">car</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">1.610</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">10.00</td>
+<td style="text-align: right;">62</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Landsize</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">177.00</td>
+<td style="text-align: right;">440.0</td>
+<td style="text-align: right;">558.400</td>
+<td style="text-align: right;">651.00</td>
+<td style="text-align: right;">433014.00</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BuildingArea</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">93.00</td>
+<td style="text-align: right;">126.0</td>
+<td style="text-align: right;">152.000</td>
+<td style="text-align: right;">174.00</td>
+<td style="text-align: right;">44515.00</td>
+<td style="text-align: right;">6450</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lattitude</td>
+<td style="text-align: right;">-38.18</td>
+<td style="text-align: right;">-37.86</td>
+<td style="text-align: right;">-37.8</td>
+<td style="text-align: right;">-37.810</td>
+<td style="text-align: right;">-37.76</td>
+<td style="text-align: right;">-37.41</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Longitude</td>
+<td style="text-align: right;">144.40</td>
+<td style="text-align: right;">144.90</td>
+<td style="text-align: right;">145.0</td>
+<td style="text-align: right;">145.000</td>
+<td style="text-align: right;">145.10</td>
+<td style="text-align: right;">145.50</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-dashboard-img-contain">
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-dashboard-img-contain">
+</div>
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container"></div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="bslib-grid" data-width="30%" style="display: grid; grid-template-columns: minmax(3em, 30fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Factors</th>
+<th style="text-align: left;">P.value</th>
+<th style="text-align: left;">Significance</th>
+<th style="text-align: left;">Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Intercept</td>
+<td style="text-align: left;">4.86E-14</td>
+<td style="text-align: left;">Significant</td>
+<td style="text-align: left;">Affect</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Land size</td>
+<td style="text-align: left;">3.61E-05</td>
+<td style="text-align: left;">Significant</td>
+<td style="text-align: left;">Affect</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Distance from UBD</td>
+<td style="text-align: left;">2.16E-05</td>
+<td style="text-align: left;">Significant</td>
+<td style="text-align: left;">Affect</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">No of Bedrooms</td>
+<td style="text-align: left;">&lt; 2e-16</td>
+<td style="text-align: left;">Significant</td>
+<td style="text-align: left;">Affect</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">No of Bathrooms</td>
+<td style="text-align: left;">&lt; 2e-16</td>
+<td style="text-align: left;">Significant</td>
+<td style="text-align: left;">Affect</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Type of house</td>
+<td style="text-align: left;">&lt; 2e-16</td>
+<td style="text-align: left;">Significant</td>
+<td style="text-align: left;">Affect</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Method of selling</td>
+<td style="text-align: left;">8.43E-11</td>
+<td style="text-align: left;">Significant</td>
+<td style="text-align: left;">Affect</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">No of carspots</td>
+<td style="text-align: left;">&lt; 2e-16</td>
+<td style="text-align: left;">Significant</td>
+<td style="text-align: left;">Affect</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Size of building area</td>
+<td style="text-align: left;">&lt; 2e-16</td>
+<td style="text-align: left;">Significant</td>
+<td style="text-align: left;">Affect</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Suburbs</td>
+<td style="text-align: left;">multiple</td>
+<td style="text-align: left;">Significant</td>
+<td style="text-align: left;">Affect</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Seller</td>
+<td style="text-align: left;">multiple</td>
+<td style="text-align: left;">Significant</td>
+<td style="text-align: left;">Affect</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Year of built</td>
+<td style="text-align: left;">multiple</td>
+<td style="text-align: left;">Significant</td>
+<td style="text-align: left;">Affect</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Region Name</td>
+<td style="text-align: left;">multiple</td>
+<td style="text-align: left;">Significant</td>
+<td style="text-align: left;">Affect</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Councile Area</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Property Counts</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<p>Issues:<br>
+1. Two columns are number of rooms.<br>
+2. Some houses are with 0 rooms.<br>
+3. 20 rooms are in a house.<br>
+4. More columns contain NAs.<br>
+5. More quantitative variables(factors) are inter-correlated.<br>
+6. Place related factors/variables are connected/compounding.</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
 
-
-<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
-
+</div>
 </div>
 </div>
 
