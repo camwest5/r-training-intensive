@@ -6,4 +6,4 @@
 .Rprofile
 .Rproj.user
 *.html
-
+.RData
