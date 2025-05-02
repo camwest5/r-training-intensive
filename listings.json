@@ -1,18 +1,8 @@
 [
   {
-    "listing": "/Projects/project_gallery.html",
+    "listing": "/project_gallery.html",
     "items": [
-      "/Projects/Toasted/Bird Strike Dashboard.html",
-      "/Projects/Birdstrike/Birdstrikes.html",
-      "/Projects/Adelia/COFFEE.html",
-      "/Projects/Caira/Coffee.html",
-      "/Projects/Warren/DashbdProjW.html",
-      "/Projects/example_project/example_project.html",
-      "/Projects/BCD/Goodreads_books.html",
-      "/Projects/Krystie/dashy presentation.html",
-      "/Projects/Mehershad/Football Birth Month.html",
-      "/Projects/Karunarathna/dashboard.html",
-      "/Projects/Dawn/project_dashboard.html"
+      "/Projects/example_project/example_project.html"
     ]
   }
 ]
