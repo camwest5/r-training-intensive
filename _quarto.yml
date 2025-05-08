@@ -13,7 +13,7 @@ website:
       - text: "Workshops"
         href: Workshops/index.qmd
       - text: "Project Gallery"
-        href: Projects/project_gallery.qmd
+        href: project_gallery.qmd
       - text: "UQ Library Technology Training"
         href: https://uqlibrary.github.io/technology-training
   sidebar: 
