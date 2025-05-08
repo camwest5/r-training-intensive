@@ -1,6 +1,7 @@
 /.quarto/
 /_site/
 /.vscode/
+/renv/
 *.Rproj
 .Rhistory
 .Rprofile
