@@ -1,51 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://camwest5.github.io/r-training-intensive/project_gallery.html</loc>
-    <lastmod>2025-05-16T05:10:52.516Z</lastmod>
+    <loc>https://camwest5.github.io/r-training-intensive/Past_projects/project_gallery.html</loc>
+    <lastmod>2025-06-13T03:27:22.587Z</lastmod>
   </url>
   <url>
-    <loc>https://camwest5.github.io/r-training-intensive/Projects/details.html</loc>
-    <lastmod>2025-05-16T05:10:52.235Z</lastmod>
+    <loc>https://camwest5.github.io/r-training-intensive/Past_projects/Toasted/Bird Strike Dashboard.html</loc>
+    <lastmod>2025-06-13T03:27:22.579Z</lastmod>
   </url>
   <url>
-    <loc>https://camwest5.github.io/r-training-intensive/Workshops/index.html</loc>
-    <lastmod>2025-05-16T05:10:52.239Z</lastmod>
+    <loc>https://camwest5.github.io/r-training-intensive/Past_projects/Krystie/dashy presentation.html</loc>
+    <lastmod>2025-06-13T03:27:22.574Z</lastmod>
   </url>
   <url>
-    <loc>https://camwest5.github.io/r-training-intensive/Workshops/5 - Statistics.html</loc>
-    <lastmod>2025-05-16T05:10:52.237Z</lastmod>
+    <loc>https://camwest5.github.io/r-training-intensive/Past_projects/Dawn/project_dashboard.html</loc>
+    <lastmod>2025-06-13T03:27:22.567Z</lastmod>
   </url>
   <url>
-    <loc>https://camwest5.github.io/r-training-intensive/Workshops/3 - Visualisation.html</loc>
-    <lastmod>2025-05-16T05:10:52.236Z</lastmod>
+    <loc>https://camwest5.github.io/r-training-intensive/Past_projects/Birdstrike/Birdstrikes.html</loc>
+    <lastmod>2025-06-13T03:27:22.555Z</lastmod>
   </url>
   <url>
-    <loc>https://camwest5.github.io/r-training-intensive/Workshops/1 - Fundamentals.html</loc>
-    <lastmod>2025-05-16T05:10:52.236Z</lastmod>
-  </url>
-  <url>
-    <loc>https://camwest5.github.io/r-training-intensive/setup.html</loc>
-    <lastmod>2025-05-16T05:10:52.517Z</lastmod>
-  </url>
-  <url>
-    <loc>https://camwest5.github.io/r-training-intensive/Workshops/2 - Data processing.html</loc>
-    <lastmod>2025-05-16T05:10:52.236Z</lastmod>
-  </url>
-  <url>
-    <loc>https://camwest5.github.io/r-training-intensive/Workshops/4 - Sharing and Publishing.html</loc>
-    <lastmod>2025-05-16T05:10:52.236Z</lastmod>
-  </url>
-  <url>
-    <loc>https://camwest5.github.io/r-training-intensive/Workshops/6 - Programming.html</loc>
-    <lastmod>2025-05-16T05:10:52.237Z</lastmod>
-  </url>
-  <url>
-    <loc>https://camwest5.github.io/r-training-intensive/Projects/datasets.html</loc>
-    <lastmod>2025-05-16T05:10:52.235Z</lastmod>
+    <loc>https://camwest5.github.io/r-training-intensive/Past_projects/Adelia/COFFEE.html</loc>
+    <lastmod>2025-06-13T03:27:22.534Z</lastmod>
   </url>
   <url>
     <loc>https://camwest5.github.io/r-training-intensive/Projects/example_project/example_project.html</loc>
-    <lastmod>2025-05-16T05:10:52.236Z</lastmod>
+    <lastmod>2025-06-13T03:27:22.587Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Projects/datasets.html</loc>
+    <lastmod>2025-06-13T03:27:22.587Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Workshops/6 - Programming.html</loc>
+    <lastmod>2025-06-13T03:27:22.588Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Workshops/4 - Sharing and Publishing.html</loc>
+    <lastmod>2025-06-13T03:27:22.588Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Workshops/2 - Data processing.html</loc>
+    <lastmod>2025-06-13T03:27:22.588Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/setup.html</loc>
+    <lastmod>2025-06-13T03:27:22.897Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Workshops/1 - Fundamentals.html</loc>
+    <lastmod>2025-06-13T03:27:22.588Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Workshops/3 - Visualisation.html</loc>
+    <lastmod>2025-06-13T03:27:22.588Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Workshops/5 - Statistics.html</loc>
+    <lastmod>2025-06-13T03:27:22.588Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Workshops/index.html</loc>
+    <lastmod>2025-06-13T03:27:22.590Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Projects/details.html</loc>
+    <lastmod>2025-06-13T03:27:22.587Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/project_gallery.html</loc>
+    <lastmod>2025-06-13T03:27:22.896Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Past_projects/BCD/Goodreads_books.html</loc>
+    <lastmod>2025-06-13T03:27:22.546Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Past_projects/Caira/Coffee.html</loc>
+    <lastmod>2025-06-13T03:27:22.563Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Past_projects/Karunarathna/dashboard.html</loc>
+    <lastmod>2025-06-13T03:27:22.574Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Past_projects/Mehershad/Football Birth Month.html</loc>
+    <lastmod>2025-06-13T03:27:22.577Z</lastmod>
+  </url>
+  <url>
+    <loc>https://camwest5.github.io/r-training-intensive/Past_projects/Warren/DashbdProjW.html</loc>
+    <lastmod>2025-06-13T03:27:22.587Z</lastmod>
   </url>
 </urlset>
