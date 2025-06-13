@@ -103,6 +103,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -244,7 +273,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#datasets" id="toc-datasets" class="nav-link active" data-scroll-target="#datasets">Datasets</a></li>
+  <li><a href="#project-scaffold" id="toc-project-scaffold" class="nav-link active" data-scroll-target="#project-scaffold">Project scaffold</a>
+  <ul class="collapse">
+  <li><a href="#task-0-pick-a-dataset" id="toc-task-0-pick-a-dataset" class="nav-link" data-scroll-target="#task-0-pick-a-dataset">Task 0: Pick a dataset</a></li>
+  <li><a href="#task-1-understand-the-data" id="toc-task-1-understand-the-data" class="nav-link" data-scroll-target="#task-1-understand-the-data">Task 1: Understand the data</a></li>
+  <li><a href="#task-2-taking-a-subset" id="toc-task-2-taking-a-subset" class="nav-link" data-scroll-target="#task-2-taking-a-subset">Task 2: Taking a subset</a></li>
+  <li><a href="#task-3-visualise-the-relationship-between-variables" id="toc-task-3-visualise-the-relationship-between-variables" class="nav-link" data-scroll-target="#task-3-visualise-the-relationship-between-variables">Task 3: Visualise the relationship between variables</a></li>
+  <li><a href="#task-4-looking-ahead" id="toc-task-4-looking-ahead" class="nav-link" data-scroll-target="#task-4-looking-ahead">Task 4: Looking ahead</a></li>
+  </ul></li>
   <li><a href="#tips" id="toc-tips" class="nav-link" data-scroll-target="#tips">Tips</a>
   <ul class="collapse">
   <li><a href="#hotkeys" id="toc-hotkeys" class="nav-link" data-scroll-target="#hotkeys">Hotkeys</a></li>
@@ -276,55 +312,130 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="datasets" class="level2">
-<h2 class="anchored" data-anchor-id="datasets">Datasets</h2>
+<section id="project-scaffold" class="level2">
+<h2 class="anchored" data-anchor-id="project-scaffold">Project scaffold</h2>
+<section id="task-0-pick-a-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="task-0-pick-a-dataset">Task 0: Pick a dataset</h3>
 <p>We have nine datasets for you to choose from. <strong>We recommend saving your data inside your project</strong>.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Dataset</th>
 <th>Description</th>
+<th>Source</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><a href="../data_sources/population.csv">World populations</a></td>
 <td>A summary of world populations and corresponding statistics</td>
+<td>Data from a <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-10-22/readme.md">Tidy Tuesday post on 2014 CIA World Factbook data</a></td>
 </tr>
 <tr class="even">
 <td><a href="../data_sources/Players2024.csv">Soccer players</a></td>
-<td>A summary of 2024 soccer players</td>
+<td>A summary of approx. 6000 soccer players from 2024</td>
+<td>Data from a <a href="https://www.kaggle.com/datasets/asemmustafa/football-players-2024-dataset">Kaggle submission</a>.</td>
 </tr>
 <tr class="odd">
 <td><a href="../data_sources/coffee_survey.csv">Coffee survey</a></td>
-<td>A survey of coffee preferences</td>
+<td>A survey of blind coffee tasting results</td>
+<td>Data from a <a href="https://www.kaggle.com/datasets/sujaykapadnis/lets-do-some-coffee-tasting">Kaggle submission</a></td>
 </tr>
 <tr class="even">
 <td><a href="../data_sources/gapminder.csv">Gapminder</a></td>
 <td>GDP and life expectancy data by country</td>
+<td>Data from the <a href="https://github.com/resbaz/r-novice-gapminder">Research Bazaar’s R novice tutorial</a>, sourced from <a href="https://www.gapminder.org/">Gapminder</a>.</td>
 </tr>
 <tr class="odd">
 <td><a href="../data_sources/melb_data.csv">Melbourne housing data</a></td>
-<td>A collection of houses for sale in Melbourne. <a href="https://www.kaggle.com/datasets/dansbecker/melbourne-housing-snapshot">See here for variable explanations</a></td>
+<td>A collection of houses for sale in Melbourne.</td>
+<td>Data from a <a href="https://www.kaggle.com/datasets/dansbecker/melbourne-housing-snapshot">Kaggle submission</a></td>
 </tr>
 <tr class="even">
 <td><a href="../data_sources/books.csv">Goodreads books</a></td>
-<td>Data from Goodreads books</td>
+<td>A summary of books on Goodreads.</td>
+<td>Data from a <a href="https://www.kaggle.com/datasets/jealousleopard/goodreadsbooks">Kaggle submission</a></td>
 </tr>
 <tr class="odd">
 <td><a href="../data_sources/hospital_data.csv">Queensland hospitals</a></td>
-<td>Emergency department statistics. <a href="https://www.data.qld.gov.au/dataset/emergency-departments-quarterly-data">See here for source and details</a>.</td>
+<td>Queensland emergency department statistics.</td>
+<td>Data from the Queensland Government’s <a href="https://www.data.qld.gov.au/dataset/emergency-departments-quarterly-data">Open Data Portal</a>.</td>
 </tr>
 <tr class="even">
 <td><a href="../data_sources/qld_fuel.csv">Queensland fuel prices</a></td>
 <td>Fuel prices by the pump in Queensland</td>
+<td>Data from the Queensland Government’s <a href="https://www.data.qld.gov.au/dataset/fuel-price-reporting-2024">Open Data Portal</a></td>
 </tr>
 <tr class="odd">
 <td><a href="../data_sources/birds_strikes.csv">Aeroplane bird strikes</a></td>
 <td>Aeroplane bird strike incidents fron the 90s</td>
+<td>Data from a <a href="https://github.com/rfordatascience/tidytuesday/tree/2500765853ea5235409d936cf9bbbf7d5f8b6881/data/2019/2019-07-23">Tidy Tuesday post</a> sourced from an <a href="https://wildlife.faa.gov/home">FAA database</a></td>
 </tr>
 </tbody>
 </table>
+<p>Remember, to load the data into R we need to use the <code>read.csv()</code> function.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"path_to_data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="task-1-understand-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-understand-the-data">Task 1: Understand the data</h3>
+<p>The datasets are varied with respect to variable types and content. The first exercise you should complete is a overview of the data. Use the following techniques to do so.</p>
+<p><strong>Your goal: identify which variables are discrete (categorical) and which are continuous.</strong></p>
+<section id="viewing-the-data-structure" class="level4">
+<h4 class="anchored" data-anchor-id="viewing-the-data-structure">Viewing the data structure</h4>
+<p>Use the following functions to view your data and the underlying data types.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(dataset)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dataset)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="picking-out-individual-columns" class="level4">
+<h4 class="anchored" data-anchor-id="picking-out-individual-columns">Picking out individual columns</h4>
+<p>To view the contents of particular columns, you can select them via indexing</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>column_name<span class="st">"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="st">unique(dataset$column_name)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="st">summary(dataset$column_name)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can also apply other statistics to the column, like <code>max()</code>.</p>
+</section>
+</section>
+<section id="task-2-taking-a-subset" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-taking-a-subset">Task 2: Taking a subset</h3>
+<p>The datasets have lots of observations for lots of variables. To draw meaningful results, it’s often useful to take a subset of those.</p>
+<p><strong>Your goal: filter by a condition or group by and aggregate over a particular variable</strong></p>
+<p>First, we want to load the <code>dplyr</code> library to perform data manipulation</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="filtering" class="level4">
+<h4 class="anchored" data-anchor-id="filtering">Filtering</h4>
+<p>Recall that filtering looks like indexing. If you only want to examine a certain subset of a variable, the following code will isolate that subset</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>subset <span class="ot">=</span> dataset <span class="sc">%&gt;%</span> <span class="fu">filter</span>(condition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>where <code>condition</code> depends on the columns. For example, <code>country == "Australia"</code>.</p>
+<blockquote class="blockquote">
+<p>Hint: we’ve used the pipe operator <code>%&gt;%</code> here, which is equivalent to <code>filter(datatset, condition)</code>.</p>
+</blockquote>
+</section>
+<section id="grouping" class="level4">
+<h4 class="anchored" data-anchor-id="grouping">Grouping</h4>
+<p>If you want to aggregate over a particular variable you need to group by it. This answers questions like, what is the average <span class="math inline">\(x\)</span> for every <span class="math inline">\(y\)</span>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>aggregated <span class="ot">=</span> dataset <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">"variable_to_group_by"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">summary_1 =</span> ..., <span class="at">summary_2 =</span> ..., ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>summarise</code> function aggregates by applying some statistic to a particular column for every unique value in the grouping variable. For example, <code>summarise(avg_pop = mean(population))</code> makes a column in the summary table for the average population for each value of the grouped variable.</p>
+</section>
+</section>
+<section id="task-3-visualise-the-relationship-between-variables" class="level3">
+<h3 class="anchored" data-anchor-id="task-3-visualise-the-relationship-between-variables">Task 3: Visualise the relationship between variables</h3>
+<p>With your summary dataset, you can now try to visualise your variables.</p>
+<p><strong>Your goal: create a visualisation of one to three variables in your summary data</strong>.</p>
+<p>For visualisation, we use the <code>ggplot2</code> library.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Next, you’ll need to identify the variables to visualise. Using <code>ggplot</code>, we then specify the data, the mappings and the graphical elements</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> aggregated,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ..., <span class="at">y =</span> ..., ...)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_...</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="task-4-looking-ahead" class="level3">
+<h3 class="anchored" data-anchor-id="task-4-looking-ahead">Task 4: Looking ahead</h3>
+<p>Now that you’ve performed your first analysis and visualisation of the dataset, use these results to inform your next analysis!</p>
+<p>Below you’ll find some general tips which can help. They have dataset-specific tips too, so check them out. Otherwise, feel free to ask if you have any other questions.</p>
+</section>
 </section>
 <section id="tips" class="level2">
 <h2 class="anchored" data-anchor-id="tips">Tips</h2>
@@ -378,9 +489,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="importing-and-exporting-data" class="level4">
 <h4 class="anchored" data-anchor-id="importing-and-exporting-data">Importing and exporting data</h4>
 <p>In case you’ve forgotten, use the <code>read.csv()</code> function to import data:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/dataset.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/dataset.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If you’d like to export any files from R to “.csv”, use <code>write.csv()</code></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(dataset, <span class="st">"data/output_name.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(dataset, <span class="st">"data/output_name.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="initial-exploration" class="level4">
 <h4 class="anchored" data-anchor-id="initial-exploration">Initial exploration</h4>
@@ -430,10 +541,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="removing-nas" class="level4">
 <h4 class="anchored" data-anchor-id="removing-nas">Removing <code>NA</code>s</h4>
 <p>We can use the <code>dplyr</code> package to remove rows which have NA:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(variable_to_check_for_NAs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(variable_to_check_for_NAs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <blockquote class="blockquote">
 <p>We use the exclamation mark <code>!</code> to negate the result, because <code>is.na</code> returns all the rows that <em>are</em> <code>NA</code>.</p>
 </blockquote>
@@ -441,26 +552,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="time-series-data" class="level4">
 <h4 class="anchored" data-anchor-id="time-series-data">Time series data</h4>
 <p>If you’ve picked a dataset with time-series data (e.g.&nbsp;a “date” variable), you should transform that variable so that it visualises better:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>variable <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(dataset<span class="sc">$</span>variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>variable <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(dataset<span class="sc">$</span>variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="categorical-and-ordered-data" class="level4">
 <h4 class="anchored" data-anchor-id="categorical-and-ordered-data">Categorical and ordered data</h4>
 <p>If you’re dealing with categorical data, it can be helpful to tell R that it has levels:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>variable <span class="ot">&lt;-</span> <span class="fu">factor</span>(dataset<span class="sc">$</span>variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>variable <span class="ot">&lt;-</span> <span class="fu">factor</span>(dataset<span class="sc">$</span>variable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To manually specify the order to R, send in an ordered list of the levels joined with <code>c()</code>:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>variable <span class="ot">&lt;-</span> <span class="fu">factor</span>(dataset<span class="sc">$</span>variable, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"first_val"</span>, <span class="st">"second_val"</span>, ... ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>variable <span class="ot">&lt;-</span> <span class="fu">factor</span>(dataset<span class="sc">$</span>variable, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"first_val"</span>, <span class="st">"second_val"</span>, ... ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <blockquote class="blockquote">
 <p>This is particularly useful for the <strong>Coffee survey</strong> dataset.</p>
 </blockquote>
 <p>Alternatively, if you only need to specify the first (reference) level, use</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>variable <span class="ot">&lt;-</span> <span class="fu">factor</span>(dataset<span class="sc">$</span>variable)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>variable <span class="ot">&lt;-</span> <span class="fu">relevel</span>(dataset<span class="sc">$</span>variable, <span class="at">ref =</span> <span class="st">"reference_level"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>variable <span class="ot">&lt;-</span> <span class="fu">factor</span>(dataset<span class="sc">$</span>variable)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>variable <span class="ot">&lt;-</span> <span class="fu">relevel</span>(dataset<span class="sc">$</span>variable, <span class="at">ref =</span> <span class="st">"reference_level"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="renaming-variables" class="level4">
 <h4 class="anchored" data-anchor-id="renaming-variables">Renaming variables</h4>
 <p>Some datasets have cumbersome names for their variables. We can change variable names with</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">new_name =</span> old_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">new_name =</span> old_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <blockquote class="blockquote">
 <p>This is particularly useful for the <strong>World population</strong> dataset.</p>
 </blockquote>
@@ -469,19 +580,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="visualisation" class="level3">
 <h3 class="anchored" data-anchor-id="visualisation">Visualisation</h3>
 <p>We use the <code>ggplot()</code> function with geometries to create visualisations</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dataset,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ..., <span class="at">y =</span> ..., <span class="at">colour =</span> ..., ...)) <span class="sc">+</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_first_layer</span>() <span class="sc">+</span> </span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_second_layer</span>() <span class="sc">+</span> </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dataset,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ..., <span class="at">y =</span> ..., <span class="at">colour =</span> ..., ...)) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_first_layer</span>() <span class="sc">+</span> </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_second_layer</span>() <span class="sc">+</span> </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Take a look at the <a href="https://ggplot2.tidyverse.org/">ggplot2 documentation</a> for more information.</p>
 <section id="plotly-workaround" class="level4">
 <h4 class="anchored" data-anchor-id="plotly-workaround">Plotly workaround</h4>
 <p>If you’re having issues using <code>ggplotly</code> (it’s producing a blank plot), you can use this workaround to view it in your browser.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplotly</span>(saved_ggplot_image)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>htmlwidgets<span class="sc">::</span><span class="fu">saveWidget</span>(<span class="fu">as_widget</span>(plot), <span class="st">"plots/name_of_plot.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplotly</span>(saved_ggplot_image)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>htmlwidgets<span class="sc">::</span><span class="fu">saveWidget</span>(<span class="fu">as_widget</span>(plot), <span class="st">"plots/name_of_plot.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Opening that file will show you the image.</p>
 
 
