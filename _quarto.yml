@@ -5,6 +5,8 @@ project:
     - "Workshops/*"
     - "Projects/*"
     - project_gallery.qmd
+    - "Past_projects/*"
+
 website:
   title: "R Training Intensive"
   navbar:
@@ -25,6 +27,14 @@ website:
         - section: The Project
           contents:
           - auto: "Projects/*"
+    - title: "Project Gallery"
+      contents:
+        - text: "Winter 2025"
+          href: project_gallery.qmd
+        - section: Past projects
+          contents:
+            - text: Summer 2025
+              href: Past_projects/project_gallery.qmd
 
 format:
   html:
@@ -36,5 +46,5 @@ format:
 
 # if the GitHub action does the rendering, no need to freeze
 # see https://quarto.org/docs/publishing/github-pages.html#executing-code
-# execute:
-#   freeze: auto
+execute:
+  freeze: auto

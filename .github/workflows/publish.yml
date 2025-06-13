@@ -34,6 +34,12 @@ jobs:
         
       - name: Install textshaping dependencies
         run: sudo apt install libharfbuzz-dev libfribidi-dev
+      
+      - name: Install PerformanceAnalytics dependencies
+        run: sudo apt install gfortran
+
+      - name: Install clipr dependencies
+        run: sudo apt install libx11-dev
         
       - name: Install R
         uses: r-lib/actions/setup-r@v2
