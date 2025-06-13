@@ -17,29 +17,20 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Install libcurl4
-        run: sudo apt update && sudo apt install libcurl4-openssl-dev
-        
-      - name: Install JDK
-        run: sudo apt install openjdk-21-jdk
-        
-      - name: Install terra dependencies
-        run: sudo apt install libgdal-dev libgeos-dev libproj-dev
-        
-      - name: Install units dependencies
-        run: sudo apt install libudunits2-dev
+      - name: Install system dependencies
+        run: > 
+          sudo apt update && sudo apt install 
+          libcurl4-openssl-dev
+          openjdk-21-jdk
+          libgdal-dev libgeos-dev libproj-dev
+          libudunits2-dev
+          libfontconfig1-dev
+          libharfbuzz-dev libfribidi-dev
       
-      - name: Install systemfonts dependencies
-        run: sudo apt install libfontconfig1-dev
-        
-      - name: Install textshaping dependencies
-        run: sudo apt install libharfbuzz-dev libfribidi-dev
-      
-      - name: Install PerformanceAnalytics dependencies
-        run: sudo apt install gfortran
-
-      - name: Install clipr dependencies
-        run: sudo apt install libx11-dev
+        # Terra dependencies: libgdal-dev, libgeos-dev and libproj-dev
+        # units dependencies: libudunits2-dev
+        # systemfonts dependencies: libfontconfig1-dev
+        # textshaping dependencies: libharfbuzz-dev libfribidi-dev
         
       - name: Install R
         uses: r-lib/actions/setup-r@v2
