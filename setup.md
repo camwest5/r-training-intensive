@@ -1,5 +1,5 @@
 ---
-title: Intro and Setting Up
+title: R Training Intensive
 format: 
   html:
     include-in-header:
