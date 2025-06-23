@@ -1,18 +1,18 @@
 ---
 title: Goalkeepers and their heights
 author: Cameron West and Stéphane Guillou
-date: today
+date: 23-Jun-25
 warning: false
-error: false
+image: tb.png
 format:
   html:
     code-fold: true
-    code_summary: "Show the code"
+    code-summary: "Show code"
+    code-tools: true
 ---
 
-<!-- **[Download the code for this dashboard](../example_project.zip)** -->
-
 ```{R}
+#| code-summary: "Set up code"
 library(ggplot2)
 library(dplyr)
 library(plotly)
@@ -104,8 +104,7 @@ players <- players %>%
                                   "Northern Ireland" ~ "United Kingdom",
                                   "Wales" ~ "United Kingdom",
                                   .default = nationality))
-
-
+    
 # Make the country count
 countries <- players %>%
   group_by(nationality) %>%
