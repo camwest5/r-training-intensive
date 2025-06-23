@@ -4,7 +4,7 @@
     "href": "Past_projects/project_gallery.html",
     "title": "Projects from summer 2025",
     "section": "",
-    "text": "Bird Strike Dashboard\n\n\n\n\n\n\nEdiana\n\n\n\n\n\n\n\n\n\n\n\n\n\nBirdStrikes\n\n\n\n\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\nCOFFEE\n\n\n\n\n\n\nAdelia\n\n\n\n\n\n\n\n\n\n\n\nCoffee\n\n\n\n\n\n\nCaira Loo\n\n\n\n\n\n\n\n\n\n\n\nCoffee\n\n\n\n\n\n\nWarren\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\nGoodreads books published in 2006\n\n\n\n\n\n\nBrittnee, Cleo, & David\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\nHospital Data\n\n\n\n\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nImpact of Birth Month on Football careers\n\n\n\n\n\n\nMehershad Wadia\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\nMelbourne Housing\n\n\n\n\n\n\n\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n📝 Coffee vs Employment status\n\n\n\n\n\n\nDawn\n\n\nJun 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items",
+    "text": "Bird Strike Dashboard\n\n\n\n\n\n\nEdiana\n\n\n\n\n\n\n\n\n\n\n\n\n\nBirdStrikes\n\n\n\n\n\n\n\n\n\nJun 23, 2025\n\n\n\n\n\n\n\n\n\n\n\nCOFFEE\n\n\n\n\n\n\nAdelia\n\n\n\n\n\n\n\n\n\n\n\nCoffee\n\n\n\n\n\n\nCaira Loo\n\n\n\n\n\n\n\n\n\n\n\nCoffee\n\n\n\n\n\n\nWarren\n\n\nJun 23, 2025\n\n\n\n\n\n\n\n\n\n\n\nGoodreads books published in 2006\n\n\n\n\n\n\nBrittnee, Cleo, & David\n\n\nJun 23, 2025\n\n\n\n\n\n\n\n\n\n\n\nHospital Data\n\n\n\n\n\n\n\n\n\nJun 23, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nImpact of Birth Month on Football careers\n\n\n\n\n\n\nMehershad Wadia\n\n\nJun 23, 2025\n\n\n\n\n\n\n\n\n\n\n\nMelbourne Housing\n\n\n\n\n\n\n\n\n\nJun 23, 2025\n\n\n\n\n\n\n\n\n\n\n\n📝 Coffee vs Employment status\n\n\n\n\n\n\nDawn\n\n\nJun 23, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Project Gallery",
       "Past projects",
@@ -58,6 +58,41 @@
       "The Project",
       "Tips"
     ]
+  },
+  {
+    "objectID": "Projects/example_project/example_project.html",
+    "href": "Projects/example_project/example_project.html",
+    "title": "Goalkeepers and their heights",
+    "section": "",
+    "text": "Set up code\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(plotly)\nlibrary(knitr)\n\nplayers_raw &lt;- read.csv(\"../../data_sources/Players2024.csv\")"
+  },
+  {
+    "objectID": "Projects/example_project/example_project.html#a-glimpse-at-the-dataset",
+    "href": "Projects/example_project/example_project.html#a-glimpse-at-the-dataset",
+    "title": "Goalkeepers and their heights",
+    "section": "A glimpse at the dataset",
+    "text": "A glimpse at the dataset\nWe’ll begin just by taking a glimpse at the dataset:\n\n\nShow code\nkable(head(players_raw))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nname\nbirth_date\nheight_cm\npositions\nnationality\nage\nclub\n\n\n\n\nJames Milner\n1986-01-04\n175\nMidfield\nEngland\n38\nBrighton and Hove Albion Football Club\n\n\nAnastasios Tsokanis\n1991-05-02\n176\nMidfield\nGreece\n33\nVolou Neos Podosferikos Syllogos\n\n\nJonas Hofmann\n1992-07-14\n176\nMidfield\nGermany\n32\nBayer 04 Leverkusen Fußball\n\n\nPepe Reina\n1982-08-31\n188\nGoalkeeper\nSpain\n42\nCalcio Como\n\n\nLionel Carole\n1991-04-12\n180\nDefender\nFrance\n33\nKayserispor Kulübü\n\n\nLudovic Butelle\n1983-04-03\n188\nGoalkeeper\nFrance\n41\nStade de Reims"
+  },
+  {
+    "objectID": "Projects/example_project/example_project.html#cleaning-the-data",
+    "href": "Projects/example_project/example_project.html#cleaning-the-data",
+    "title": "Goalkeepers and their heights",
+    "section": "Cleaning the data",
+    "text": "Cleaning the data\nThe data has a few issues, as the following plot shows:\n\n\nShow code\nggplot(players_raw, aes(x = positions, y = height_cm)) +\n  geom_boxplot() \n\n\n\n\n\n\n\n\n\nShow code\n#sns.catplot(df_raw, x = \"positions\", y = \"height_cm\")\n\n\nIt looks like some of the players’ positions and heights were recorded incorrectly. To clean, let’s remove the “Missing” positions and ensure that heights are reasonable:\n\n\nShow code\n# Remove missing position and ensure reasonable heights\nplayers &lt;- players_raw %&gt;% filter(positions != \"Missing\", height_cm &gt; 100)\n\n\nTo confirm, let’s plot the outliers in a different colour\n\n\nShow code\n# Identify outliers\noutliers &lt;- anti_join(players_raw, players)\n\n# Plot\nggplot(players, aes(x = positions, y = height_cm)) +\n  geom_boxplot() + \n  geom_point(data = outliers, colour = \"red\")"
+  },
+  {
+    "objectID": "Projects/example_project/example_project.html#visualising-the-players-heights",
+    "href": "Projects/example_project/example_project.html#visualising-the-players-heights",
+    "title": "Goalkeepers and their heights",
+    "section": "Visualising the players’ heights",
+    "text": "Visualising the players’ heights\nAfter cleaning the data we can now analyse the players’ heights to see if there’s differences between positions. Let’s make the boxplot without the outliers\n\n\nShow code\nggplot(players, aes(x = positions, y = height_cm)) +\n  geom_boxplot() +\n  labs(x = \"Position\", y = \"Height (cm)\") \n\n\n\n\n\n\n\n\n\nShow code\nggsave(\"tb.png\")\n\n\nIt looks like goalkeepers are taller than the rest!\nLet’s through the age variable into the mix, to see if players’ heights allow them to compete longer.\n\n\nShow code\np &lt;- ggplot(players, aes(x = age, y = height_cm, colour = positions, label = name, label2 = nationality)) + \n  geom_point() + \n  facet_wrap(vars(positions)) + \n  labs(x = \"Age\", colour = \"Position\", y = \"Height (cm)\")\n\nggplotly(p)\n\n\n\n\n\n\nIt doesn’t look like there’s a relationship between heights and ages, but clearly it affects their position!"
+  },
+  {
+    "objectID": "Projects/example_project/example_project.html#global-spread",
+    "href": "Projects/example_project/example_project.html#global-spread",
+    "title": "Goalkeepers and their heights",
+    "section": "Global spread",
+    "text": "Global spread\nWe haven’t looked at the nationality column yet. Let’s draw up a map using plotly to see where the players come from.\n\n\nShow code\n# Change country names to match plotly reference\nplayers &lt;- players %&gt;% \n  mutate(nationality = case_match(nationality,\n                                  \"England\" ~ \"United Kingdom\",\n                                  \"Türkiye\" ~ \"Turkey\",\n                                  \"Cote d'Ivoire\" ~ \"Ivory Coast\",\n                                  \"Northern Ireland\" ~ \"United Kingdom\",\n                                  \"Wales\" ~ \"United Kingdom\",\n                                  .default = nationality))\n    \n# Make the country count\ncountries &lt;- players %&gt;%\n  group_by(nationality) %&gt;%\n  summarise(n = n())\n\n# Make the plot\ncountries %&gt;% \n  plot_ly(type = \"choropleth\", \n          locations = countries$nationality, \n          locationmode = \"country names\", \n          z = countries$n) %&gt;%\n  colorbar(title = \"# of Players\")"
   },
   {
     "objectID": "Workshops/index.html",
@@ -662,7 +697,7 @@
     "href": "project_gallery.html",
     "title": "Project Gallery",
     "section": "",
-    "text": "Goalkeepers and their heights\n\n\n\n\n\n\nCameron West and Stéphane Guillou\n\n\nJun 19, 2025\n\n\n\n\n\n\nNo matching items",
+    "text": "Goalkeepers and their heights\n\n\n\n\n\n\nCameron West and Stéphane Guillou\n\n\nJun 23, 2025\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Project Gallery",
       "Winter 2025"
