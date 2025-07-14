@@ -19,8 +19,6 @@ library(plotly)
 library(knitr)
 
 players_raw <- read.csv("../../data_sources/Players2024.csv")
-
-
 ```
 
 ## A glimpse at the dataset

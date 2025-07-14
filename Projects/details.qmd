@@ -9,14 +9,14 @@ Roughly 50% of our intensive is dedicated to working on the project. Working in 
 
 The end goal will be a quick fire (low stakes) one-minute presentation with a dashboard to complement.
 
-See the [datasets](datasets.qmd) page for the data and [below](#uploading-the-submission) for submission details.
+See the [datasets](scaffold.qmd) page for the data and [below](#uploading-the-submission) for submission details.
 
 ## Project outline
 
 There are a few key requirements for the project, but otherwise it's up to you!
 
 - Analyse a dataset and create some visualisations 
-- Put together a final dashboard-style report. Anything from a powerpoint slide to an interactive dashboard will do!
+- Put together a final quarto report. Anything from a single figure to an interactive website will do!
 - Deliver a quick fire one-minute presentation with your group
 
 We'll have 5 sessions during the intensive days to work on the project, just shy of six hours. The goal of these sessions is twofold
