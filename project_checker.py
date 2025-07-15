@@ -51,7 +51,7 @@ for path, dirs, files in os.walk("Projects"):
             try: 
                 pd.read_csv(load_path)
             except FileNotFoundError:
-                print(f"\033[31mBAD PATH\033[0m ({load_command})\n\tAttempting fix...")
+                print(f"\033[31mBAD PATH\033[0m ({load_command})\nAttempting fix...")
 
                 # Determine data needed
                 matches = [csv for csv in data_paths.keys() if csv in load_command]
@@ -149,6 +149,6 @@ for path, dirs, files in os.walk("Projects"):
     os.chdir(root)
 
 
-print(f"\nSummary of errors")
+print(f"\nSummary of outstanding errors")
 for error in errors:
     print(error[0], error[1], sep = "\t")
