@@ -103,7 +103,7 @@ for path, dirs, files in os.walk("Projects"):
             # input(test_load.stderr.decode())
             # input(test_load.stdout.decode())
 
-            with open(root + "/renv.lock") as f:
+            with open(root + "/renv.lock", encoding = "utf8") as f:
                 lockfile = f.read()
 
             if import_lib in lockfile:
