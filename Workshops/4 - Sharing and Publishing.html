@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-07-16">
+<meta name="dcterms.date" content="2025-07-17">
 
 <title>Sharing and Publishing – R Training Intensive</title>
 <style>
@@ -287,7 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 16, 2025</p>
+      <p class="date">July 17, 2025</p>
     </div>
   </div>
   
@@ -460,18 +460,18 @@ format: dashboard
 warning: false
 ---
 
-```pud
+```kdx
 players <- read.csv("data_sources/Players2024.csv")
 ```
 
-```pud
+```kdx
 library(dplyr)
 players <- players %>% filter(positions != "Missing", height_cm > 100)
 ```
 
 ## Figures {height=70%}
 
-```pud
+```kdx
 #| title: Goalkeepers tend to be taller
 #| fig-alt: "A boxplot of the relationship between height and position."
 library(ggplot2)
@@ -480,7 +480,7 @@ ggplot(players, aes(x = positions, y = height_cm)) +
   labs(x = "Position", y = "Height (cm)")
 ```
 
-```pud
+```kdx
 #| title: Age vs Height by position
 p <- ggplot(players, aes(x = age, y = height_cm, colour = positions, label = name, label2 = nationality)) + 
   geom_point() + 
@@ -492,7 +492,7 @@ ggplotly(p)
 
 ## Table
 
-```pud
+```kdx
 #| title: A glimpse at the dataset
 library(knitr)
 kable(players)
