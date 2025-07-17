@@ -47,6 +47,7 @@ kable(head(goodreadsdata))
 **Let's visualize the book reviews and book ratings**
 
 ```{r}
+View(goodreadsdata)
 
 ggplot(goodreadsdata, aes(x = average_rating, y = text_reviews_count)) +
   geom_point( colour = "blue") 

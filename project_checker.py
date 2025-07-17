@@ -14,6 +14,12 @@ root = os.getcwd()
 errors = []
 
 
+# Modifications to check for
+
+# 1. Actually running the R code
+# 2. Checking the quarto options (html only, no bib)
+
+
 # Make dict of data paths
 data_paths = {csv[:-4]:"data_sources/"+csv for csv in os.listdir("data_sources")}
 
@@ -126,28 +132,44 @@ for path, dirs, files in os.walk("Projects"):
             # else:
             #     print(f"\033[32mREQS OK\033[0m\t ({import_command})")
 
-        # Collect Python chunks and check for additional errors
-        chunk_start = 0
-        py_source = ""
-        while True:
-            chunk_start = source.find(r"```{python}", chunk_start + 1)
+        # Collect R chunks and check for additional errors
+        # chunk_start = 0
+        # r_chunk_start = 0
+        # R_chunk_start = 0
+        # R_source = ""
+        # while True:
+        #     r_chunk_start = source.find(r"```{r}", r_chunk_start + 1)
+        #     R_chunk_start = source.find(r"```{R}", R_chunk_start + 1)
 
-            if chunk_start == -1:
-                break
-
-            chunk_end = source.find("```", chunk_start + 1)
-
-            py_source += source[chunk_start+11:chunk_end]
+        #     if r_chunk_start == -1 and R_chunk_start == -1:
+        #         break
+        #     elif r_chunk_start == -1:
+        #         chunk_start = R_chunk_start
+        #     elif R_chunk_start == -1:
+        #         chunk_start = r_chunk_start
+        #     else:
+        #         chunk_start = min(r_chunk_start, R_chunk_start)
             
-        try:
-            exec(py_source)
-        except Exception as e:
-            print(f"\033[31mFILE ERROR\033[0m '{e}'")
-            errors.append((path + '\\' + filename, e))
-        else:
-            print(f"\033[32mFILE OK\033[0m")
+        #     chunk_end = source.find("```", chunk_start + 1)
 
-    os.chdir(root)
+        #     R_source += source[chunk_start+7:chunk_end]       
+
+        # with open("temp.R", "w") as temp:
+        #     temp.write(R_source)
+
+        #     subprocess.run(["R", "-f", "temp.R"])
+        #     input()
+             
+        # subprocess.run(["R","-e", R_source])
+        # try:
+        #     exec(py_source)
+        # except Exception as e:
+        #     print(f"\033[31mFILE ERROR\033[0m '{e}'")
+        #     errors.append((path + '\\' + filename, e))
+        # else:
+        #     print(f"\033[32mFILE OK\033[0m")
+
+        os.chdir(root)
 
 
 print(f"\nSummary of outstanding errors")

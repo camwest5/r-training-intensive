@@ -3,7 +3,7 @@ title: "Queensland hospitals data analysis"
 author: "Swagata & Sandhya"
 format: html
 date: 17 July 2025
-editor: visual
+# editor: visual
 ---
 
 ## Quarto uses Markdown
@@ -22,7 +22,7 @@ library("ggplot2")
 library("plotly")
 library("tidyverse")
 
-hospital_data <- ../../data_sources/hospital_data.csv')
+hospital_data <- read.csv('../../data_sources/hospital_data.csv')
 
 
 # Aggregate data per hospital (mean if multiple entries per hospital)
