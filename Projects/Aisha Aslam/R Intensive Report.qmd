@@ -5,7 +5,7 @@ format: html
 code-fold: true
 code-summary: "Show code"
 code-tools: true
-editor: visual
+#editor: visual
 date: today
 warning: false
 ---
@@ -47,7 +47,7 @@ kable(head(goodreadsdata))
 **Let's visualize the book reviews and book ratings**
 
 ```{r}
-View(goodreadsdata)
+#View(goodreadsdata)
 
 ggplot(goodreadsdata, aes(x = average_rating, y = text_reviews_count)) +
   geom_point( colour = "blue") 
