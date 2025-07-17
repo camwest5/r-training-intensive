@@ -4,9 +4,8 @@ author: "Adriel Wijaya"
 format: html
 editor: visual
 date: today
-bibliography: references.bib
+#bibliography: references.bib
 ---
-
 
 ## Background
 
@@ -20,7 +19,6 @@ Table below shows football player that plays for FC Barcelona.
 library(dplyr)
 #|eval: False
 ```
-
 
 ```{r, fig.cap="Table.1 FC Barcelona Player Season 2023-2024", fig.align='center'}
 
