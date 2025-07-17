@@ -10,6 +10,9 @@ date: today
 We are using the **png**, **ggpubr**, **tidyverse** and **plotly** libraries to examine our data. We can install and enable these libraries as follows, using an if loop to prevent repeat installation. 
 
 ```{r}
+install.packages("png")
+install.packages("ggpubr")
+
 #| message: false
 inst_list = c("tidyverse", "plotly", "png", "ggpubr")
 
