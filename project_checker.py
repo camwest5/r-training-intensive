@@ -8,6 +8,7 @@ import subprocess
 # 2. Requirements
 # 3. File runs without error
 
+os.system("cls")
 root = os.getcwd()
 
 errors = []
