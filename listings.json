@@ -1,36 +1,42 @@
 [
   {
-    "listing": "/Past_projects/project_gallery.html",
+    "listing": "/Past_projects/25Winter/project_gallery.html",
     "items": [
-      "/Past_projects/Toasted/Bird Strike Dashboard.html",
-      "/Past_projects/Birdstrike/Birdstrikes.html",
-      "/Past_projects/Adelia/COFFEE.html",
-      "/Past_projects/Caira/Coffee.html",
-      "/Past_projects/Warren/DashbdProjW.html",
-      "/Past_projects/BCD/Goodreads_books.html",
-      "/Past_projects/Krystie/dashy presentation.html",
-      "/Past_projects/Mehershad/Football Birth Month.html",
-      "/Past_projects/Karunarathna/dashboard.html",
-      "/Past_projects/Dawn/project_dashboard.html"
+      "/Past_projects/25Winter/Liz's Project/Report.html",
+      "/Past_projects/25Winter/Adriel Project/Report-Test.html",
+      "/Past_projects/25Winter/example_project/example_project.html",
+      "/Past_projects/25Winter/Aisha Aslam/R Intensive Report.html",
+      "/Past_projects/25Winter/Sandya & Buddhika/melb property.html",
+      "/Past_projects/25Winter/cathys project/report.html",
+      "/Past_projects/25Winter/Nora's Project/Nora project.html",
+      "/Past_projects/25Winter/Chris/Population - Presentation for R Training.html",
+      "/Past_projects/25Winter/Casey & Jess Project/Project Hospital Report.html",
+      "/Past_projects/25Winter/Claudine & Emman/QLD_fuel.html",
+      "/Past_projects/25Winter/Claudine & Emman/Fuel sites.html",
+      "/Past_projects/25Winter/Swagata & Sandhya's Project/Queensland hospital dataanalysis.html",
+      "/Past_projects/25Winter/Ben's Project/report_ben.html",
+      "/Past_projects/25Winter/Andrew Proj/report.html"
+    ]
+  },
+  {
+    "listing": "/Past_projects/25Summer/project_gallery.html",
+    "items": [
+      "/Past_projects/25Summer/Toasted/Bird Strike Dashboard.html",
+      "/Past_projects/25Summer/Birdstrike/Birdstrikes.html",
+      "/Past_projects/25Summer/Adelia/COFFEE.html",
+      "/Past_projects/25Summer/Caira/Coffee.html",
+      "/Past_projects/25Summer/Warren/DashbdProjW.html",
+      "/Past_projects/25Summer/BCD/Goodreads_books.html",
+      "/Past_projects/25Summer/Krystie/dashy presentation.html",
+      "/Past_projects/25Summer/Mehershad/Football Birth Month.html",
+      "/Past_projects/25Summer/Karunarathna/dashboard.html",
+      "/Past_projects/25Summer/Dawn/project_dashboard.html"
     ]
   },
   {
     "listing": "/project_gallery.html",
     "items": [
-      "/Projects/Liz's Project/Report.html",
-      "/Projects/Adriel Project/Report-Test.html",
-      "/Projects/example_project/example_project.html",
-      "/Projects/Aisha Aslam/R Intensive Report.html",
-      "/Projects/Sandya & Buddhika/melb property.html",
-      "/Projects/cathys project/report.html",
-      "/Projects/Nora's Project/Nora project.html",
-      "/Projects/Chris/Population - Presentation for R Training.html",
-      "/Projects/Casey & Jess Project/Project Hospital Report.html",
-      "/Projects/Claudine & Emman/QLD_fuel.html",
-      "/Projects/Claudine & Emman/Fuel sites.html",
-      "/Projects/Swagata & Sandhya's Project/Queensland hospital dataanalysis.html",
-      "/Projects/Ben's Project/report_ben.html",
-      "/Projects/Andrew Proj/report.html"
+      "/Projects/example_project/example_project.html"
     ]
   }
 ]

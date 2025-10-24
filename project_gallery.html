@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -34,14 +34,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-eaee99917138560b7c8b596aec05395c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d58b9a2750f78c4ba5585652ef45bd1c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -113,7 +114,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -138,6 +139,8 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">R Training Intensive</span>
     </a>
@@ -181,6 +184,10 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+      </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -200,7 +207,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Past_projects/project_gallery.html" class="sidebar-item-text sidebar-link">
+  <a href="./Past_projects/25Winter/project_gallery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Winter 2025</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Past_projects/25Summer/project_gallery.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Summer 2025</span></a>
   </div>
 </li>
@@ -242,51 +255,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1752710400000" data-listing-file-modified-sort="1752793567828" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="264">
-<a href="./Projects/Liz's Project/Report.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="Projects/Liz's Project/Report_files/figure-html/unnamed-chunk-8-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Book Report
-</h5>
-<div class="card-text listing-description delink">
-We took a deep dive into our books data set. We have captured authors, publishers, and ratings.
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Liz
-</div>
-<div class="listing-date">
-Jul 17, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1752710400000" data-listing-file-modified-sort="1752793567810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="241">
-<a href="./Projects/Adriel Project/Report-Test.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="Projects/Adriel Project/Report-Test_files/figure-html/unnamed-chunk-3-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-FC Barcelona Team Analysis
-</h5>
-<div class="card-text listing-description delink">
-<strong>FC Barcelona</strong> (Futbol Club Barcelona ) is a football club founded in 1899 by a group of Swiss, Catalan, German, and English footballers led by Joan Gamper<span class="citation" data-cites="fcbarce2025">[@fcbarce2025]</span>. The…<span class="citation" data-cites="fcbarce2025"></span>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Adriel Wijaya
-</div>
-<div class="listing-date">
-Jul 17, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-listing-date-sort="1750636800000" data-listing-file-modified-sort="1752793567829" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="587">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1750636800000" data-listing-file-modified-sort="1761272735939" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="587">
 <a href="./Projects/example_project/example_project.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -305,240 +274,6 @@ Cameron West and Stéphane Guillou
 </div>
 <div class="listing-date">
 Jun 23, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-listing-date-sort="1752710400000" data-listing-file-modified-sort="1752793567810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="95">
-<a href="./Projects/Aisha Aslam/R Intensive Report.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="Projects/Aisha Aslam/R-Intensive-Report_files/figure-html/unnamed-chunk-4-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Good Reads
-</h5>
-<div class="card-text listing-description delink">
-If you love books, you are at just the right place :) Wouldn’t it be interesting to find out:
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Aisha Aslam
-</div>
-<div class="listing-date">
-Jul 17, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="4" data-listing-date-sort="1752710400000" data-listing-file-modified-sort="1752793567828" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="440">
-<a href="./Projects/Sandya &amp; Buddhika/melb property.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="Projects/Sandya & Buddhika/melb-property_files/figure-html/unnamed-chunk-8-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Mel Property
-</h5>
-<div class="card-text listing-description delink">
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org.
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Sandya &amp; Buddhika
-</div>
-<div class="listing-date">
-Jul 17, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="5" data-listing-date-sort="1752710400000" data-listing-file-modified-sort="1752793567828" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="126">
-<a href="./Projects/cathys project/report.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="Projects/cathys project/report_files/figure-html/unnamed-chunk-4-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-My Report
-</h5>
-<div class="card-text listing-description delink">
-Investigating the books dataset within quarto
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Cathy
-</div>
-<div class="listing-date">
-Jul 17, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1752793567828" data-listing-reading-time-sort="1" data-listing-word-count-sort="132">
-<a href="./Projects/Nora's Project/Nora project.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="Projects/Nora's Project/Nora-project_files/figure-html/unnamed-chunk-5-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Nora project
-</h5>
-<div class="card-text listing-description delink">
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org.
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-Nora
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="7" data-listing-date-sort="1752624000000" data-listing-file-modified-sort="1752793567828" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="916">
-<a href="./Projects/Chris/Population - Presentation for R Training.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="Projects/Chris/Population---Presentation-for-R-Training_files/figure-html/unnamed-chunk-6-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Population: Presentation for R training
-</h5>
-<div class="card-text listing-description delink">
-The population dataset contains detailed population data (21983 observations) across 59 variables, including region, population, growth rate, births, deaths, and fertility…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-
-</div>
-<div class="listing-date">
-Jul 16, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="8" data-listing-file-modified-sort="1752793567828" data-listing-reading-time-sort="4" data-listing-word-count-sort="786">
-<a href="./Projects/Casey &amp; Jess Project/Project Hospital Report.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="Projects/Casey & Jess Project/Project-Hospital-Report_files/figure-html/unnamed-chunk-11-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Project Hospital Report
-</h5>
-<div class="card-text listing-description delink">
-Initially we selected our dataset to study. We selected the QLD Hospital data.
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-Casey Atkins &amp; Jess
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="9" data-listing-file-modified-sort="1752793567828" data-listing-reading-time-sort="1" data-listing-word-count-sort="72">
-<a href="./Projects/Claudine &amp; Emman/QLD_fuel.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="Projects/Claudine & Emman/QLD_fuel_files/figure-html/unnamed-chunk-2-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-QLD Fuel
-</h5>
-<div class="card-text listing-description delink">
-
-
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">fuel <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../../data_sources/qld_fuel.csv"</span>)</span>
-<span id="cb1-2"><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><span class="fu">library</span>(dplyr)</span></code></pre></div>
-</div>
-
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="10" data-listing-file-modified-sort="1752793567828" data-listing-reading-time-sort="1" data-listing-word-count-sort="23">
-<a href="./Projects/Claudine &amp; Emman/Fuel sites.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="Projects/Claudine & Emman/Fuel-sites_files/figure-html/unnamed-chunk-3-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-QLD fuel
-</h5>
-<div class="card-text listing-description delink">
-See <span class="citation" data-cites="weschke_nighttime_2024">@weschke_nighttime_2024</span> for more details
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="11" data-listing-date-sort="1752710400000" data-listing-file-modified-sort="1752793567828" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1219">
-<a href="./Projects/Swagata &amp; Sandhya's Project/Queensland hospital dataanalysis.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="Projects/Swagata & Sandhya's Project/Queensland-hospital-dataanalysis_files/figure-html/unnamed-chunk-1-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Queensland hospitals data analysis
-</h5>
-<div class="card-text listing-description delink">
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org.
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Swagata &amp; Sandhya
-</div>
-<div class="listing-date">
-Jul 17, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="12" data-listing-file-modified-sort="1752793567828" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
-<a href="./Projects/Ben's Project/report_ben.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="Projects/Ben's Project/report_ben_files/figure-html/unnamed-chunk-2-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Report_ben
-</h5>
-<div class="card-text listing-description delink">
-We have found that the datasets countain books from different languages.
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="13" data-listing-date-sort="1752710400000" data-listing-file-modified-sort="1752793567819" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="655">
-<a href="./Projects/Andrew Proj/report.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="Projects/Andrew Proj/report_files/figure-html/unnamed-chunk-4-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Workshop Project Report
-</h5>
-<div class="card-text listing-description delink">
-We are using the <strong>png</strong>, <strong>ggpubr</strong>, <strong>tidyverse</strong> and <strong>plotly</strong> libraries to examine our data. We can install and enable these libraries as follows, using an if loop to prevent repeat…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Andrew
-</div>
-<div class="listing-date">
-Jul 17, 2025
 </div>
 </div>
 </div>
@@ -598,13 +333,14 @@ Jul 17, 2025
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
