@@ -6,8 +6,14 @@ format:
       - text: <meta name="google-site-verification" content="lH7jPI_Tg64yiGhs_IV-_zClImxRtEK7aGXhAEl68g0" />
 ---
 
+:::{.callout-tip}
+Registrations available for our next intensive!
+
+**[Book for 27th-29th Jan 2026](https://studenthub.uq.edu.au/students/events/detail/5914050)**
+:::
+
 ## Overview
-Welcome to our three-day R training intensive! This runs twice a year, the next intensive will be in late January / early February.
+Welcome to our three-day R training intensive! This runs twice a year and the next intensive will be in late January.
 
 By the end of the three days, you'll have learnt the Python skills to manipulate, visualise and present data. We'll spend roughly half the time learning content, and half the time working on a project in groups.
 
