@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-10-24">
+<meta name="dcterms.date" content="2025-11-10">
 
 <title>Sharing and Publishing – R Training Intensive</title>
 <style>
@@ -139,6 +139,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="https://uqlibrary.github.io/technology-training"> 
 <span class="menu-text">UQ Library Technology Training</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://studenthub.uq.edu.au/students/events/detail/5914050"> 
+<span class="menu-text">**Book for Jan 2026</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -169,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../setup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R Training Intensive</span></a>
+ <span class="menu-text">R with RStudio Training Intensive</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -294,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 24, 2025</p>
+      <p class="date">November 10, 2025</p>
     </div>
   </div>
   
@@ -467,18 +471,18 @@ format: dashboard
 warning: false
 ---
 
-```dpt
+```ilw
 players <- read.csv("data_sources/Players2024.csv")
 ```
 
-```dpt
+```ilw
 library(dplyr)
 players <- players %>% filter(positions != "Missing", height_cm > 100)
 ```
 
 ## Figures {height=70%}
 
-```dpt
+```ilw
 #| title: Goalkeepers tend to be taller
 #| fig-alt: "A boxplot of the relationship between height and position."
 library(ggplot2)
@@ -487,7 +491,7 @@ ggplot(players, aes(x = positions, y = height_cm)) +
   labs(x = "Position", y = "Height (cm)")
 ```
 
-```dpt
+```ilw
 #| title: Age vs Height by position
 p <- ggplot(players, aes(x = age, y = height_cm, colour = positions, label = name, label2 = nationality)) + 
   geom_point() + 
@@ -499,7 +503,7 @@ ggplotly(p)
 
 ## Table
 
-```dpt
+```ilw
 #| title: A glimpse at the dataset
 library(knitr)
 kable(players)
