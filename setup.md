@@ -1,5 +1,5 @@
 ---
-title: R Training Intensive
+title: R with RStudio Training Intensive
 format: 
   html:
     include-in-header:
