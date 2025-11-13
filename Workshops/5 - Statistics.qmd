@@ -148,13 +148,50 @@ Least-squares regression for two sets of measurements can be performed with the 
 
 $$ Y = β_1 X + β_0 $$
 
-and we use the regression tool to estimate the parameters $β_0\,,β_1$. We can equivalently say that $Y \sim X$, which is what R takes in
+where $β_1$ is the **slope** (or gradient) of the line and $β_0$ the y-intercept. We use the regression tool to estimate the parameters $β_0\,,β_1$. 
+
+A linear model (like above) is one example of the more general relationship $Y\sim X$, where $Y$ *is distributed as* $X$ (or, $Y$ *depends on* $X$). For this reason, we can construct a linear model in R with three pieces of information
+
+* The type of model (e.g. linear) as a function (e.g. `lm(...)`)
+* The general relationship between variables as a string (e.g. `"height_cm ~ age"`)
+* The dataset we're using (e.g. `players`)
 
 ```{r}
-lm("height_cm ~ age", players)
+lm(formula = "height_cm ~ age", data = players)
 ```
 
-If we store this as a variable, we can then produce a summary of the results
+:::{.callout-tip}
+# R formula syntax
+
+Performing statistical modelling with R inevitably requires using R's powerful formula syntax, as we just did with `"height_cm ~ age". For anything beyond simple linear regressions, you'll need to include more terms and operators in these. Here's a quick summary of a few, but [you should check out this handy blog post](https://www.econometrics.blog/post/the-r-formula-cheatsheet/) for a better summary and the [official documentation](https://search.r-project.org/R/refmans/stats/html/formula.html) for comprehensive details.
+
+```r
+~
+```
+
+Use `~` to separate the $Y$ variable from the $X$ variable(s), e.g. `y ~ x`.
+
+```r
++
+```
+
+Add multiple $X$ variables, e.g. `y ~ x + z` (for variable `z`)
+
+```r
+:
+```
+
+Consider the *interaction* between two variables, e.g. `y ~ x:z`.
+
+```r
+-
+```
+
+Remove variables, e.g. `y ~ x - 1` (removes the intercept).
+
+:::
+
+If we store this as a variable, we can then produce a summary of the results (note that we can remove the `formula = ` and `data = ` if the order is correct),
 
 ```{r}
 model <- lm("height_cm ~ age", players)

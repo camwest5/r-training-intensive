@@ -187,13 +187,13 @@ for (fruit in list_of_fruits) {
 This loop's job is to print out the variable `fruit`. But where is `fruit` defined? Well, the `for` loop runs `print(fruit)` for every element of `list_of_fruits`, **storing the current element in the variable `fruit`**. If we were to write it out explicitly, it would look like
 
 ```{r}
-fruit <- list_of_fruits[0]
-print(fruit)
-
 fruit <- list_of_fruits[1]
 print(fruit)
 
 fruit <- list_of_fruits[2]
+print(fruit)
+
+fruit <- list_of_fruits[3]
 print(fruit)
 ```
 

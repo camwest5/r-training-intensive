@@ -18,7 +18,7 @@ website:
         href: project_gallery.qmd
       - text: "UQ Library Technology Training"
         href: https://uqlibrary.github.io/technology-training
-      - text: "**Book for Jan 2026"
+      - text: "**Book for Jan 2026**"
         href: https://studenthub.uq.edu.au/students/events/detail/5914050
   sidebar: 
     - title: "Workshops"
