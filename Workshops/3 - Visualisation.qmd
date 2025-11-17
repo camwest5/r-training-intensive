@@ -4,6 +4,10 @@ editor: source
 date: today
 ---
 
+
+{{< include ../_banner/_banner.qmd >}}
+
+
 During this session, you will:
 
 * Have a visualisation package installed (ggplot2)

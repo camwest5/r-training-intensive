@@ -2,6 +2,10 @@
 title: "Preparing data for analysis"
 ---
 
+
+{{< include ../_banner/_banner.qmd >}}
+
+
 ## What are we going to learn?
 
 In this hands-on session, we will use the `dplyr` package to transform your data.

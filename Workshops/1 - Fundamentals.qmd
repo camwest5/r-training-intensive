@@ -4,6 +4,10 @@ editor: source
 date: today
 ---
 
+
+{{< include ../_banner/_banner.qmd >}}
+
+
 In this workshop, we will learn about:
 
 * The main features of the RStudio IDE
