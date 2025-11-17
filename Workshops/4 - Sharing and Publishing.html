@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-11-13">
+<meta name="dcterms.date" content="2025-11-17">
 
 <title>Sharing and Publishing – R Training Intensive</title>
 <style>
@@ -292,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 13, 2025</p>
+      <p class="date">November 17, 2025</p>
     </div>
   </div>
   
@@ -304,6 +304,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Things are changing…
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As we prepare for the next round of intensives, this material may change.</p>
+<p><strong><a href="https://studenthub.uq.edu.au/students/events/detail/5909450">Book now for 27th-29th Jan 2026</a></strong></p>
+</div>
+</div>
 <p>In this workshop we cover using GitHub for sharing your source code, Git for version control, and Quarto for publishing outputs. Specifically, we look at:</p>
 <ul>
 <li>How to create code-dependent documents, dashboards and presentation using Quarto</li>
@@ -465,18 +479,18 @@ format: dashboard
 warning: false
 ---
 
-```ncn
+```njv
 players <- read.csv("data_sources/Players2024.csv")
 ```
 
-```ncn
+```njv
 library(dplyr)
 players <- players %>% filter(positions != "Missing", height_cm > 100)
 ```
 
 ## Figures {height=70%}
 
-```ncn
+```njv
 #| title: Goalkeepers tend to be taller
 #| fig-alt: "A boxplot of the relationship between height and position."
 library(ggplot2)
@@ -485,7 +499,7 @@ ggplot(players, aes(x = positions, y = height_cm)) +
   labs(x = "Position", y = "Height (cm)")
 ```
 
-```ncn
+```njv
 #| title: Age vs Height by position
 p <- ggplot(players, aes(x = age, y = height_cm, colour = positions, label = name, label2 = nationality)) + 
   geom_point() + 
@@ -497,7 +511,7 @@ ggplotly(p)
 
 ## Table
 
-```ncn
+```njv
 #| title: A glimpse at the dataset
 library(knitr)
 kable(players)
